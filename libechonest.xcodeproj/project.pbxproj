@@ -1,0 +1,393 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C8E5C1AF1315C44A005CED21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E5C1AE1315C44A005CED21 /* Foundation.framework */; };
+		C8E5C1BA1315C44B005CED21 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E5C1B91315C44B005CED21 /* UIKit.framework */; };
+		C8E5C1BB1315C44B005CED21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E5C1AE1315C44A005CED21 /* Foundation.framework */; };
+		C8E5C1BD1315C44B005CED21 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E5C1BC1315C44B005CED21 /* CoreGraphics.framework */; };
+		C8E5C1C01315C44B005CED21 /* liblibechonest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E5C1AB1315C44A005CED21 /* liblibechonest.a */; };
+		C8E5C1C61315C44B005CED21 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8E5C1C41315C44B005CED21 /* InfoPlist.strings */; };
+		C8E5C1C91315C44B005CED21 /* libechonestTests.h in Resources */ = {isa = PBXBuildFile; fileRef = C8E5C1C81315C44B005CED21 /* libechonestTests.h */; };
+		C8E5C1CB1315C44B005CED21 /* libechonestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E5C1CA1315C44B005CED21 /* libechonestTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C8E5C1BE1315C44B005CED21 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8E5C1A21315C44A005CED21 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8E5C1AA1315C44A005CED21;
+			remoteInfo = libechonest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C8E5C1AB1315C44A005CED21 /* liblibechonest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibechonest.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8E5C1AE1315C44A005CED21 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C8E5C1B21315C44A005CED21 /* libechonest-Prefix.pch */ = {isa = PBXFileReference; path = "libechonest-Prefix.pch"; sourceTree = "<group>"; };
+		C8E5C1B81315C44B005CED21 /* libechonestTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libechonestTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8E5C1B91315C44B005CED21 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C8E5C1BC1315C44B005CED21 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C8E5C1C31315C44B005CED21 /* libechonestTests-Info.plist */ = {isa = PBXFileReference; path = "libechonestTests-Info.plist"; sourceTree = "<group>"; };
+		C8E5C1C51315C44B005CED21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C8E5C1C71315C44B005CED21 /* libechonestTests-Prefix.pch */ = {isa = PBXFileReference; path = "libechonestTests-Prefix.pch"; sourceTree = "<group>"; };
+		C8E5C1C81315C44B005CED21 /* libechonestTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libechonestTests.h; sourceTree = "<group>"; };
+		C8E5C1CA1315C44B005CED21 /* libechonestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = libechonestTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C8E5C1A81315C44A005CED21 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E5C1AF1315C44A005CED21 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E5C1B41315C44B005CED21 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E5C1BA1315C44B005CED21 /* UIKit.framework in Frameworks */,
+				C8E5C1BB1315C44B005CED21 /* Foundation.framework in Frameworks */,
+				C8E5C1BD1315C44B005CED21 /* CoreGraphics.framework in Frameworks */,
+				C8E5C1C01315C44B005CED21 /* liblibechonest.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C8E5C1A01315C44A005CED21 = {
+			isa = PBXGroup;
+			children = (
+				C8E5C1B01315C44A005CED21 /* libechonest */,
+				C8E5C1C11315C44B005CED21 /* libechonestTests */,
+				C8E5C1AD1315C44A005CED21 /* Frameworks */,
+				C8E5C1AC1315C44A005CED21 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C8E5C1AC1315C44A005CED21 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8E5C1AB1315C44A005CED21 /* liblibechonest.a */,
+				C8E5C1B81315C44B005CED21 /* libechonestTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C8E5C1AD1315C44A005CED21 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8E5C1AE1315C44A005CED21 /* Foundation.framework */,
+				C8E5C1B91315C44B005CED21 /* UIKit.framework */,
+				C8E5C1BC1315C44B005CED21 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8E5C1B01315C44A005CED21 /* libechonest */ = {
+			isa = PBXGroup;
+			children = (
+				C8E5C1B11315C44A005CED21 /* Supporting Files */,
+			);
+			path = libechonest;
+			sourceTree = "<group>";
+		};
+		C8E5C1B11315C44A005CED21 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C8E5C1B21315C44A005CED21 /* libechonest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C8E5C1C11315C44B005CED21 /* libechonestTests */ = {
+			isa = PBXGroup;
+			children = (
+				C8E5C1C81315C44B005CED21 /* libechonestTests.h */,
+				C8E5C1CA1315C44B005CED21 /* libechonestTests.m */,
+				C8E5C1C21315C44B005CED21 /* Supporting Files */,
+			);
+			path = libechonestTests;
+			sourceTree = "<group>";
+		};
+		C8E5C1C21315C44B005CED21 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C8E5C1C31315C44B005CED21 /* libechonestTests-Info.plist */,
+				C8E5C1C41315C44B005CED21 /* InfoPlist.strings */,
+				C8E5C1C71315C44B005CED21 /* libechonestTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C8E5C1A91315C44A005CED21 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C8E5C1AA1315C44A005CED21 /* libechonest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8E5C1CE1315C44B005CED21 /* Build configuration list for PBXNativeTarget "libechonest" */;
+			buildPhases = (
+				C8E5C1A71315C44A005CED21 /* Sources */,
+				C8E5C1A81315C44A005CED21 /* Frameworks */,
+				C8E5C1A91315C44A005CED21 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libechonest;
+			productName = libechonest;
+			productReference = C8E5C1AB1315C44A005CED21 /* liblibechonest.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C8E5C1B71315C44B005CED21 /* libechonestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8E5C1D11315C44B005CED21 /* Build configuration list for PBXNativeTarget "libechonestTests" */;
+			buildPhases = (
+				C8E5C1B31315C44B005CED21 /* Sources */,
+				C8E5C1B41315C44B005CED21 /* Frameworks */,
+				C8E5C1B51315C44B005CED21 /* Resources */,
+				C8E5C1B61315C44B005CED21 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8E5C1BF1315C44B005CED21 /* PBXTargetDependency */,
+			);
+			name = libechonestTests;
+			productName = libechonestTests;
+			productReference = C8E5C1B81315C44B005CED21 /* libechonestTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C8E5C1A21315C44A005CED21 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C8E5C1A51315C44A005CED21 /* Build configuration list for PBXProject "libechonest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C8E5C1A01315C44A005CED21;
+			productRefGroup = C8E5C1AC1315C44A005CED21 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C8E5C1AA1315C44A005CED21 /* libechonest */,
+				C8E5C1B71315C44B005CED21 /* libechonestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C8E5C1B51315C44B005CED21 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E5C1C61315C44B005CED21 /* InfoPlist.strings in Resources */,
+				C8E5C1C91315C44B005CED21 /* libechonestTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C8E5C1B61315C44B005CED21 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C8E5C1A71315C44A005CED21 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E5C1B31315C44B005CED21 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E5C1CB1315C44B005CED21 /* libechonestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C8E5C1BF1315C44B005CED21 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8E5C1AA1315C44A005CED21 /* libechonest */;
+			targetProxy = C8E5C1BE1315C44B005CED21 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C8E5C1C41315C44B005CED21 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8E5C1C51315C44B005CED21 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C8E5C1CC1315C44B005CED21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C8E5C1CD1315C44B005CED21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		C8E5C1CF1315C44B005CED21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/libechonest.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libechonest/libechonest-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C8E5C1D01315C44B005CED21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/libechonest.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libechonest/libechonest-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C8E5C1D21315C44B005CED21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libechonestTests/libechonestTests-Prefix.pch";
+				INFOPLIST_FILE = "libechonestTests/libechonestTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		C8E5C1D31315C44B005CED21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libechonestTests/libechonestTests-Prefix.pch";
+				INFOPLIST_FILE = "libechonestTests/libechonestTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C8E5C1A51315C44A005CED21 /* Build configuration list for PBXProject "libechonest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E5C1CC1315C44B005CED21 /* Debug */,
+				C8E5C1CD1315C44B005CED21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8E5C1CE1315C44B005CED21 /* Build configuration list for PBXNativeTarget "libechonest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E5C1CF1315C44B005CED21 /* Debug */,
+				C8E5C1D01315C44B005CED21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C8E5C1D11315C44B005CED21 /* Build configuration list for PBXNativeTarget "libechonestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E5C1D21315C44B005CED21 /* Debug */,
+				C8E5C1D31315C44B005CED21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C8E5C1A21315C44A005CED21 /* Project object */;
+}
