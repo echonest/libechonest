@@ -9,15 +9,25 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>libechonestapp.xcscheme</key>
+		<key>tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>C81C29531326DDBD0048DD51</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C86952101329D37E005F6CF5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C869523A1329D783005F6CF5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

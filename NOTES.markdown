@@ -1,3 +1,6 @@
+TODO:
+   - Incorporate JSON parsing
+
 how do we integrate with ENMFP for those users that have access?
 
 biggie: HTTP POST w/Audio File in request body. 

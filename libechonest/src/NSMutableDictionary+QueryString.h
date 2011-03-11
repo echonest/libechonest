@@ -1,14 +1,18 @@
 //
-//  NSDictionary+QueryString.h
+//  NSMutableDictionary+QueryString.h
 //  libechonest
 //
-//  Created by Art Gillespie on 3/8/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Art Gillespie on 3/8/11. art@tapsquare.com
 //
 
 #import <Foundation/Foundation.h>
 
 
-@interface NSDictionary (NSDictionary_QueryString)
+@interface NSMutableDictionary (QueryString)
 
+/**
+ * Returns the dictionary's key/value pairs as an escaped query string
+ */
+- (NSString *)toQueryString;
+- (NSString *)getMessage;
 @end
