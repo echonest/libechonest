@@ -42,6 +42,7 @@
 		C88C47711329C3F600D1A8B9 /* ASINetworkQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = C88C475D1329C3F600D1A8B9 /* ASINetworkQueue.h */; };
 		C88C47721329C3F600D1A8B9 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C88C475E1329C3F600D1A8B9 /* ASINetworkQueue.m */; };
 		C88C47731329C3F600D1A8B9 /* ASIProgressDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C88C475F1329C3F600D1A8B9 /* ASIProgressDelegate.h */; };
+		C88F4693132A937100247E6F /* TestNSMutableDictionary+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = C88F4692132A937100247E6F /* TestNSMutableDictionary+QueryString.m */; };
 		C89EE1641329D7F4006F9296 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C86952301329D69E005F6CF5 /* MobileCoreServices.framework */; };
 		C89EE1651329D7F4006F9296 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C869522E1329D68F005F6CF5 /* CFNetwork.framework */; };
 		C89EE1661329D7F4006F9296 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C86952321329D6AD005F6CF5 /* SystemConfiguration.framework */; };
@@ -108,6 +109,8 @@
 		C88C475D1329C3F600D1A8B9 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
 		C88C475E1329C3F600D1A8B9 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
 		C88C475F1329C3F600D1A8B9 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		C88F4691132A937100247E6F /* TestNSMutableDictionary+QueryString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestNSMutableDictionary+QueryString.h"; sourceTree = "<group>"; };
+		C88F4692132A937100247E6F /* TestNSMutableDictionary+QueryString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TestNSMutableDictionary+QueryString.m"; sourceTree = "<group>"; };
 		C8A7D29C1329E16100FE3F08 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		C8A7D29D1329E16100FE3F08 /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSON.h"; sourceTree = "<group>"; };
 		C8A7D29E1329E16100FE3F08 /* NSObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSON.m"; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				C86952461329D783005F6CF5 /* tests.h */,
 				C86952481329D783005F6CF5 /* tests.m */,
 				C86952401329D783005F6CF5 /* Supporting Files */,
+				C88F4691132A937100247E6F /* TestNSMutableDictionary+QueryString.h */,
+				C88F4692132A937100247E6F /* TestNSMutableDictionary+QueryString.m */,
 			);
 			name = tests;
 			path = "ios-tests";
@@ -471,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C86952491329D783005F6CF5 /* tests.m in Sources */,
+				C88F4693132A937100247E6F /* TestNSMutableDictionary+QueryString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

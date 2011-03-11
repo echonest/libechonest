@@ -29,7 +29,7 @@ static NSString *EN_API_KEY = nil;
     NSString *urlString = [NSString stringWithFormat:@"%@%@?%@", 
              ECHONEST_API_URL, 
              method, 
-             [params toQueryString]];
+             [params queryString]];
     NSURL *url = [NSURL URLWithString:urlString];
     return [super requestWithURL:url];
 }

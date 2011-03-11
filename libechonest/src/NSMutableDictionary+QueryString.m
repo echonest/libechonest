@@ -26,16 +26,15 @@ static NSString *ENEscapeStringForURL (NSString *str) {
 
 @implementation NSMutableDictionary (QueryString)
 
-- (NSString *)toQueryString {
+- (NSString *)queryString {
     NSMutableArray *params = [NSMutableArray arrayWithCapacity:[self count]];
     for (NSString *key in [self allKeys]) {
         NSObject *value = [self objectForKey:key];
         [params addObject:[NSString stringWithFormat:@"%@=%@", ENEscapeStringForURL(key), 
                            ENEscapeStringForURL(ENGetStringRepresentationForObject(value))]];
     }
+    [params sortUsingSelector:@selector(caseInsensitiveCompare:)];
     return [params componentsJoinedByString:@"&"];
 }
-
-- (NSString *)getMessage { return @"Hello, Category!"; };
 
 @end

@@ -7,17 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-//TODO: no, no, no, no
 #import "asi-http-request/ASIHTTPRequest.h"
 
 @interface ENAPIRequest : ASIHTTPRequest {
-    
+
 }
 
 /**
- * Be sure to call this with your API key before calling any of the 
- * methods that create an Echo Nest request.
- * 
+ * Be sure to call this with your API key before calling any of the methods
+ * that create an Echo Nest request.
+ *
  * You only need to call it once.
  * @param apiKey Your API key!
  */
@@ -30,8 +29,8 @@
 + (NSString *)getAPIKey;
 
 /**
- * Generic Echo Nest GET request. This will call the endpoint specified
- * by \method with the query string parameters in \params.
+ * Generic Echo Nest GET request. This will call the endpoint specified by
+ * \method with the query string parameters in \params.
  */
 + (ENAPIRequest *) apiGetMethodRequest:(NSString *)method withParams:(NSMutableDictionary *)params;
 
@@ -41,10 +40,14 @@
 + (ENAPIRequest *)artistAudioWithName:(NSString *)name results:(NSInteger)count start:(NSInteger)start;
 
 /**
- http://developer.echonest.com/docs/v4/artist.html#audio
+ * http://developer.echonest.com/docs/v4/artist.html#audio
  */
 + (ENAPIRequest *)artistAudioWithID:(NSString *)identifier results:(NSInteger)count start:(NSInteger)start;
 
+/**
+ * Once the request has returned successfully, call this to get an NSDictionary
+ * or NSArray representation of the returned JSON.
+ */
 - (id)JSONValue;
 
 @end

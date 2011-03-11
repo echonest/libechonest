@@ -2,8 +2,7 @@
 //  ios_tests.m
 //  ios-tests
 //
-//  Created by Art Gillespie on 3/10/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Art Gillespie on 3/10/11. art@tapsquare.com
 //
 
 #import "tests.h"
@@ -14,13 +13,13 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
 
 - (void)setUp {
     [super setUp];
-    
+
     // Set-up code here.
 }
 
 - (void)tearDown {
     // Tear-down code here.
-    
+
     [super tearDown];
 }
 

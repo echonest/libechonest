@@ -13,6 +13,5 @@
 /**
  * Returns the dictionary's key/value pairs as an escaped query string
  */
-- (NSString *)toQueryString;
-- (NSString *)getMessage;
+- (NSString *)queryString;
 @end

@@ -1,9 +1,9 @@
 TODO:
-   - Incorporate JSON parsing
+    - Error handling...
 
 how do we integrate with ENMFP for those users that have access?
 
-biggie: HTTP POST w/Audio File in request body. 
+biggie: HTTP POST w/Audio File in request body.
  * HTTP POST with json in the body (catalog create/modify)
  * Audio + Video download helpers?
 
