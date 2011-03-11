@@ -45,4 +45,6 @@
  */
 + (ENAPIRequest *)artistAudioWithID:(NSString *)identifier results:(NSInteger)count start:(NSInteger)start;
 
+- (id)JSONValue;
+
 @end

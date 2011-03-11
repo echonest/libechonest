@@ -7,6 +7,7 @@
 
 #import "ENAPIRequest.h"
 #import "NSMutableDictionary+QueryString.h"
+#import "NSObject+JSON.h"
 
 #define CHECK_API_KEY if (nil == EN_API_KEY) { @throw [NSException exceptionWithName:@"APIKeyNotSetException" reason:@"Set the API key before calling this method" userInfo:nil]; }
 
@@ -57,5 +58,9 @@ static NSString *EN_API_KEY = nil;
     
     ENAPIRequest *request = [ENAPIRequest apiGetMethodRequest:@"artist/audio" withParams:params];
     return request;
+}
+
+- (id)JSONValue {
+    return [self.responseString JSONValue];
 }
 @end

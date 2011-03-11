@@ -38,7 +38,9 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     STAssertNotNil(request, @"artistAudioWithName returned nil");
     [request startSynchronous];
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
-    NSLog(@"response: %@", request.responseString);
+    NSDictionary *response = [request JSONValue];
+    NSArray *audio = [(NSDictionary *)[response valueForKey:@"response"] valueForKey:@"audio"];
+    STAssertEquals(audio.count, (NSUInteger)2, @"expected 2 results");
 }
 
 @end
