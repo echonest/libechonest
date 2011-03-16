@@ -7,6 +7,7 @@
 //
 
 #import "NSMutableDictionary+QueryString.h"
+#import "NSData+MD5.h"
 #import "NSObject+JSON.h"
 #import "ENAPI.h"
 

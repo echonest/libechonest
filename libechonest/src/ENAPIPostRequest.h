@@ -7,12 +7,19 @@
 //
 
 #import "asi-http-request/ASIFormDataRequest.h"
+#import "asi-http-request/ASIProgressDelegate.h"
 
 
-@interface ENAPIPostRequest : ASIFormDataRequest {
+@interface ENAPIPostRequest : ASIFormDataRequest <ASIProgressDelegate> {
     
 }
 
 + (ENAPIPostRequest *)trackUploadRequestWithFile:(NSString *)filePath;
+
++ (ENAPIPostRequest *)trackAnalyzeRequestWithFile:(NSString *)filePath;
+
++ (ENAPIPostRequest *)trackAnalyzeRequestWithId:(NSString *)idOrMd5;
+
+- (NSDictionary *)results;
 
 @end

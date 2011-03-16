@@ -9,7 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 @interface TestAPIPostRequest : SenTestCase {
-    
+    NSString *testMp3Path;
 }
 
 @end

@@ -18,6 +18,9 @@
 		C829AD78133066D600F195D3 /* ENAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = C829AD76133066D600F195D3 /* ENAPI.h */; };
 		C829AD79133066D600F195D3 /* ENAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C829AD77133066D600F195D3 /* ENAPI.m */; };
 		C829AD7D13306A7000F195D3 /* TestAPIPostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C829AD7C13306A6F00F195D3 /* TestAPIPostRequest.m */; };
+		C829AD8013307F5B00F195D3 /* NSData+MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = C829AD7E13307F5900F195D3 /* NSData+MD5.h */; };
+		C829AD8113307F5B00F195D3 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = C829AD7F13307F5900F195D3 /* NSData+MD5.m */; };
+		C829AD841330808500F195D3 /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C829AD831330808500F195D3 /* test.mp3 */; };
 		C869523C1329D783005F6CF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E5C1B91315C44B005CED21 /* UIKit.framework */; };
 		C869523D1329D783005F6CF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E5C1AE1315C44A005CED21 /* Foundation.framework */; };
 		C869523E1329D783005F6CF5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E5C1BC1315C44B005CED21 /* CoreGraphics.framework */; };
@@ -88,6 +91,9 @@
 		C829AD77133066D600F195D3 /* ENAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENAPI.m; path = libechonest/src/ENAPI.m; sourceTree = "<group>"; };
 		C829AD7B13306A6F00F195D3 /* TestAPIPostRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAPIPostRequest.h; sourceTree = "<group>"; };
 		C829AD7C13306A6F00F195D3 /* TestAPIPostRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAPIPostRequest.m; sourceTree = "<group>"; };
+		C829AD7E13307F5900F195D3 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+MD5.h"; path = "libechonest/src/NSData+MD5.h"; sourceTree = "<group>"; };
+		C829AD7F13307F5900F195D3 /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+MD5.m"; path = "libechonest/src/NSData+MD5.m"; sourceTree = "<group>"; };
+		C829AD831330808500F195D3 /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = test.mp3; path = testdata/test.mp3; sourceTree = "<group>"; };
 		C869522E1329D68F005F6CF5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		C86952301329D69E005F6CF5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		C86952321329D6AD005F6CF5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -196,16 +202,25 @@
 			path = libechonest/libs/Reachability;
 			sourceTree = "<group>";
 		};
+		C829AD821330806100F195D3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C829AD831330808500F195D3 /* test.mp3 */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		C869523F1329D783005F6CF5 /* tests */ = {
 			isa = PBXGroup;
 			children = (
 				C86952461329D783005F6CF5 /* tests.h */,
 				C86952481329D783005F6CF5 /* tests.m */,
-				C86952401329D783005F6CF5 /* Supporting Files */,
 				C88F4691132A937100247E6F /* TestNSMutableDictionary+QueryString.h */,
 				C88F4692132A937100247E6F /* TestNSMutableDictionary+QueryString.m */,
 				C829AD7B13306A6F00F195D3 /* TestAPIPostRequest.h */,
 				C829AD7C13306A6F00F195D3 /* TestAPIPostRequest.m */,
+				C829AD821330806100F195D3 /* Resources */,
+				C86952401329D783005F6CF5 /* Supporting Files */,
 			);
 			name = tests;
 			path = "ios-tests";
@@ -288,6 +303,8 @@
 				C829AD6F133062BD00F195D3 /* ENAPIPostRequest.m */,
 				C81C28DC1326C2350048DD51 /* ENEchonest.h */,
 				C81C28DD1326C2350048DD51 /* ENEchonest.m */,
+				C829AD7E13307F5900F195D3 /* NSData+MD5.h */,
+				C829AD7F13307F5900F195D3 /* NSData+MD5.m */,
 				C88B24471326F33E00FB51FF /* NSMutableDictionary+QueryString.h */,
 				C88B24481326F33E00FB51FF /* NSMutableDictionary+QueryString.m */,
 				C80FE0761326E57900A5D803 /* libs */,
@@ -373,6 +390,7 @@
 				C829AD70133062BD00F195D3 /* ENAPIPostRequest.h in Headers */,
 				C829AD75133065F300F195D3 /* ENAPI_utils.h in Headers */,
 				C829AD78133066D600F195D3 /* ENAPI.h in Headers */,
+				C829AD8013307F5B00F195D3 /* NSData+MD5.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +462,7 @@
 			files = (
 				C86952441329D783005F6CF5 /* InfoPlist.strings in Resources */,
 				C86952471329D783005F6CF5 /* tests.h in Resources */,
+				C829AD841330808500F195D3 /* test.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +512,7 @@
 				C8A7D2C11329E16100FE3F08 /* SBJsonWriter.m in Sources */,
 				C829AD71133062BD00F195D3 /* ENAPIPostRequest.m in Sources */,
 				C829AD79133066D600F195D3 /* ENAPI.m in Sources */,
+				C829AD8113307F5B00F195D3 /* NSData+MD5.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
