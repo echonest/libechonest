@@ -6,6 +6,7 @@
 //
 
 #import "ENEchonest.h"
+#import "ENAPI.h"
 #import "ENAPIRequest.h"
 
 #import "NSMutableDictionary+QueryString.h"
@@ -23,7 +24,7 @@
     self = [super init];
     if (self) {
         self.apiKey = apiKey_;
-        [ENAPIRequest setAPIKey:self.apiKey];
+        [ENAPI initWithApiKey:self.apiKey];
     }
     return self;
 }

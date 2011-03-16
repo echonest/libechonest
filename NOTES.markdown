@@ -98,24 +98,24 @@ Artist (17)
 Song (3)
     search
     profile
-    identify
+    identify POST/GET
 Track (3)
-    analyze
+    analyze POST
     profile
-    upload
+    upload POST
 Playlist (3)
     static
     dynamic
     session_info
 Catalog (9)
     overview
-    create
-    update
+    create POST
+    update POST
     status
     profile
     read
     feed
-    delete
+    delete POST
     list
 
 35 methods
