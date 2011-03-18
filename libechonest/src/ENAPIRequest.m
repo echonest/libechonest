@@ -47,6 +47,16 @@
     return request;
 }
 
++ (ENAPIRequest *)artistSuggestWithString:(NSString *)search {
+    CHECK_API_KEY;
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:4];
+    [params setObject:@"json" forKey:@"format"];
+    [params setObject:[ENAPI apiKey] forKey:@"api_key"];
+    [params setObject:search forKey:@"q"];
+    ENAPIRequest *request = [ENAPIRequest apiGetMethodRequest:@"artist/suggest" withParams:params];
+    return request;    
+}
+
 - (id)JSONValue {
     return [self.responseString JSONValue];
 }

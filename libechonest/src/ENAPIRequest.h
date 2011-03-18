@@ -31,6 +31,11 @@
 + (ENAPIRequest *)artistAudioWithID:(NSString *)identifier results:(NSInteger)count start:(NSInteger)start;
 
 /**
+ * 
+ */
++ (ENAPIRequest *)artistSuggestWithString:(NSString *)search;
+
+/**
  * Once the request has returned successfully, call this to get an NSDictionary
  * or NSArray representation of the returned JSON.
  */
