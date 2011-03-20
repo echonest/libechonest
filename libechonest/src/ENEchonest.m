@@ -37,7 +37,7 @@
     [params setObject:[NSNumber numberWithInt:start] forKey:@"start"];
     [params setObject:self.apiKey forKey:@"api_key"];
 
-    ENAPIRequest *request = [ENAPIRequest artistAudioWithName:name results:count start:start];
+    ENAPIRequest *request = [ENAPIRequest artistAudioWithName:name count:count start:start];
     [request startSynchronous];
     NSLog(@"response: %d", request.responseStatusCode);
     NSLog(@"responseString: %@", request.responseString);

@@ -21,7 +21,7 @@
     return [super requestWithURL:url];
 }
 
-+ (ENAPIRequest *)artistAudioWithName:(NSString *)name results:(NSInteger)count start:(NSInteger)start {
++ (ENAPIRequest *)artistAudioWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start {
     CHECK_API_KEY;
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:4];
     [params setObject:name forKey:@"name"];
@@ -34,7 +34,7 @@
     return request;
 }
 
-+ (ENAPIRequest *)artistAudioWithID:(NSString *)identifier results:(NSInteger)count start:(NSInteger)start {
++ (ENAPIRequest *)artistAudioWithID:(NSString *)identifier count:(NSInteger)count start:(NSInteger)start {
     CHECK_API_KEY;
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:4];
     [params setObject:identifier forKey:@"id"];
@@ -47,7 +47,20 @@
     return request;
 }
 
-+ (ENAPIRequest *)artistSuggestWithString:(NSString *)search {
++ (ENAPIRequest *)artistBiographiesWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses {
+    CHECK_API_KEY;
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:4];
+    //TODO: [alg] make the basic setup of the params dictionary a function (json, api_key, etc.)
+    [params setObject:@"json" forKey:@"format"];
+    [params setObject:[ENAPI apiKey] forKey:@"api_key"];
+    [params setObject:name forKey:@"name"];
+    //TODO: BAH! just ran into the limitation where a dictionary can only have one instance of a key
+    // what if we have multiple? (e.g., in the case of licenses here?)
+    // maybe store the array and make `requestString` smart about that?
+#error UNIMPLEMENTED TODO TODO TODO
+}
+
++ (ENAPIRequest *)artistSuggestWithString:(NSString *)search count:(NSInteger)count {
     CHECK_API_KEY;
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:4];
     [params setObject:@"json" forKey:@"format"];

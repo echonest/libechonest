@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+extern const NSString *ENLicenseEchoSource;
+extern const NSString *ENLicenseAllRightsReserved;
+extern const NSString *ENLicenseCreativeCommonsBy_SA;
+extern const NSString *ENLicenseCreativeCommonsBy_NC;
+extern const NSString *ENLicenseCreativeCommonsBy_NC_ND;
+extern const NSString *ENLicenseCreativeCommonsBy_NC_SA;
+extern const NSString *ENLicenseCreativeCommonsBy_ND;
+extern const NSString *ENLicenseCreativeCommonsBy;
+extern const NSString *ENLicensePublicDomain;
+extern const NSString *ENLicenseUnknown;
+
 
 @interface ENAPI : NSObject {
     
