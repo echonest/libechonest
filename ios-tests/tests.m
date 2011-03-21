@@ -44,6 +44,17 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     STAssertEquals(audio.count, (NSUInteger)2, @"expected 2 results");
 }
 
+- (void)testArtistAudioWithID {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    ENAPIRequest *request = [ENAPIRequest artistAudioWithName:@"ARH6W4X1187B99274F" count:2 start:0];
+    STAssertNotNil(request, @"artistAudioWithName returned nil");
+    [request startSynchronous];
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *response = [request JSONValue];
+    NSArray *audio = [(NSDictionary *)[response valueForKey:@"response"] valueForKey:@"audio"];
+    STAssertEquals(audio.count, (NSUInteger)2, @"expected 2 results");
+}
+
 - (void)testArtistBiographies {
     [ENAPI initWithApiKey:TEST_API_KEY];
     NSArray *licenses = [NSArray arrayWithObjects:ENLicenseEchoSource, ENLicenseCreativeCommonsBy_SA, nil];
