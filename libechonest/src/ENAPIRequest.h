@@ -2,8 +2,7 @@
 //  ENAPIRequest.h
 //  libechonest
 //
-//  Created by Art Gillespie on 3/10/11.
-//  Copyright 2011 tapsquare, llc. All rights reserved.
+//  Created by Art Gillespie on 3/10/11. art@tapsquare.com
 //
 
 

@@ -15,9 +15,18 @@ const NSString *ENSortFamiliarityDescending = @"familiarity-desc";
 const NSString *ENSortHotttnesssAscending = @"hotttnesss-asc";
 const NSString *ENSortHotttnesssDescending = @"hotttness-desc";
 
+@interface ENArtistSearchRequest()
+
+@property (assign) BOOL minFamiliaritySet;
+@property (assign) BOOL maxFamiliaritySet;
+@property (assign) BOOL minHotttnesssSet;
+@property (assign) BOOL maxHotttnesssSet;
+
+@end
 
 @implementation ENArtistSearchRequest
 @synthesize bucket, limit, name, description, fuzzyMatch, minFamiliarity, maxFamiliarity, minHotttnesss, maxHotttnesss, sortOrder, count;
+@synthesize minFamiliaritySet, maxFamiliaritySet, minHotttnesssSet, maxHotttnesssSet;
 
 - (id)initWithName:(NSString *)name_ {
     self = [super initWithURL:nil];
@@ -61,15 +70,20 @@ const NSString *ENSortHotttnesssDescending = @"hotttness-desc";
         [params setValue:[NSNumber numberWithBool:self.fuzzyMatch] forKey:@"fuzzy_match"];
     }
 
-    // it'd be nice to keep a flag for each of these and only send them to the server
+    // TODO [alg] it'd be nice to keep a flag for each of these and only send them to the server
     // when they've been explicitly set
-    /*
-    [params setValue:[NSNumber numberWithFloat:self.minFamiliarity] forKey:@"min_familiarity"];
-    [params setValue:[NSNumber numberWithFloat:self.maxFamiliarity] forKey:@"max_familiarity"];
-    [params setValue:[NSNumber numberWithFloat:self.minHotttnesss] forKey:@"min_hotttnesss"];
-    [params setValue:[NSNumber numberWithFloat:self.maxHotttnesss] forKey:@"max_hotttnesss"];
-    */
-    
+    if (self.minFamiliaritySet) {
+        [params setValue:[NSNumber numberWithFloat:self.minFamiliarity] forKey:@"min_familiarity"];
+    }
+    if (self.maxFamiliaritySet) {
+        [params setValue:[NSNumber numberWithFloat:self.maxFamiliarity] forKey:@"max_familiarity"];
+    }
+    if (self.minHotttnesssSet) {
+        [params setValue:[NSNumber numberWithFloat:self.minHotttnesss] forKey:@"min_hotttnesss"];
+    }
+    if (self.maxHotttnesssSet) {
+        [params setValue:[NSNumber numberWithFloat:self.maxHotttnesss] forKey:@"max_hotttnesss"];
+    }    
     if (self.sortOrder) {
         [params setValue:self.sortOrder forKey:@"sort"];
     }
@@ -82,6 +96,26 @@ const NSString *ENSortHotttnesssDescending = @"hotttness-desc";
     self.url = [NSURL URLWithString:urlString];
     self.requestMethod = @"GET";
 
+}
+
+- (void)setMinFamiliarity:(float)minFamiliarity_ {
+    minFamiliaritySet = YES;
+    minFamiliarity = minFamiliarity;
+}
+
+- (void)setMaxFamiliarity:(float)maxFamiliarity_ {
+    maxFamiliaritySet = YES;
+    maxFamiliarity = maxFamiliarity;
+}
+
+- (void)setMinHotttnesss:(float)minHotttnesss_ {
+    minHotttnesssSet = YES;
+    minHotttnesss = minHotttnesss;
+}
+
+- (void)setMaxHotttnesss:(float)maxHotttnesss_ {
+    maxHotttnesssSet = YES;
+    maxHotttnesss = maxHotttnesss;
 }
 
 @end

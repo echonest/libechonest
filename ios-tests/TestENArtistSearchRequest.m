@@ -10,13 +10,17 @@
 #import "ENArtistSearchRequest.h"
 #import "tests.h"
 
+// TODO: [alg] We need to exercise this more thoroughly here.
+
 @implementation TestENArtistSearchRequest
 
 - (void)testArtistSearchRequest {
     [ENAPI initWithApiKey:TEST_API_KEY];
     ENArtistSearchRequest *request = [[[ENArtistSearchRequest alloc] initWithName:nil] autorelease];
-    request.name = @"Jetpacks";
     [request.description addObject:@"mood:chill"];
+    [request.description addObject:@"style:electronic"];
+    request.minFamiliarity = 0.5f;
+    request.minHotttnesss = 0.5f;
     request.fuzzyMatch = YES;
     [request prepare];
     [request startSynchronous];
