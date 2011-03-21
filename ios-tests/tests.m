@@ -40,7 +40,7 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     [request startSynchronous];
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSDictionary *response = [request JSONValue];
-    NSArray *audio = [(NSDictionary *)[response valueForKey:@"response"] valueForKey:@"audio"];
+    NSArray *audio = [response valueForKeyPath:@"response.audio"];
     STAssertEquals(audio.count, (NSUInteger)2, @"expected 2 results");
 }
 
@@ -51,7 +51,7 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     [request startSynchronous];
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSDictionary *response = [request JSONValue];
-    NSArray *audio = [(NSDictionary *)[response valueForKey:@"response"] valueForKey:@"audio"];
+    NSArray *audio = [response valueForKeyPath:@"response.audio"];
     STAssertEquals(audio.count, (NSUInteger)2, @"expected 2 results");
 }
 
@@ -64,7 +64,7 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     STAssertNil(request.error, @"request.error should be nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSDictionary *response = [request JSONValue];
-    NSArray *biographies = [(NSDictionary *)[response valueForKey:@"response"] valueForKey:@"biographies"];
+    NSArray *biographies = [response valueForKeyPath:@"response.biographies"];
     STAssertEquals(biographies.count, (NSUInteger)2, @"expected 2 results");
 }
 
@@ -76,7 +76,7 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     STAssertNil(request.error, @"request.error should be nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSDictionary *response = [request JSONValue];
-    NSArray *biographies = [(NSDictionary *)[response valueForKey:@"response"] valueForKey:@"biographies"];
+    NSArray *biographies = [response valueForKeyPath:@"response.biographies"];
     STAssertEquals(biographies.count, (NSUInteger)2, @"expected 2 results");    
 }
 
@@ -88,7 +88,7 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSDictionary *response = [request JSONValue];
-    NSArray *blogs = [(NSDictionary *)[response valueForKey:@"response"] valueForKey:@"blogs"];
+    NSArray *blogs = [response valueForKeyPath:@"response.blogs"];
     STAssertEquals(blogs.count, (NSUInteger)2, @"Expected 2 blog entries, got: %d", blogs.count);
 }
 
@@ -100,7 +100,7 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSDictionary *response = [request JSONValue];
-    NSArray *blogs = [(NSDictionary *)[response valueForKey:@"response"] valueForKey:@"blogs"];
+    NSArray *blogs = [response valueForKeyPath:@"response.blogs"];
     STAssertEquals(blogs.count, (NSUInteger)2, @"Expected 2 blog entries, got: %d", blogs.count);
 }
 
@@ -113,7 +113,7 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSDictionary *response = [request JSONValue];
-    NSDictionary *artist = [[response valueForKey:@"response"] valueForKey:@"artist"];
+    NSDictionary *artist = [response valueForKeyPath:@"response.artist"];
     STAssertTrue([[artist valueForKey:@"name"] isEqualToString:searchArtist], @"%@ != %@", [artist valueForKey:@"name"], searchArtist);
 }
 
@@ -126,7 +126,7 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSDictionary *response = [request JSONValue];
-    NSDictionary *artist = [[response valueForKey:@"response"] valueForKey:@"artist"];
+    NSDictionary *artist = [response valueForKeyPath:@"response.artist"];
     STAssertTrue([[artist valueForKey:@"name"] isEqualToString:searchArtist], @"%@ != %@", [artist valueForKey:@"name"], searchArtist);    
 }
 
@@ -139,7 +139,7 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSDictionary *response = [request JSONValue];
-    NSArray *images = [[response valueForKey:@"response"] valueForKey:@"images"];
+    NSArray *images = [response valueForKeyPath:@"response.images"];
     STAssertEquals(images.count, (NSUInteger)10, @"%d != %d", images.count, 10);
 }
 
@@ -152,8 +152,41 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSDictionary *response = [request JSONValue];
-    NSArray *news = [[response valueForKey:@"response"] valueForKey:@"news"];
+    NSArray *news = [response valueForKeyPath:@"response.news"];
     STAssertEquals(news.count, (NSUInteger)30, @"%d != %d", news.count, 30);
+}
+
+- (void)testArtistProfile {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    NSString *searchArtist = @"RJD2";
+    ENAPIRequest *request = [ENAPIRequest artistProfileWithName:searchArtist buckets:nil];
+    STAssertNotNil(request, @"artistProfileWithName returned nil");
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *response = [request JSONValue];
+    NSDictionary *artist = [response valueForKeyPath:@"response.artist"];
+    STAssertTrue([[artist valueForKey:@"name"] isEqualToString:searchArtist], @"Unexpected artist name");
+    STAssertTrue([[artist valueForKey:@"id"] isEqualToString:@"ARQG4O41187B98A03B"], @"Unexpected artist id");
+}
+
+- (void)testArtistProfileWithBuckets {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    NSString *searchArtist = @"RJD2";
+    NSArray *buckets = [NSArray arrayWithObjects:@"blogs", @"images", nil];
+    ENAPIRequest *request = [ENAPIRequest artistProfileWithName:searchArtist buckets:buckets];
+    STAssertNotNil(request, @"artistProfileWithName returned nil");
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *response = [request JSONValue];
+    NSDictionary *artist = [response valueForKeyPath:@"response.artist"];
+    STAssertTrue([[artist valueForKey:@"name"] isEqualToString:searchArtist], @"Unexpected artist name");
+    STAssertTrue([[artist valueForKey:@"id"] isEqualToString:@"ARQG4O41187B98A03B"], @"Unexpected artist id");
+    NSArray *blogs = [artist valueForKey:@"blogs"];
+    STAssertNotNil(blogs, @"we should've gotten some blogs");
+    NSArray *images = [artist valueForKey:@"images"];
+    STAssertNotNil(images, @"we should've gotten some images");
 }
 
 @end

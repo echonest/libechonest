@@ -89,6 +89,16 @@ NSMutableDictionary *ENBasicParamDictionary() {
     return [ENAPIRequest apiGetMethodRequest:@"artist/news" withParams:params];
 }
 
++ (ENAPIRequest *)artistProfileWithName:(NSString *)name buckets:(NSArray *)buckets {
+    NSMutableDictionary *params = ENBasicParamDictionary();
+    NSAssert(nil != name, @"names array parameter cannot be nil");
+    [params setValue:name forKey:@"name"];
+    if (nil != buckets && 0 < buckets.count) {
+        [params setValue:buckets forKey:@"bucket"];
+    }
+    return [ENAPIRequest apiGetMethodRequest:@"artist/profile" withParams:params];
+}
+
 + (ENAPIRequest *)artistSuggestWithString:(NSString *)search count:(NSInteger)count {
     NSMutableDictionary *params = ENBasicParamDictionary();
     [params setObject:search forKey:@"q"];
