@@ -8,6 +8,14 @@
 #import "NSMutableDictionary+QueryString.h"
 
 static NSString *ENGetStringRepresentationForObject(NSObject *obj) {
+    if ([obj isKindOfClass:[NSNumber class]]) {
+        // NSNumber returns `1` and `0` for BOOL string representation
+        // instead of `true` and `false`
+        NSNumber *number = (NSNumber *)obj;
+        if (0 == strcmp([number objCType], @encode(BOOL))) {
+            return ([number boolValue])?@"true":@"false";
+        }
+    }
     return [NSString stringWithFormat:@"%@", obj];
 }
 

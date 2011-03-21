@@ -73,4 +73,13 @@
     NSString *testString = @"licenses=all-rights-reserved&licenses=cc-by&licenses=echo-source";
     STAssertTrue([encoded isEqualToString:testString], @"%@ != %@", encoded, testString);
 }
+
+- (void)testBoolValues {
+    // bools should come out as "true" or "false"
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    [params setValue:[NSNumber numberWithBool:YES] forKey:@"high_relevance"];
+    [params setValue:[NSNumber numberWithBool:NO] forKey:@"go_deep"];
+    NSString *encoded = [params queryString];
+    STAssertTrue([encoded isEqualToString:@"go_deep=false&high_relevance=true"], @"YES != 'true'");
+}
 @end
