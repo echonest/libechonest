@@ -73,6 +73,17 @@
 + (ENAPIRequest *)artistFamiliarityWithName:(NSString *)name;
 
 /**
+ * artist/hotttnesss
+ *
+ * http://developer.echonest.com/docs/v4/artist.html#hotttnesss
+ *
+ *
+ * Note you can pass either a name (e.g., "Radiohead") or an id (e.g., "ARH6W4X1187B99274F") for 
+ * the name parameter here.
+ */
++ (ENAPIRequest *)artistHotttnesssWithName:(NSString *)name;
+
+/**
  * Once the request has returned successfully, call this to get an NSDictionary
  * or NSArray representation of the returned JSON.
  */

@@ -63,6 +63,12 @@ NSMutableDictionary *ENBasicParamDictionary() {
     return [ENAPIRequest apiGetMethodRequest:@"artist/familiarity" withParams:params];
 }
 
++ (ENAPIRequest *)artistHotttnesssWithName:(NSString *)name {
+    NSMutableDictionary *params = ENBasicParamDictionary();
+    [params setObject:name forKey:@"name"];
+    return [ENAPIRequest apiGetMethodRequest:@"artist/hotttnesss" withParams:params];    
+}
+
 + (ENAPIRequest *)artistSuggestWithString:(NSString *)search count:(NSInteger)count {
     NSMutableDictionary *params = ENBasicParamDictionary();
     [params setObject:search forKey:@"q"];
