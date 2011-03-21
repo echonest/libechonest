@@ -21,6 +21,9 @@
 		C829AD8013307F5B00F195D3 /* NSData+MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = C829AD7E13307F5900F195D3 /* NSData+MD5.h */; };
 		C829AD8113307F5B00F195D3 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = C829AD7F13307F5900F195D3 /* NSData+MD5.m */; };
 		C829AD841330808500F195D3 /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C829AD831330808500F195D3 /* test.mp3 */; };
+		C86320E21337D7FE00E13E37 /* ENArtistSearchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C86320E01337D7FE00E13E37 /* ENArtistSearchRequest.h */; };
+		C86320E31337D7FE00E13E37 /* ENArtistSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C86320E11337D7FE00E13E37 /* ENArtistSearchRequest.m */; };
+		C86320E71337E02600E13E37 /* TestENArtistSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C86320E61337E02600E13E37 /* TestENArtistSearchRequest.m */; };
 		C869523C1329D783005F6CF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E5C1B91315C44B005CED21 /* UIKit.framework */; };
 		C869523D1329D783005F6CF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E5C1AE1315C44A005CED21 /* Foundation.framework */; };
 		C869523E1329D783005F6CF5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E5C1BC1315C44B005CED21 /* CoreGraphics.framework */; };
@@ -94,6 +97,10 @@
 		C829AD7E13307F5900F195D3 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+MD5.h"; path = "libechonest/src/NSData+MD5.h"; sourceTree = "<group>"; };
 		C829AD7F13307F5900F195D3 /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+MD5.m"; path = "libechonest/src/NSData+MD5.m"; sourceTree = "<group>"; };
 		C829AD831330808500F195D3 /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = test.mp3; path = testdata/test.mp3; sourceTree = "<group>"; };
+		C86320E01337D7FE00E13E37 /* ENArtistSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENArtistSearchRequest.h; path = libechonest/src/ENArtistSearchRequest.h; sourceTree = "<group>"; };
+		C86320E11337D7FE00E13E37 /* ENArtistSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENArtistSearchRequest.m; path = libechonest/src/ENArtistSearchRequest.m; sourceTree = "<group>"; };
+		C86320E51337E02600E13E37 /* TestENArtistSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestENArtistSearchRequest.h; sourceTree = "<group>"; };
+		C86320E61337E02600E13E37 /* TestENArtistSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestENArtistSearchRequest.m; sourceTree = "<group>"; };
 		C869522E1329D68F005F6CF5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		C86952301329D69E005F6CF5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		C86952321329D6AD005F6CF5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -219,6 +226,8 @@
 				C88F4692132A937100247E6F /* TestNSMutableDictionary+QueryString.m */,
 				C829AD7B13306A6F00F195D3 /* TestAPIPostRequest.h */,
 				C829AD7C13306A6F00F195D3 /* TestAPIPostRequest.m */,
+				C86320E51337E02600E13E37 /* TestENArtistSearchRequest.h */,
+				C86320E61337E02600E13E37 /* TestENArtistSearchRequest.m */,
 				C829AD821330806100F195D3 /* Resources */,
 				C86952401329D783005F6CF5 /* Supporting Files */,
 			);
@@ -301,6 +310,8 @@
 				C88C47471329B96900D1A8B9 /* ENAPIRequest.m */,
 				C829AD6E133062BD00F195D3 /* ENAPIPostRequest.h */,
 				C829AD6F133062BD00F195D3 /* ENAPIPostRequest.m */,
+				C86320E01337D7FE00E13E37 /* ENArtistSearchRequest.h */,
+				C86320E11337D7FE00E13E37 /* ENArtistSearchRequest.m */,
 				C81C28DC1326C2350048DD51 /* ENEchonest.h */,
 				C81C28DD1326C2350048DD51 /* ENEchonest.m */,
 				C829AD7E13307F5900F195D3 /* NSData+MD5.h */,
@@ -391,6 +402,7 @@
 				C829AD75133065F300F195D3 /* ENAPI_utils.h in Headers */,
 				C829AD78133066D600F195D3 /* ENAPI.h in Headers */,
 				C829AD8013307F5B00F195D3 /* NSData+MD5.h in Headers */,
+				C86320E21337D7FE00E13E37 /* ENArtistSearchRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +525,7 @@
 				C829AD71133062BD00F195D3 /* ENAPIPostRequest.m in Sources */,
 				C829AD79133066D600F195D3 /* ENAPI.m in Sources */,
 				C829AD8113307F5B00F195D3 /* NSData+MD5.m in Sources */,
+				C86320E31337D7FE00E13E37 /* ENArtistSearchRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +536,7 @@
 				C86952491329D783005F6CF5 /* tests.m in Sources */,
 				C88F4693132A937100247E6F /* TestNSMutableDictionary+QueryString.m in Sources */,
 				C829AD7D13306A7000F195D3 /* TestAPIPostRequest.m in Sources */,
+				C86320E71337E02600E13E37 /* TestENArtistSearchRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
