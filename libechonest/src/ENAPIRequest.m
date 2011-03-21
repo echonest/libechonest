@@ -80,6 +80,15 @@ NSMutableDictionary *ENBasicParamDictionary() {
     return [ENAPIRequest apiGetMethodRequest:@"artist/images" withParams:params];    
 }
 
++ (ENAPIRequest *)artistNewsWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start highRelevance:(BOOL)highRelevance {
+    NSMutableDictionary *params = ENBasicParamDictionary();
+    [params setValue:name forKey:@"name"];
+    [params setValue:[NSNumber numberWithInt:count] forKey:@"results"];
+    [params setValue:[NSNumber numberWithInt:start] forKey:@"start"];
+    [params setValue:[NSNumber numberWithBool:highRelevance] forKey:@"high_relevance"];
+    return [ENAPIRequest apiGetMethodRequest:@"artist/news" withParams:params];
+}
+
 + (ENAPIRequest *)artistSuggestWithString:(NSString *)search count:(NSInteger)count {
     NSMutableDictionary *params = ENBasicParamDictionary();
     [params setObject:search forKey:@"q"];

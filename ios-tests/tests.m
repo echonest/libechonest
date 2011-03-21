@@ -134,13 +134,26 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     [ENAPI initWithApiKey:TEST_API_KEY];
     NSString *searchArtist = @"Amanda Palmer";
     ENAPIRequest *request = [ENAPIRequest artistImagesWithName:searchArtist count:10 start:0 licenses:nil];
-    STAssertNotNil(request, @"artistHottnesssWithName returned nil");
+    STAssertNotNil(request, @"artistImagesWithName returned nil");
     [request startSynchronous];
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSDictionary *response = [request JSONValue];
     NSArray *images = [[response valueForKey:@"response"] valueForKey:@"images"];
     STAssertEquals(images.count, (NSUInteger)10, @"%d != %d", images.count, 10);
+}
+
+- (void)testArtistNews {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    NSString *searchArtist = @"The New Pornographers";
+    ENAPIRequest *request = [ENAPIRequest artistNewsWithName:searchArtist count:30 start:0 highRelevance:NO];
+    STAssertNotNil(request, @"artistNewsWithName returned nil");
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *response = [request JSONValue];
+    NSArray *news = [[response valueForKey:@"response"] valueForKey:@"news"];
+    STAssertEquals(news.count, (NSUInteger)30, @"%d != %d", news.count, 30);
 }
 
 @end
