@@ -80,4 +80,17 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     NSArray *blogs = [(NSDictionary *)[response valueForKey:@"response"] valueForKey:@"blogs"];
     STAssertEquals(blogs.count, (NSUInteger)2, @"Expected 2 blog entries, got: %d", blogs.count);
 }
+
+- (void)testArtistBlogsWithID {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    ENAPIRequest *request = [ENAPIRequest artistBlogsWithName:@"ARF8HTQ1187B9AE693" count:2 start:0 highRelevance:YES];
+    STAssertNotNil(request, @"artistBlogsWithName returned nil");
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *response = [request JSONValue];
+    NSArray *blogs = [(NSDictionary *)[response valueForKey:@"response"] valueForKey:@"blogs"];
+    STAssertEquals(blogs.count, (NSUInteger)2, @"Expected 2 blog entries, got: %d", blogs.count);
+}
+
 @end
