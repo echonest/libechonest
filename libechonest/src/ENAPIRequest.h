@@ -111,6 +111,13 @@
 + (ENAPIRequest *)artistProfileWithName:(NSString *)name buckets:(NSArray *)buckets;
 
 /**
+ * artist/reviews
+ *
+ * http://developer.echonest.com/docs/v4/artist.html#reviews
+ */
++ (ENAPIRequest *)artistReviewsWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start;
+
+/**
  * Once the request has returned successfully, call this to get an NSDictionary
  * or NSArray representation of the returned JSON.
  */

@@ -189,4 +189,17 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     STAssertNotNil(images, @"we should've gotten some images");
 }
 
+- (void)testArtistReviews {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    NSString *searchArtist = @"Blockhead";
+    ENAPIRequest *request = [ENAPIRequest artistReviewsWithName:searchArtist count:15 start:0];
+    STAssertNotNil(request, @"artistReviewsWithName returned nil");
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *response = [request JSONValue];
+    NSArray *reviews = [response valueForKeyPath:@"response.reviews"];
+    STAssertEquals(reviews.count, (NSUInteger)15, @"expected 15 reviews");
+}
+
 @end

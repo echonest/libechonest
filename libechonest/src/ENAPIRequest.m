@@ -99,6 +99,14 @@ NSMutableDictionary *ENBasicParamDictionary() {
     return [ENAPIRequest apiGetMethodRequest:@"artist/profile" withParams:params];
 }
 
++ (ENAPIRequest *)artistReviewsWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start {
+    NSMutableDictionary *params = ENBasicParamDictionary();
+    [params setValue:name forKey:@"name"];
+    [params setValue:[NSNumber numberWithInt:count] forKey:@"results"];
+    [params setValue:[NSNumber numberWithInt:start] forKey:@"start"];
+    return [ENAPIRequest apiGetMethodRequest:@"artist/reviews" withParams:params];    
+}
+
 + (ENAPIRequest *)artistSuggestWithString:(NSString *)search count:(NSInteger)count {
     NSMutableDictionary *params = ENBasicParamDictionary();
     [params setObject:search forKey:@"q"];
