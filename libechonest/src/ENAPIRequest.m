@@ -34,9 +34,7 @@ NSMutableDictionary *ENBasicParamDictionary() {
     [params setObject:name forKey:@"name"];
     [params setObject:[NSNumber numberWithInt:count] forKey:@"results"];
     [params setObject:[NSNumber numberWithInt:start] forKey:@"start"];
-    
-    ENAPIRequest *request = [ENAPIRequest apiGetMethodRequest:@"artist/audio" withParams:params];
-    return request;
+    return [ENAPIRequest apiGetMethodRequest:@"artist/audio" withParams:params];
 }
 
 + (ENAPIRequest *)artistBiographiesWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses {
@@ -59,11 +57,16 @@ NSMutableDictionary *ENBasicParamDictionary() {
     return [ENAPIRequest apiGetMethodRequest:@"artist/blogs" withParams:params];
 }
 
++ (ENAPIRequest *)artistFamiliarityWithName:(NSString *)name {
+    NSMutableDictionary *params = ENBasicParamDictionary();
+    [params setValue:name forKey:@"name"];
+    return [ENAPIRequest apiGetMethodRequest:@"artist/familiarity" withParams:params];
+}
+
 + (ENAPIRequest *)artistSuggestWithString:(NSString *)search count:(NSInteger)count {
     NSMutableDictionary *params = ENBasicParamDictionary();
     [params setObject:search forKey:@"q"];
-    ENAPIRequest *request = [ENAPIRequest apiGetMethodRequest:@"artist/suggest" withParams:params];
-    return request;    
+    return [ENAPIRequest apiGetMethodRequest:@"artist/suggest" withParams:params];
 }
 
 - (id)JSONValue {

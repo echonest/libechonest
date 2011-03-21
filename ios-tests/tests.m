@@ -104,4 +104,18 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     STAssertEquals(blogs.count, (NSUInteger)2, @"Expected 2 blog entries, got: %d", blogs.count);
 }
 
+- (void)testArtistFamiliarity {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    NSString *searchArtist = @"Justin Bieber";
+    ENAPIRequest *request = [ENAPIRequest artistFamiliarityWithName:searchArtist];
+    STAssertNotNil(request, @"artistFamiliarityWithName returned nil");
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *response = [request JSONValue];
+    NSDictionary *artist = [[response valueForKey:@"response"] valueForKey:@"artist"];
+    NSLog(@"artist: %@", artist);
+    STAssertTrue([[artist valueForKey:@"name"] isEqualToString:searchArtist], @"%@ != %@", [artist valueForKey:@"name"], searchArtist);
+}
+
 @end

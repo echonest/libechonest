@@ -24,6 +24,9 @@
  * artist/audio
  *
  * http://developer.echonest.com/docs/v4/artist.html#audio
+ *
+ * Note you can pass either a name (e.g., "Radiohead") or an id (e.g., "ARH6W4X1187B99274F") for 
+ * the name parameter here.
  */
 + (ENAPIRequest *)artistAudioWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start;
 
@@ -34,6 +37,9 @@
  * http://developer.echonest.com/docs/v4/artist.html#biographies
  * 
  * Pass in an array of ENLicense strings to filter on licenses, or nil to return all licenses.
+ *
+ * Note you can pass either a name (e.g., "Radiohead") or an id (e.g., "ARH6W4X1187B99274F") for 
+ * the name parameter here.
  */
 + (ENAPIRequest *)artistBiographiesWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses;
 
@@ -42,6 +48,9 @@
  * artist/blogs
  *
  * http://developer.echonest.com/docs/v4/artist.html#blogs
+ *
+ * Note you can pass either a name (e.g., "Radiohead") or an id (e.g., "ARH6W4X1187B99274F") for 
+ * the name parameter here.
  */
 + (ENAPIRequest *)artistBlogsWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start highRelevance:(BOOL)relevance;
 
@@ -52,6 +61,16 @@
  * http://developer.echonest.com/docs/v4/artist.html#suggest-beta
  */
 + (ENAPIRequest *)artistSuggestWithString:(NSString *)search count:(NSInteger)count;
+
+/**
+ * artist/familiarity
+ *
+ * http://developer.echonest.com/docs/v4/artist.html#familiarity
+ *
+ * Note you can pass either a name (e.g., "Radiohead") or an id (e.g., "ARH6W4X1187B99274F") for 
+ * the name parameter here.
+ */
++ (ENAPIRequest *)artistFamiliarityWithName:(NSString *)name;
 
 /**
  * Once the request has returned successfully, call this to get an NSDictionary
