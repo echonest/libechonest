@@ -39,16 +39,6 @@ NSMutableDictionary *ENBasicParamDictionary() {
     return request;
 }
 
-+ (ENAPIRequest *)artistAudioWithID:(NSString *)identifier count:(NSInteger)count start:(NSInteger)start {
-    NSMutableDictionary *params = ENBasicParamDictionary();
-    [params setObject:identifier forKey:@"id"];
-    [params setObject:[NSNumber numberWithInt:count] forKey:@"results"];
-    [params setObject:[NSNumber numberWithInt:start] forKey:@"start"];
-    
-    ENAPIRequest *request = [ENAPIRequest apiGetMethodRequest:@"artist/audio" withParams:params];
-    return request;
-}
-
 + (ENAPIRequest *)artistBiographiesWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses {
     NSMutableDictionary *params = ENBasicParamDictionary();
     [params setObject:name forKey:@"name"];
@@ -58,18 +48,6 @@ NSMutableDictionary *ENBasicParamDictionary() {
     [params setObject:[NSNumber numberWithInt:count] forKey:@"results"];
     [params setObject:[NSNumber numberWithInt:start] forKey:@"start"];
     return [ENAPIRequest apiGetMethodRequest:@"artist/biographies" withParams:params];
-}
-
-+ (ENAPIRequest *)artistBiographiesWithID:(NSString *)identifier count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses {
-    NSMutableDictionary *params = ENBasicParamDictionary();
-    [params setObject:identifier forKey:@"id"];
-    if (nil != licenses) {
-        [params setObject:licenses forKey:@"license"];        
-    }
-    [params setObject:[NSNumber numberWithInt:count] forKey:@"results"];
-    [params setObject:[NSNumber numberWithInt:start] forKey:@"start"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/biographies" withParams:params];
-    
 }
 
 + (ENAPIRequest *)artistBlogsWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start highRelevance:(BOOL)relevance {
