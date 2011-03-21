@@ -30,13 +30,13 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     // this is kinda lame -- what we really want to test here is what happens if the
     // api key is *never* set.
     [ENAPI initWithApiKey:nil];
-    STAssertThrows([ENAPIRequest artistAudioWithName:@"Radiohead" results:2 start:0], @"No API Key set - Method should throw");
+    STAssertThrows([ENAPIRequest artistAudioWithName:@"Radiohead" count:2 start:0], @"No API Key set - Method should throw");
 }
 
 - (void)testArtistAudio
 {
     [ENAPI initWithApiKey:TEST_API_KEY];
-    ENAPIRequest *request = [ENAPIRequest artistAudioWithName:@"Radiohead" results:2 start:0];
+    ENAPIRequest *request = [ENAPIRequest artistAudioWithName:@"Radiohead" count:2 start:0];
     STAssertNotNil(request, @"artistAudioWithName returned nil");
     [request startSynchronous];
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);

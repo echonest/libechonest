@@ -30,8 +30,17 @@ static NSString *ENEscapeStringForURL (NSString *str) {
     NSMutableArray *params = [NSMutableArray arrayWithCapacity:[self count]];
     for (NSString *key in [self allKeys]) {
         NSObject *value = [self objectForKey:key];
-        [params addObject:[NSString stringWithFormat:@"%@=%@", ENEscapeStringForURL(key), 
-                           ENEscapeStringForURL(ENGetStringRepresentationForObject(value))]];
+        if ([value isKindOfClass:[NSArray class]]) {
+            // we use arrays for multiple values of the same key, e.g., licenses
+            for (NSString *multValue in ((NSArray *)value)) {
+                [params addObject:[NSString stringWithFormat:@"%@=%@", ENEscapeStringForURL(key), 
+                                   ENEscapeStringForURL(ENGetStringRepresentationForObject(multValue))]];                            
+            }
+            
+        } else {
+            [params addObject:[NSString stringWithFormat:@"%@=%@", ENEscapeStringForURL(key), 
+                               ENEscapeStringForURL(ENGetStringRepresentationForObject(value))]];            
+        }
     }
     [params sortUsingSelector:@selector(caseInsensitiveCompare:)];
     return [params componentsJoinedByString:@"&"];

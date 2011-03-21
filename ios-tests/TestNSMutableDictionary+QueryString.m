@@ -7,6 +7,7 @@
 
 #import "TestNSMutableDictionary+QueryString.h"
 #import "NSMutableDictionary+QueryString.h"
+#import "ENAPI.h"
 
 @implementation TestNSMutableDictionary_QueryString
 
@@ -58,9 +59,18 @@
     [params setValue:@"=" forKey:@"equals"];
     
     NSString *encoded = [params queryString];
-    NSLog(@"encoded = %@", encoded);
     NSString *escapeString = @"amp=%26&aster=%2A&atmark=%40&comma=%2C&dolla=%24&equals=%3D&excmark=%21&hash=%23&lbrack=%5B&lparen=%28&plus=%2B&qmark=%3F&rbrack=%5D&rparen=%29&semic=%3B&slash=%2F&space=%20&squote=%27";
     STAssertTrue([encoded isEqualToString:escapeString], @"Escape failure: %@ != %@", encoded, escapeString);
 }
 
+- (void)testMultipleValues {
+    // multiple values for the same key, e.g., license=cc-by&license=echo-source&license=public-domain
+    NSArray *multValues = [NSArray arrayWithObjects:ENLicenseAllRightsReserved, 
+                           ENLicenseCreativeCommonsBy, ENLicenseEchoSource, nil];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:2];
+    [params setValue:multValues forKey:@"licenses"];
+    NSString *encoded = [params queryString];
+    NSString *testString = @"licenses=all-rights-reserved&licenses=cc-by&licenses=echo-source";
+    STAssertTrue([encoded isEqualToString:testString], @"%@ != %@", encoded, testString);
+}
 @end
