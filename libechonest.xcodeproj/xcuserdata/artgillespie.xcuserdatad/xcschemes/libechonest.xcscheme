@@ -15,7 +15,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C81C29531326DDBD0048DD51"
                BuildableName = "liblibechonest.a"
-               BlueprintName = "libechonest"
+               BlueprintName = "echonest"
                ReferencedContainer = "container:libechonest.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

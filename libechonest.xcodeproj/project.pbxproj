@@ -10,8 +10,6 @@
 		C80FE07A1326E5C800A5D803 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = C80FE0781326E5C800A5D803 /* Reachability.h */; };
 		C80FE07B1326E5C800A5D803 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C80FE0791326E5C800A5D803 /* Reachability.m */; };
 		C81C29551326DDBD0048DD51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E5C1AE1315C44A005CED21 /* Foundation.framework */; };
-		C81C295C1326DDD70048DD51 /* ENEchonest.m in Sources */ = {isa = PBXBuildFile; fileRef = C81C28DD1326C2350048DD51 /* ENEchonest.m */; };
-		C81C295D1326DDE70048DD51 /* ENEchonest.h in Headers */ = {isa = PBXBuildFile; fileRef = C81C28DC1326C2350048DD51 /* ENEchonest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C829AD70133062BD00F195D3 /* ENAPIPostRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C829AD6E133062BD00F195D3 /* ENAPIPostRequest.h */; };
 		C829AD71133062BD00F195D3 /* ENAPIPostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C829AD6F133062BD00F195D3 /* ENAPIPostRequest.m */; };
 		C829AD75133065F300F195D3 /* ENAPI_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = C829AD74133065F300F195D3 /* ENAPI_utils.h */; };
@@ -59,7 +57,7 @@
 		C89EE1651329D7F4006F9296 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C869522E1329D68F005F6CF5 /* CFNetwork.framework */; };
 		C89EE1661329D7F4006F9296 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C86952321329D6AD005F6CF5 /* SystemConfiguration.framework */; };
 		C89EE1671329D7F4006F9296 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C86952341329D6BB005F6CF5 /* libz.dylib */; };
-		C8A7D2991329D94B00FE3F08 /* liblibechonest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C81C29541326DDBD0048DD51 /* liblibechonest.a */; };
+		C8A7D2991329D94B00FE3F08 /* libechonest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C81C29541326DDBD0048DD51 /* libechonest.a */; };
 		C8A7D2AF1329E16100FE3F08 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = C8A7D29C1329E16100FE3F08 /* JSON.h */; };
 		C8A7D2B01329E16100FE3F08 /* NSObject+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = C8A7D29D1329E16100FE3F08 /* NSObject+JSON.h */; };
 		C8A7D2B11329E16100FE3F08 /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A7D29E1329E16100FE3F08 /* NSObject+JSON.m */; };
@@ -84,9 +82,7 @@
 /* Begin PBXFileReference section */
 		C80FE0781326E5C800A5D803 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		C80FE0791326E5C800A5D803 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		C81C28DC1326C2350048DD51 /* ENEchonest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENEchonest.h; path = libechonest/src/ENEchonest.h; sourceTree = "<group>"; };
-		C81C28DD1326C2350048DD51 /* ENEchonest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENEchonest.m; path = libechonest/src/ENEchonest.m; sourceTree = "<group>"; };
-		C81C29541326DDBD0048DD51 /* liblibechonest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibechonest.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C81C29541326DDBD0048DD51 /* libechonest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libechonest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C829AD6E133062BD00F195D3 /* ENAPIPostRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENAPIPostRequest.h; path = libechonest/src/ENAPIPostRequest.h; sourceTree = "<group>"; };
 		C829AD6F133062BD00F195D3 /* ENAPIPostRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENAPIPostRequest.m; path = libechonest/src/ENAPIPostRequest.m; sourceTree = "<group>"; };
 		C829AD74133065F300F195D3 /* ENAPI_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENAPI_utils.h; path = libechonest/src/ENAPI_utils.h; sourceTree = "<group>"; };
@@ -182,7 +178,7 @@
 				C89EE1651329D7F4006F9296 /* CFNetwork.framework in Frameworks */,
 				C89EE1661329D7F4006F9296 /* SystemConfiguration.framework in Frameworks */,
 				C89EE1671329D7F4006F9296 /* libz.dylib in Frameworks */,
-				C8A7D2991329D94B00FE3F08 /* liblibechonest.a in Frameworks */,
+				C8A7D2991329D94B00FE3F08 /* libechonest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,8 +308,6 @@
 				C829AD6F133062BD00F195D3 /* ENAPIPostRequest.m */,
 				C86320E01337D7FE00E13E37 /* ENArtistSearchRequest.h */,
 				C86320E11337D7FE00E13E37 /* ENArtistSearchRequest.m */,
-				C81C28DC1326C2350048DD51 /* ENEchonest.h */,
-				C81C28DD1326C2350048DD51 /* ENEchonest.m */,
 				C829AD7E13307F5900F195D3 /* NSData+MD5.h */,
 				C829AD7F13307F5900F195D3 /* NSData+MD5.m */,
 				C88B24471326F33E00FB51FF /* NSMutableDictionary+QueryString.h */,
@@ -329,7 +323,7 @@
 		C8E5C1AC1315C44A005CED21 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C81C29541326DDBD0048DD51 /* liblibechonest.a */,
+				C81C29541326DDBD0048DD51 /* libechonest.a */,
 				C869523B1329D783005F6CF5 /* tests.octest */,
 			);
 			name = Products;
@@ -372,7 +366,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C81C295D1326DDE70048DD51 /* ENEchonest.h in Headers */,
 				C80FE07A1326E5C800A5D803 /* Reachability.h in Headers */,
 				C88B24491326F33E00FB51FF /* NSMutableDictionary+QueryString.h in Headers */,
 				C88C47481329B96900D1A8B9 /* ENAPIRequest.h in Headers */,
@@ -409,9 +402,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		C81C29531326DDBD0048DD51 /* libechonest */ = {
+		C81C29531326DDBD0048DD51 /* echonest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C81C29591326DDBD0048DD51 /* Build configuration list for PBXNativeTarget "libechonest" */;
+			buildConfigurationList = C81C29591326DDBD0048DD51 /* Build configuration list for PBXNativeTarget "echonest" */;
 			buildPhases = (
 				C81C29501326DDBD0048DD51 /* Sources */,
 				C81C29511326DDBD0048DD51 /* Frameworks */,
@@ -421,9 +414,9 @@
 			);
 			dependencies = (
 			);
-			name = libechonest;
+			name = echonest;
 			productName = libechonest;
-			productReference = C81C29541326DDBD0048DD51 /* liblibechonest.a */;
+			productReference = C81C29541326DDBD0048DD51 /* libechonest.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		C869523A1329D783005F6CF5 /* tests */ = {
@@ -461,7 +454,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C81C29531326DDBD0048DD51 /* libechonest */,
+				C81C29531326DDBD0048DD51 /* echonest */,
 				C869523A1329D783005F6CF5 /* tests */,
 			);
 		};
@@ -501,7 +494,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C81C295C1326DDD70048DD51 /* ENEchonest.m in Sources */,
 				C80FE07B1326E5C800A5D803 /* Reachability.m in Sources */,
 				C88B244A1326F33E00FB51FF /* NSMutableDictionary+QueryString.m in Sources */,
 				C88C47491329B96900D1A8B9 /* ENAPIRequest.m in Sources */,
@@ -653,7 +645,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C81C29591326DDBD0048DD51 /* Build configuration list for PBXNativeTarget "libechonest" */ = {
+		C81C29591326DDBD0048DD51 /* Build configuration list for PBXNativeTarget "echonest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C81C295A1326DDBD0048DD51 /* Debug */,
