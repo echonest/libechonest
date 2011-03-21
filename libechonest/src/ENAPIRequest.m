@@ -69,6 +69,17 @@ NSMutableDictionary *ENBasicParamDictionary() {
     return [ENAPIRequest apiGetMethodRequest:@"artist/hotttnesss" withParams:params];    
 }
 
++ (ENAPIRequest *)artistImagesWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses {
+    NSMutableDictionary *params = ENBasicParamDictionary();
+    [params setObject:name forKey:@"name"];
+    if (nil != licenses) {
+        [params setObject:licenses forKey:@"license"];        
+    }
+    [params setObject:[NSNumber numberWithInt:count] forKey:@"results"];
+    [params setObject:[NSNumber numberWithInt:start] forKey:@"start"];
+    return [ENAPIRequest apiGetMethodRequest:@"artist/images" withParams:params];    
+}
+
 + (ENAPIRequest *)artistSuggestWithString:(NSString *)search count:(NSInteger)count {
     NSMutableDictionary *params = ENBasicParamDictionary();
     [params setObject:search forKey:@"q"];

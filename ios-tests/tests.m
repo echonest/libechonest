@@ -127,8 +127,20 @@ static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSDictionary *response = [request JSONValue];
     NSDictionary *artist = [[response valueForKey:@"response"] valueForKey:@"artist"];
-    NSLog(@"artist: %@", artist);
     STAssertTrue([[artist valueForKey:@"name"] isEqualToString:searchArtist], @"%@ != %@", [artist valueForKey:@"name"], searchArtist);    
+}
+
+- (void)testArtistImages {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    NSString *searchArtist = @"Amanda Palmer";
+    ENAPIRequest *request = [ENAPIRequest artistImagesWithName:searchArtist count:10 start:0 licenses:nil];
+    STAssertNotNil(request, @"artistHottnesssWithName returned nil");
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *response = [request JSONValue];
+    NSArray *images = [[response valueForKey:@"response"] valueForKey:@"images"];
+    STAssertEquals(images.count, (NSUInteger)10, @"%d != %d", images.count, 10);
 }
 
 @end
