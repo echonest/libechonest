@@ -12,5 +12,4 @@
 
 #define CHECK_API_KEY if (nil == [ENAPI apiKey]) { @throw [NSException exceptionWithName:@"APIKeyNotSetException" reason:@"Set the API key before calling this method" userInfo:nil]; }
 
-//TODO: Put this someplace central to make maintenance easier
-static NSString *ECHONEST_API_URL = @"http://developer.echonest.com/api/v4/";
+static const NSString __attribute__((unused)) *ECHONEST_API_URL = @"http://developer.echonest.com/api/v4/";
