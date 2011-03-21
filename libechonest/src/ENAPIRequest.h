@@ -21,16 +21,22 @@
 + (ENAPIRequest *)apiGetMethodRequest:(NSString *)method withParams:(NSMutableDictionary *)params;
 
 /**
+ * artist/audio
+ *
  * http://developer.echonest.com/docs/v4/artist.html#audio
  */
 + (ENAPIRequest *)artistAudioWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start;
 
 /**
+ * artist/audio
+ *
  * http://developer.echonest.com/docs/v4/artist.html#audio
  */
 + (ENAPIRequest *)artistAudioWithID:(NSString *)identifier count:(NSInteger)count start:(NSInteger)start;
 
 /**
+ * artist/biographies
+ *
  * http://developer.echonest.com/docs/v4/artist.html#biographies
  * 
  * Pass in an array of ENLicense strings to filter on licenses, or nil to return all licenses.
@@ -38,7 +44,26 @@
 + (ENAPIRequest *)artistBiographiesWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses;
 
 /**
- * New artist suggest feature (beta).
+ * artist/biographies
+ *
+ * http://developer.echonest.com/docs/v4/artist.html#biographies
+ * 
+ * Pass in an array of ENLicense strings to filter on licenses, or nil to return all licenses.
+ */
++ (ENAPIRequest *)artistBiographiesWithID:(NSString *)identifier count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses;
+
+/**
+ * artist/blogs
+ *
+ * http://developer.echonest.com/docs/v4/artist.html#blogs
+ */
++ (ENAPIRequest *)artistBlogsWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start highRelevance:(BOOL)relevance;
+
+
+/**
+ * artist/suggest (beta)
+ *
+ * http://developer.echonest.com/docs/v4/artist.html#suggest-beta
  */
 + (ENAPIRequest *)artistSuggestWithString:(NSString *)search count:(NSInteger)count;
 

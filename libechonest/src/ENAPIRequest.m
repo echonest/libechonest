@@ -52,17 +52,37 @@ NSMutableDictionary *ENBasicParamDictionary() {
 + (ENAPIRequest *)artistBiographiesWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses {
     NSMutableDictionary *params = ENBasicParamDictionary();
     [params setObject:name forKey:@"name"];
-    [params setObject:licenses forKey:@"license"];
+    if (nil != licenses) {
+        [params setObject:licenses forKey:@"license"];        
+    }
     [params setObject:[NSNumber numberWithInt:count] forKey:@"results"];
     [params setObject:[NSNumber numberWithInt:start] forKey:@"start"];
     return [ENAPIRequest apiGetMethodRequest:@"artist/biographies" withParams:params];
 }
 
++ (ENAPIRequest *)artistBiographiesWithID:(NSString *)identifier count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses {
+    NSMutableDictionary *params = ENBasicParamDictionary();
+    [params setObject:identifier forKey:@"id"];
+    if (nil != licenses) {
+        [params setObject:licenses forKey:@"license"];        
+    }
+    [params setObject:[NSNumber numberWithInt:count] forKey:@"results"];
+    [params setObject:[NSNumber numberWithInt:start] forKey:@"start"];
+    return [ENAPIRequest apiGetMethodRequest:@"artist/biographies" withParams:params];
+    
+}
+
++ (ENAPIRequest *)artistBlogsWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start highRelevance:(BOOL)relevance {
+    NSMutableDictionary *params = ENBasicParamDictionary();
+    [params setValue:name forKey:@"name"];
+    [params setValue:[NSNumber numberWithInt:count] forKey:@"results"];
+    [params setValue:[NSNumber numberWithInt:start] forKey:@"start"];
+    [params setValue:[NSNumber numberWithBool:relevance] forKey:@"high_relevance"];
+    return [ENAPIRequest apiGetMethodRequest:@"artist/blogs" withParams:params];
+}
+
 + (ENAPIRequest *)artistSuggestWithString:(NSString *)search count:(NSInteger)count {
-    CHECK_API_KEY;
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:4];
-    [params setObject:@"json" forKey:@"format"];
-    [params setObject:[ENAPI apiKey] forKey:@"api_key"];
+    NSMutableDictionary *params = ENBasicParamDictionary();
     [params setObject:search forKey:@"q"];
     ENAPIRequest *request = [ENAPIRequest apiGetMethodRequest:@"artist/suggest" withParams:params];
     return request;    
