@@ -7,16 +7,16 @@
 
 #import <Foundation/Foundation.h>
 
-extern const NSString *ENLicenseEchoSource;
-extern const NSString *ENLicenseAllRightsReserved;
-extern const NSString *ENLicenseCreativeCommonsBy_SA;
-extern const NSString *ENLicenseCreativeCommonsBy_NC;
-extern const NSString *ENLicenseCreativeCommonsBy_NC_ND;
-extern const NSString *ENLicenseCreativeCommonsBy_NC_SA;
-extern const NSString *ENLicenseCreativeCommonsBy_ND;
-extern const NSString *ENLicenseCreativeCommonsBy;
-extern const NSString *ENLicensePublicDomain;
-extern const NSString *ENLicenseUnknown;
+extern NSString * const ENLicenseEchoSource;
+extern NSString * const ENLicenseAllRightsReserved;
+extern NSString * const ENLicenseCreativeCommonsBy_SA;
+extern NSString * const ENLicenseCreativeCommonsBy_NC;
+extern NSString * const ENLicenseCreativeCommonsBy_NC_ND;
+extern NSString * const ENLicenseCreativeCommonsBy_NC_SA;
+extern NSString * const ENLicenseCreativeCommonsBy_ND;
+extern NSString * const ENLicenseCreativeCommonsBy;
+extern NSString * const ENLicensePublicDomain;
+extern NSString * const ENLicenseUnknown;
 
 
 @interface ENAPI : NSObject {
@@ -25,5 +25,6 @@ extern const NSString *ENLicenseUnknown;
 
 + (void)initWithApiKey:(NSString *)apiKey;
 + (NSString *)apiKey;
+
 
 @end

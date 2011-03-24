@@ -7,16 +7,16 @@
 
 #import "ENAPI.h"
 
-const NSString *ENLicenseEchoSource = @"echo-source";
-const NSString *ENLicenseAllRightsReserved = @"all-rights-reserved";
-const NSString *ENLicenseCreativeCommonsBy_SA = @"cc-by-sa";
-const NSString *ENLicenseCreativeCommonsBy_NC = @"cc-by-nc";
-const NSString *ENLicenseCreativeCommonsBy_NC_ND = @"cc-by-nc-nd";
-const NSString *ENLicenseCreativeCommonsBy_NC_SA = @"cc-by-nc-sa";
-const NSString *ENLicenseCreativeCommonsBy_ND = @"cc-by-nd";
-const NSString *ENLicenseCreativeCommonsBy = @"cc-by";
-const NSString *ENLicensePublicDomain = @"public-domain";
-const NSString *ENLicenseUnknown = @"unknown";
+NSString * const ENLicenseEchoSource = @"echo-source";
+NSString * const ENLicenseAllRightsReserved = @"all-rights-reserved";
+NSString * const ENLicenseCreativeCommonsBy_SA = @"cc-by-sa";
+NSString * const ENLicenseCreativeCommonsBy_NC = @"cc-by-nc";
+NSString * const ENLicenseCreativeCommonsBy_NC_ND = @"cc-by-nc-nd";
+NSString * const ENLicenseCreativeCommonsBy_NC_SA = @"cc-by-nc-sa";
+NSString * const ENLicenseCreativeCommonsBy_ND = @"cc-by-nd";
+NSString * const ENLicenseCreativeCommonsBy = @"cc-by";
+NSString * const ENLicensePublicDomain = @"public-domain";
+NSString * const ENLicenseUnknown = @"unknown";
 
 static NSString *EN_API_KEY = nil;
 
