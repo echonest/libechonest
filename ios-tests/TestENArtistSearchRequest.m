@@ -6,9 +6,8 @@
 //
 
 #import "TestENArtistSearchRequest.h"
-#import "ENAPI.h"
-#import "ENArtistSearchRequest.h"
 #import "tests.h"
+#import "ENAPI.h"
 
 // TODO: [alg] We need to exercise this more thoroughly here.
 

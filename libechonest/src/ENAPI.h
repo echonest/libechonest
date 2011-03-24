@@ -6,6 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ENAPI_utils.h"
+#import "ENAPIRequest.h"
+#import "ENAPIPostRequest.h"
+#import "ENArtistSearchRequest.h"
+#import "NSData+MD5.h"
+#import "NSMutableDictionary+QueryString.h"
 
 extern NSString * const ENLicenseEchoSource;
 extern NSString * const ENLicenseAllRightsReserved;

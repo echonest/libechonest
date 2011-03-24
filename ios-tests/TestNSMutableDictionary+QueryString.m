@@ -6,7 +6,6 @@
 //
 
 #import "TestNSMutableDictionary+QueryString.h"
-#import "NSMutableDictionary+QueryString.h"
 #import "ENAPI.h"
 
 @implementation TestNSMutableDictionary_QueryString

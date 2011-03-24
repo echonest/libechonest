@@ -30,7 +30,7 @@
     // we need the md5 of the file
     NSData *fileData = [NSData dataWithContentsOfFile:filePath];
     NSString *md5 = [fileData MD5];
-    return [ENAPIPostRequest trackAnalyzeRequestWithId:md5];
+    return [ENAPIPostRequest trackAnalyzeRequestWithMD5:md5];
 }
 
 + (ENAPIPostRequest *)trackAnalyzeRequestWithId:(NSString *)trackid {
@@ -42,6 +42,20 @@
     request.postFormat = ASIMultipartFormDataPostFormat;
     [request setPostValue:[ENAPI apiKey] forKey:@"api_key"];
     [request setPostValue:trackid forKey:@"id"];
+    request.uploadProgressDelegate = self;
+    request.timeOutSeconds = 180;
+    return request;    
+}
+
++ (ENAPIPostRequest *)trackAnalyzeRequestWithMD5:(NSString *)md5 {
+    CHECK_API_KEY
+    NSString *urlString = [NSString stringWithFormat:@"%@track/analyze", ECHONEST_API_URL];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    ENAPIPostRequest *request = [ENAPIPostRequest requestWithURL:url];
+    request.postFormat = ASIMultipartFormDataPostFormat;
+    [request setPostValue:[ENAPI apiKey] forKey:@"api_key"];
+    [request setPostValue:md5 forKey:@"md5"];
     request.uploadProgressDelegate = self;
     request.timeOutSeconds = 180;
     return request;    

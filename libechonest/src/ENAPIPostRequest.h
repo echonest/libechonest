@@ -17,7 +17,9 @@
 
 + (ENAPIPostRequest *)trackAnalyzeRequestWithFile:(NSString *)filePath;
 
-+ (ENAPIPostRequest *)trackAnalyzeRequestWithId:(NSString *)idOrMd5;
++ (ENAPIPostRequest *)trackAnalyzeRequestWithId:(NSString *)trackid;
+
++ (ENAPIPostRequest *)trackAnalyzeRequestWithMD5:(NSString *)md5;
 
 - (NSDictionary *)results;
 

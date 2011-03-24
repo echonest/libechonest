@@ -6,9 +6,7 @@
 //
 
 #import "tests.h"
-#import "ENAPIRequest.h"
 #import "ENAPI.h"
-#import "ENAPI_utils.h"
 
 @implementation ios_tests
 
