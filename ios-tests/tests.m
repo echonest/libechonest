@@ -26,7 +26,7 @@
     // this is kinda lame -- what we really want to test here is what happens if the
     // api key is *never* set.
     [ENAPI initWithApiKey:nil];
-    STAssertThrows([ENAPIRequest artistAudioWithName:@"Radiohead" params:nil], @"No API Key set - Method should throw");
+    STAssertThrows([ENAPIRequest artistAudioWithName:@"Radiohead" params:[ENParamDictionary paramDictionary]], @"No API Key set - Method should throw");
 }
 
 - (void)testArtistAudio {
@@ -144,7 +144,9 @@
 - (void)testArtistImages {
     [ENAPI initWithApiKey:TEST_API_KEY];
     NSString *searchArtist = @"Amanda Palmer";
-    ENAPIRequest *request = [ENAPIRequest artistImagesWithName:searchArtist count:10 start:0 licenses:nil];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    params.results = 10;
+    ENAPIRequest *request = [ENAPIRequest artistImagesWithName:searchArtist params:params];
     STAssertNotNil(request, @"artistImagesWithName returned nil");
     [request startSynchronous];
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
@@ -157,7 +159,9 @@
 - (void)testArtistNews {
     [ENAPI initWithApiKey:TEST_API_KEY];
     NSString *searchArtist = @"The New Pornographers";
-    ENAPIRequest *request = [ENAPIRequest artistNewsWithName:searchArtist count:30 start:0 highRelevance:NO];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    params.results = 30;
+    ENAPIRequest *request = [ENAPIRequest artistNewsWithName:searchArtist params:params];
     STAssertNotNil(request, @"artistNewsWithName returned nil");
     [request startSynchronous];
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
@@ -170,7 +174,8 @@
 - (void)testArtistProfile {
     [ENAPI initWithApiKey:TEST_API_KEY];
     NSString *searchArtist = @"RJD2";
-    ENAPIRequest *request = [ENAPIRequest artistProfileWithName:searchArtist buckets:nil];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    ENAPIRequest *request = [ENAPIRequest artistProfileWithName:searchArtist params:params];
     STAssertNotNil(request, @"artistProfileWithName returned nil");
     [request startSynchronous];
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
@@ -184,8 +189,9 @@
 - (void)testArtistProfileWithBuckets {
     [ENAPI initWithApiKey:TEST_API_KEY];
     NSString *searchArtist = @"RJD2";
-    NSArray *buckets = [NSArray arrayWithObjects:@"blogs", @"images", nil];
-    ENAPIRequest *request = [ENAPIRequest artistProfileWithName:searchArtist buckets:buckets];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    params.buckets = [NSArray arrayWithObjects:@"blogs", @"images", nil];
+    ENAPIRequest *request = [ENAPIRequest artistProfileWithName:searchArtist params:params];
     STAssertNotNil(request, @"artistProfileWithName returned nil");
     [request startSynchronous];
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
@@ -203,7 +209,9 @@
 - (void)testArtistReviews {
     [ENAPI initWithApiKey:TEST_API_KEY];
     NSString *searchArtist = @"Blockhead";
-    ENAPIRequest *request = [ENAPIRequest artistReviewsWithName:searchArtist count:15 start:0];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    params.results = 15;
+    ENAPIRequest *request = [ENAPIRequest artistReviewsWithName:searchArtist params:params];
     STAssertNotNil(request, @"artistReviewsWithName returned nil");
     [request startSynchronous];
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
@@ -216,7 +224,9 @@
 - (void)testArtistSongsWithName {
     [ENAPI initWithApiKey:TEST_API_KEY];
     NSString *searchArtist = @"Blockhead";
-    ENAPIRequest *request = [ENAPIRequest artistSongsWithName:searchArtist count:15 start:0];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    params.results = 15;
+    ENAPIRequest *request = [ENAPIRequest artistSongsWithName:searchArtist params:params];
     STAssertNotNil(request, @"artistSongsWithName returned nil");
     [request startSynchronous];
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
@@ -229,7 +239,9 @@
 - (void)testArtistSongsWithID {
     [ENAPI initWithApiKey:TEST_API_KEY];
     NSString *searchArtist = @"ARF8HTQ1187B9AE693";
-    ENAPIRequest *request = [ENAPIRequest artistSongsWithID:searchArtist count:15 start:0];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    params.results = 15;
+    ENAPIRequest *request = [ENAPIRequest artistSongsWithID:searchArtist params:params];
     STAssertNotNil(request, @"artistSongsWithName returned nil");
     [request startSynchronous];
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
@@ -241,15 +253,20 @@
 
 - (void)testArtistSearch {
     [ENAPI initWithApiKey:TEST_API_KEY];
-    NSString *searchArtist = @"Blockhead";
-    ENAPIRequest *request = [ENAPIRequest artistReviewsWithName:searchArtist count:15 start:0];
-    STAssertNotNil(request, @"artistReviewsWithName returned nil");
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    //params.name = @"Blockhead";
+    params.descriptions = [NSArray arrayWithObjects:@"mood:chill", @"style:electronic", nil];
+    params.minFamiliarity = 0.5f;
+    params.minHotttnesss = 0.5f;
+    params.fuzzyMatch = YES;
+    ENAPIRequest *request = [ENAPIRequest artistSearchWithParams:params];
+    STAssertNotNil(request, @"artistSearchWithParams returned nil");
     [request startSynchronous];
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSDictionary *response = [request JSONValue];
-    NSArray *reviews = [response valueForKeyPath:@"response.reviews"];
-    STAssertEquals(reviews.count, (NSUInteger)15, @"expected 15 reviews");    
+    NSArray *artists = [response valueForKeyPath:@"response.artists"];
+    STAssertTrue(artists.count > 0, @"Expected artist.count > 0");
 }
 
 @end

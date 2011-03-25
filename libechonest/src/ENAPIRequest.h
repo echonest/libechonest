@@ -74,8 +74,8 @@
  * http://developer.echonest.com/docs/v4/artist.html#images
  *
  */
-+ (ENAPIRequest *)artistImagesWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses;
-+ (ENAPIRequest *)artistImagesWithID:(NSString *)enid count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses;
++ (ENAPIRequest *)artistImagesWithName:(NSString *)name params:(ENParamDictionary *)params;
++ (ENAPIRequest *)artistImagesWithID:(NSString *)enid params:(ENParamDictionary *)params;
 
 /**
  * artist/news
@@ -83,32 +83,39 @@
  * http://developer.echonest.com/docs/v4/artist.html#news
  *
  */
-+ (ENAPIRequest *)artistNewsWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start highRelevance:(BOOL)highRelevance;
-+ (ENAPIRequest *)artistNewsWithID:(NSString *)enid count:(NSInteger)count start:(NSInteger)start highRelevance:(BOOL)highRelevance;
++ (ENAPIRequest *)artistNewsWithName:(NSString *)name params:(ENParamDictionary *)params;
++ (ENAPIRequest *)artistNewsWithID:(NSString *)enid params:(ENParamDictionary *)params;
 
 /**
  * artist/profile
  *
  * http://developer.echonest.com/docs/v4/artist.html#profile
  */
-+ (ENAPIRequest *)artistProfileWithName:(NSString *)name buckets:(NSArray *)buckets;
-+ (ENAPIRequest *)artistProfileWithID:(NSString *)enid buckets:(NSArray *)buckets;
++ (ENAPIRequest *)artistProfileWithName:(NSString *)name params:(ENParamDictionary *)params;
++ (ENAPIRequest *)artistProfileWithID:(NSString *)enid params:(ENParamDictionary *)params;
 
 /**
  * artist/reviews
  *
  * http://developer.echonest.com/docs/v4/artist.html#reviews
  */
-+ (ENAPIRequest *)artistReviewsWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start;
-+ (ENAPIRequest *)artistReviewsWithID:(NSString *)enid count:(NSInteger)count start:(NSInteger)start;
++ (ENAPIRequest *)artistReviewsWithName:(NSString *)name params:(ENParamDictionary *)params;
++ (ENAPIRequest *)artistReviewsWithID:(NSString *)enid params:(ENParamDictionary *)params;
+
+/**
+ * artist/search
+ *
+ * http://developer.echonest.com/docs/v4/artist.html#search
+ */
++ (ENAPIRequest *)artistSearchWithParams:(ENParamDictionary *)params;
 
 /**
  * artist/songs
  *
  * http://developer.echonest.com/docs/v4/artist.html#songs
  */
-+ (ENAPIRequest *)artistSongsWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start;
-+ (ENAPIRequest *)artistSongsWithID:(NSString *)enid count:(NSInteger)count start:(NSInteger)start;
++ (ENAPIRequest *)artistSongsWithName:(NSString *)name params:(ENParamDictionary *)params;
++ (ENAPIRequest *)artistSongsWithID:(NSString *)enid params:(ENParamDictionary *)params;
 
 /**
  * artist/suggest (beta)
