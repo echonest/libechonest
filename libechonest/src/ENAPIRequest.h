@@ -110,6 +110,13 @@
 + (ENAPIRequest *)artistSearchWithParams:(ENParamDictionary *)params;
 
 /**
+ * artist/similar
+ *
+ * http://developer.echonest.com/docs/v4/artist.html#similar
+ */
++ (ENAPIRequest *)artistSimilarWithParams:(ENParamDictionary *)params;
+
+/**
  * artist/songs
  *
  * http://developer.echonest.com/docs/v4/artist.html#songs
@@ -122,7 +129,45 @@
  *
  * http://developer.echonest.com/docs/v4/artist.html#suggest-beta
  */
-+ (ENAPIRequest *)artistSuggestWithString:(NSString *)search count:(NSInteger)count;
++ (ENAPIRequest *)artistSuggestWithString:(NSString *)search params:(ENParamDictionary *)params;
+
+/**
+ * artist/terms
+ *
+ * http://developer.echonest.com/docs/v4/artist.html#terms
+ */
++ (ENAPIRequest *)artistTermsWithName:(NSString *)name params:(ENParamDictionary *)params;
++ (ENAPIRequest *)artistTermsWithID:(NSString *)enid params:(ENParamDictionary *)params;
+
+/**
+ * artist/top_hottt
+ *
+ * http://developer.echonest.com/docs/v4/artist.html#top-hottt
+ */
++ (ENAPIRequest *)artistTopHottWithParams:(ENParamDictionary *)params;
+
+/**
+ * artist/top_terms
+ *
+ * http://developer.echonest.com/docs/v4/artist.html#top-terms
+ */
++ (ENAPIRequest *)artistTopTermsWithParams:(ENParamDictionary *)params;
+
+/**
+ * artist/urls
+ *
+ * http://developer.echonest.com/docs/v4/artist.html#urls
+ */
++ (ENAPIRequest *)artistURLsWithName:(NSString *)name params:(ENParamDictionary *)params;
++ (ENAPIRequest *)artistURLsWithID:(NSString *)enid params:(ENParamDictionary *)params;
+
+/**
+ * artist/video
+ *
+ * http://developer.echonest.com/docs/v4/artist.html#video
+ */
++ (ENAPIRequest *)artistVideoWithName:(NSString *)name params:(ENParamDictionary *)params;
++ (ENAPIRequest *)artistVideoWithID:(NSString *)enid params:(ENParamDictionary *)params;
 
 /**
  * Once the request has returned successfully, call this to get an NSDictionary

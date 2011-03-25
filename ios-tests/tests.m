@@ -254,7 +254,6 @@
 - (void)testArtistSearch {
     [ENAPI initWithApiKey:TEST_API_KEY];
     ENParamDictionary *params = [ENParamDictionary paramDictionary];
-    //params.name = @"Blockhead";
     params.descriptions = [NSArray arrayWithObjects:@"mood:chill", @"style:electronic", nil];
     params.minFamiliarity = 0.5f;
     params.minHotttnesss = 0.5f;
@@ -267,6 +266,81 @@
     NSDictionary *response = [request JSONValue];
     NSArray *artists = [response valueForKeyPath:@"response.artists"];
     STAssertTrue(artists.count > 0, @"Expected artist.count > 0");
+}
+
+- (void)testArtistSimilar {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    params.names = [NSArray arrayWithObjects:@"Radiohead", @"Portishead", nil];
+    ENAPIRequest *request = [ENAPIRequest artistSimilarWithParams:params];
+    STAssertNotNil(request, @"artistSearchWithParams returned nil");
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *response = [request JSONValue];
+    NSArray *artists = [response valueForKeyPath:@"response.artists"];
+    STAssertTrue(artists.count == 15, @"Expected 15 similar artists");
+}
+
+- (void)testArtistTerms {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    params.sort = ENSortWeight;
+    ENAPIRequest *request = [ENAPIRequest artistTermsWithName:@"RJD2" params:params];
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *response = [request JSONValue];
+    NSArray *terms = [response valueForKeyPath:@"response.terms"];
+    STAssertTrue(terms.count > 0, @"Expected at least 1 term");
+}
+
+- (void)testArtistTopHottt {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    ENAPIRequest *request = [ENAPIRequest artistTopHottWithParams:params];
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *response = [request JSONValue];
+    NSArray *artists = [response valueForKeyPath:@"response.artists"];
+    STAssertTrue(artists.count == 15, @"Expected 15 artists");
+}
+
+- (void)testArtistTopTerms {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    ENAPIRequest *request = [ENAPIRequest artistTopTermsWithParams:params];
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *response = [request JSONValue];
+    NSArray *terms = [response valueForKeyPath:@"response.terms"];
+    STAssertTrue(terms.count == 15, @"Expected 15 artists");    
+}
+
+- (void)testArtistURLs {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    ENAPIRequest *request = [ENAPIRequest artistURLsWithName:@"Depeche Mode" params:params];
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *response = [request JSONValue];
+    NSString *itunesURL = [response valueForKeyPath:@"response.urls.itunes_url"];
+    STAssertTrue([itunesURL isEqualToString:@"http://itunes.com/DepecheMode"], @"Expected iTunes URL, got: %@", itunesURL);
+}
+
+- (void)testArtistVideo {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    ENAPIRequest *request = [ENAPIRequest artistVideoWithName:@"Lady Gaga" params:params];
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *response = [request JSONValue];
+    NSArray *videos = [response valueForKeyPath:@"response.video"];
+    STAssertTrue(videos.count == 15, @"Expected 15 videos");
 }
 
 @end

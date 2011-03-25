@@ -62,11 +62,24 @@
 #pragma mark - String Parameter Properties
 
 - (void)setName:(NSString *)name {
+    // check the current value, if we already have an array, add the name to it.
+    if (nil == name)
+        return;
+    NSObject *current = [self.dict valueForKey:@"name"];
+    if (current && [current isKindOfClass:[NSArray class]]) {
+        NSMutableArray *tmp = [NSMutableArray arrayWithArray:(NSArray *)current];
+        [tmp addObject:name];
+        NSArray *array = [NSArray arrayWithArray:tmp];
+        [self setValue:array forKey:@"name"];
+        return;
+    }
     [self setValue:name forKey:@"name"];
 }
 
 - (NSString *)name {
-    return (NSString *)[self valueForKey:@"name"];
+    NSObject *v = [self valueForKey:@"name"];
+    NSAssert([v isKindOfClass:[NSString class]], @"Expected NSString - probably mixing names with name");
+    return (NSString *)v;
 }
 
 - (void)setSort:(NSString *)sort {
@@ -93,6 +106,14 @@
 
 - (NSInteger)start {
     return [self integerValueForKey:@"start"];
+}
+
+- (void)setMinResults:(NSInteger)minResults {
+    [self setIntegerValue:minResults forKey:@"minResults"];
+}
+
+- (NSInteger)minResults {
+    return [self integerValueForKey:@"minResults"];
 }
 
 #pragma mark - Float Parameter Properties
@@ -134,6 +155,7 @@
 - (void)setLicenses:(NSArray *)licenses {
     if (nil == licenses) {
         [self.dict removeObjectForKey:@"license"];
+        return;
     }
     [self.dict setValue:licenses forKey:@"license"];
 }
@@ -145,6 +167,7 @@
 - (void)setBuckets:(NSArray *)buckets {
     if (nil == buckets) {
         [self.dict removeObjectForKey:@"bucket"];
+        return;
     }
     [self.dict setValue:buckets forKey:@"bucket"];
 }
@@ -156,12 +179,61 @@
 - (void)setDescriptions:(NSArray *)descriptions {
     if (nil == descriptions) {
         [self.dict removeObjectForKey:@"description"];
+        return;
     }
     [self.dict setValue:descriptions forKey:@"description"];
 }
 
 - (NSArray *)descriptions {
     return [self.dict valueForKey:@"description"];
+}
+
+- (void)setSeedCatalogs:(NSArray *)seedCatalogs {
+    if (nil == seedCatalogs) {
+        [self.dict removeObjectForKey:@"seed_catalog"];
+        return;
+    }
+    [self.dict setValue:seedCatalogs forKey:@"seed_catalog"];
+}
+
+- (NSArray *)seedCatalogs {
+    return [self.dict valueForKey:@"seed_catalog"];
+}
+
+- (void)setNames:(NSArray *)names {
+    if (nil == names) {
+        [self.dict removeObjectForKey:@"name"];
+        return;
+    }
+    // so if we already have a single name string, add it to the array
+    NSObject *current = [self.dict valueForKey:@"name"];
+    if (current && [current isKindOfClass:[NSString class]]) {
+        NSMutableArray *tmp = [NSMutableArray arrayWithArray:names];
+        [tmp addObject:current];
+        names = [NSArray arrayWithArray:tmp];
+    }
+    [self.dict setValue:names forKey:@"name"];
+}
+
+- (NSArray *)names {
+    NSObject *r = [self.dict valueForKey:@"name"];
+    NSAssert([r isKindOfClass:[NSArray class]], @"expected array");
+    if (![r isKindOfClass:[NSArray class]]) {
+        return nil;
+    }
+    return (NSArray *)r;
+}
+
+- (void)setIDs:(NSArray *)IDs {
+    if (nil == IDs) {
+        [self.dict removeObjectForKey:@"id"];
+        return;
+    }
+    [self.dict setValue:IDs forKey:@"id"];
+}
+
+- (NSArray *)IDs {
+    return [self.dict valueForKey:@"id"];
 }
 
 #pragma mark - BOOL Parameter Properties
@@ -188,6 +260,14 @@
 
 - (BOOL)fuzzyMatch {
     return [self boolValueForKey:@"fuzzy_match"];
+}
+
+- (void)setReverse:(BOOL)reverse {
+    [self setBoolValue:reverse forKey:@"reverse"];
+}
+
+- (BOOL)reverse {
+    return [self boolValueForKey:@"reverse"];
 }
 
 #pragma mark - Private Methods

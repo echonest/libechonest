@@ -24,12 +24,13 @@
 
 
 // string parameters
-@property (retain) NSString * name;
+@property (retain) NSString *name;
 @property (retain) NSString *sort;
 
 // int parameters
 @property (assign) NSInteger results;
 @property (assign) NSInteger start;
+@property (assign) NSInteger minResults;
 
 // float parameters
 @property (assign) float minFamiliarity;
@@ -41,10 +42,14 @@
 @property (retain) NSArray *licenses;
 @property (retain) NSArray *buckets;
 @property (retain) NSArray *descriptions;
+@property (retain) NSArray *seedCatalogs;
+@property (retain) NSArray *names; // for some requests (e.g. artist/similar) we support multiple names
+@property (retain) NSArray *IDs;   // for same requests (e.g. artist/similar) we support multiple ids
 
 // BOOL parameters
 @property (assign) BOOL highRelevance;
 @property (assign) BOOL limit;
 @property (assign) BOOL fuzzyMatch;
+@property (assign) BOOL reverse;
 
 @end

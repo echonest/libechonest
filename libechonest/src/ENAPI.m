@@ -18,6 +18,13 @@ NSString * const ENLicenseCreativeCommonsBy = @"cc-by";
 NSString * const ENLicensePublicDomain = @"public-domain";
 NSString * const ENLicenseUnknown = @"unknown";
 
+NSString * const ENSortFamiliarityAscending = @"familiarity-asc";
+NSString * const ENSortFamiliarityDescending = @"familiarity-desc";
+NSString * const ENSortHotttnesssAscending = @"hotttnesss-asc";
+NSString * const ENSortHotttnesssDescending = @"hotttnesss-desc";
+NSString * const ENSortWeight = @"weight";
+NSString * const ENSortFrequency = @"frequency";
+
 static NSString *EN_API_KEY = nil;
 
 @implementation ENAPI
