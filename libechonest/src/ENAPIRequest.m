@@ -49,46 +49,26 @@ NSMutableDictionary *ENBasicParamDictionary() {
 
 #pragma mark - artist/biographies
 
-+ (ENAPIRequest *)artistBiographiesWithParams:(NSMutableDictionary *)params count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses {
-    if (nil != licenses) {
-        [params setObject:licenses forKey:@"license"];        
-    }
-    [params setObject:[NSNumber numberWithInt:count] forKey:@"results"];
-    [params setObject:[NSNumber numberWithInt:start] forKey:@"start"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/biographies" withParams:params];    
++ (ENAPIRequest *)artistBiographiesWithName:(NSString *)name params:(ENParamDictionary *)params {
+    [params setValue:name forKey:@"name"];
+    return [ENAPIRequest apiGetMethodRequest:@"artist/biographies" withParams:params.dict];
 }
 
-+ (ENAPIRequest *)artistBiographiesWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses {
-    NSMutableDictionary *params = ENBasicParamDictionary();
-    [params setObject:name forKey:@"name"];
-    return [ENAPIRequest artistBiographiesWithParams:params count:count start:start licenses:licenses];
-}
-
-+ (ENAPIRequest *)artistBiographiesWithID:(NSString *)enid count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses {
-    NSMutableDictionary *params = ENBasicParamDictionary();
-    [params setObject:enid forKey:@"id"];
-    return [ENAPIRequest artistBiographiesWithParams:params count:count start:start licenses:licenses];
++ (ENAPIRequest *)artistBiographiesWithID:(NSString *)enid params:(ENParamDictionary *)params {
+    [params setValue:enid forKey:@"id"];
+    return [ENAPIRequest apiGetMethodRequest:@"artist/biographies" withParams:params.dict];
 }
 
 #pragma mark - artist/blogs
 
-+ (ENAPIRequest *)artistBlogsWithParams:(NSMutableDictionary *)params count:(NSInteger)count start:(NSInteger)start highRelevance:(BOOL)relevance {
-    [params setValue:[NSNumber numberWithInt:count] forKey:@"results"];
-    [params setValue:[NSNumber numberWithInt:start] forKey:@"start"];
-    [params setValue:[NSNumber numberWithBool:relevance] forKey:@"high_relevance"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/blogs" withParams:params];    
-}
-
-+ (ENAPIRequest *)artistBlogsWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start highRelevance:(BOOL)relevance {
-    NSMutableDictionary *params = ENBasicParamDictionary();
++ (ENAPIRequest *)artistBlogsWithName:(NSString *)name params:(ENParamDictionary *)params {
     [params setValue:name forKey:@"name"];
-    return [ENAPIRequest artistBlogsWithParams:params count:count start:start highRelevance:relevance];
+    return [ENAPIRequest apiGetMethodRequest:@"artist/blogs" withParams:params.dict];    
 }
 
-+ (ENAPIRequest *)artistBlogsWithID:(NSString *)enid count:(NSInteger)count start:(NSInteger)start highRelevance:(BOOL)relevance {
-    NSMutableDictionary *params = ENBasicParamDictionary();
++ (ENAPIRequest *)artistBlogsWithID:(NSString *)enid params:(ENParamDictionary *)params {
     [params setValue:enid forKey:@"id"];
-    return [ENAPIRequest artistBlogsWithParams:params count:count start:start highRelevance:relevance];    
+    return [ENAPIRequest apiGetMethodRequest:@"artist/blogs" withParams:params.dict];
 }
 
 #pragma mark - artist/familiarity

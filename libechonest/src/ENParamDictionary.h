@@ -19,7 +19,10 @@
 
 @property (readonly) NSMutableDictionary *dict;
 @property (readonly) NSInteger count;
+
 @property (assign) NSInteger results;
 @property (assign) NSInteger start;
+@property (retain) NSArray *licenses;
+@property (assign) BOOL highRelevance;
 
 @end

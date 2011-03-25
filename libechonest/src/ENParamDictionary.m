@@ -13,6 +13,8 @@
 
 - (void)setIntegerValue:(NSInteger)value forKey:(NSString *)key;
 - (NSInteger)integerValueForKey:(NSString *)key;
+- (void)setBoolValue:(BOOL)value forKey:(NSString *)key;
+- (BOOL)boolValueForKey:(NSString *)key;
 
 @end
 
@@ -64,6 +66,22 @@
     return [self integerValueForKey:@"start"];
 }
 
+- (void)setLicenses:(NSArray *)licenses {
+    [self.dict setValue:licenses forKey:@"license"];
+}
+
+- (NSArray *)licenses {
+    return [self.dict valueForKey:@"license"];
+}
+
+- (void)setHighRelevance:(BOOL)highRelevance {
+    [self setBoolValue:highRelevance forKey:@"high_relevance"];
+}
+
+- (BOOL)highRelevance {
+    return [self boolValueForKey:@"high_relevance"];
+}
+
 #pragma mark - Private Methods
 
 - (void)setIntegerValue:(NSInteger)value forKey:(NSString *)key {
@@ -71,12 +89,25 @@
 }
 
 - (NSInteger)integerValueForKey:(NSString *)key {
-    NSNumber *v = [self valueForKey:@"start"];
+    NSNumber *v = [self valueForKey:key];
     NSAssert1(nil != v, @"requested %@ property, but not set on param dictionary", key);
     if (v) {
         return [v integerValue];
     }
     return 0;    
+}
+
+- (void)setBoolValue:(BOOL)value forKey:(NSString *)key {
+    [self setValue:[NSNumber numberWithBool:value] forKey:key];    
+}
+
+- (BOOL)boolValueForKey:(NSString *)key {
+    NSNumber *v = [self valueForKey:key];
+    NSAssert1(nil != v, @"requested %@ property, but not set on param dictionary", key);
+    if (v) {
+        return [v boolValue];
+    }
+    return 0;        
 }
 
 - (NSInteger)count {

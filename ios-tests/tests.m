@@ -26,12 +26,14 @@
     // this is kinda lame -- what we really want to test here is what happens if the
     // api key is *never* set.
     [ENAPI initWithApiKey:nil];
-    STAssertThrows([ENAPIRequest artistAudioWithName:@"Radiohead" count:2 start:0], @"No API Key set - Method should throw");
+    STAssertThrows([ENAPIRequest artistAudioWithName:@"Radiohead" params:nil], @"No API Key set - Method should throw");
 }
 
 - (void)testArtistAudio {
     [ENAPI initWithApiKey:TEST_API_KEY];
-    ENAPIRequest *request = [ENAPIRequest artistAudioWithName:@"Radiohead" count:2 start:0];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    params.results = 2;
+    ENAPIRequest *request = [ENAPIRequest artistAudioWithName:@"Radiohead" params:params];
     STAssertNotNil(request, @"artistAudioWithName returned nil");
     [request startSynchronous];
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
@@ -42,7 +44,9 @@
 
 - (void)testArtistAudioWithID {
     [ENAPI initWithApiKey:TEST_API_KEY];
-    ENAPIRequest *request = [ENAPIRequest artistAudioWithID:@"ARH6W4X1187B99274F" count:2 start:0];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    params.results = 2;
+    ENAPIRequest *request = [ENAPIRequest artistAudioWithID:@"ARH6W4X1187B99274F" params:params];
     STAssertNotNil(request, @"artistAudioWithName returned nil");
     [request startSynchronous];
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
@@ -54,7 +58,10 @@
 - (void)testArtistBiographies {
     [ENAPI initWithApiKey:TEST_API_KEY];
     NSArray *licenses = [NSArray arrayWithObjects:ENLicenseEchoSource, ENLicenseCreativeCommonsBy_SA, nil];
-    ENAPIRequest *request = [ENAPIRequest artistBiographiesWithName:@"LCD Soundsystem" count:1 start:0 licenses:licenses];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    params.results = 1;
+    params.licenses = licenses;
+    ENAPIRequest *request = [ENAPIRequest artistBiographiesWithName:@"LCD Soundsystem" params:params];
     STAssertNotNil(request, @"artistBiographiesWithName returned nil");
     [request startSynchronous];
     STAssertNil(request.error, @"request.error should be nil: %@", request.error);
@@ -66,19 +73,24 @@
 
 - (void)testArtistBiographiesNilLicenses {
     [ENAPI initWithApiKey:TEST_API_KEY];
-    ENAPIRequest *request = [ENAPIRequest artistBiographiesWithName:@"LCD Soundsystem" count:2 start:0 licenses:nil];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    params.results = 5;
+    ENAPIRequest *request = [ENAPIRequest artistBiographiesWithName:@"LCD Soundsystem" params:params];
     STAssertNotNil(request, @"artistBiographiesWithName returned nil");
     [request startSynchronous];
     STAssertNil(request.error, @"request.error should be nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSDictionary *response = [request JSONValue];
     NSArray *biographies = [response valueForKeyPath:@"response.biographies"];
-    STAssertEquals(biographies.count, (NSUInteger)2, @"expected 2 results");    
+    STAssertEquals(biographies.count, (NSUInteger)5, @"expected 5 results");    
 }
 
 - (void)testArtistBlogs {
     [ENAPI initWithApiKey:TEST_API_KEY];
-    ENAPIRequest *request = [ENAPIRequest artistBlogsWithName:@"Daft Punk" count:2 start:0 highRelevance:YES];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    params.results = 2;
+    params.highRelevance = YES;
+    ENAPIRequest *request = [ENAPIRequest artistBlogsWithName:@"Daft Punk" params:params];
     STAssertNotNil(request, @"artistBlogsWithName returned nil");
     [request startSynchronous];
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
@@ -90,7 +102,10 @@
 
 - (void)testArtistBlogsWithID {
     [ENAPI initWithApiKey:TEST_API_KEY];
-    ENAPIRequest *request = [ENAPIRequest artistBlogsWithName:@"ARF8HTQ1187B9AE693" count:2 start:0 highRelevance:YES];
+    ENParamDictionary *params = [ENParamDictionary paramDictionary];
+    params.results = 2;
+    params.highRelevance = YES;
+    ENAPIRequest *request = [ENAPIRequest artistBlogsWithName:@"ARF8HTQ1187B9AE693" params:params];
     STAssertNotNil(request, @"artistBlogsWithName returned nil");
     [request startSynchronous];
     STAssertNil(request.error, @"request.error != nil: %@", request.error);

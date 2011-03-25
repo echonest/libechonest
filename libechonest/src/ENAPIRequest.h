@@ -37,8 +37,8 @@
  * Pass in an array of ENLicense strings to filter on licenses, or nil to return all licenses.
  *
  */
-+ (ENAPIRequest *)artistBiographiesWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses;
-+ (ENAPIRequest *)artistBiographiesWithID:(NSString *)enid count:(NSInteger)count start:(NSInteger)start licenses:(NSArray *)licenses;
++ (ENAPIRequest *)artistBiographiesWithName:(NSString *)name params:(ENParamDictionary *)params;
++ (ENAPIRequest *)artistBiographiesWithID:(NSString *)enid params:(ENParamDictionary *)params;
 
 
 /**
@@ -47,8 +47,8 @@
  * http://developer.echonest.com/docs/v4/artist.html#blogs
  *
  */
-+ (ENAPIRequest *)artistBlogsWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start highRelevance:(BOOL)relevance;
-+ (ENAPIRequest *)artistBlogsWithID:(NSString *)enid count:(NSInteger)count start:(NSInteger)start highRelevance:(BOOL)relevance;
++ (ENAPIRequest *)artistBlogsWithName:(NSString *)name params:(ENParamDictionary *)params;
++ (ENAPIRequest *)artistBlogsWithID:(NSString *)enid params:(ENParamDictionary *)params;
 
 /**
  * artist/familiarity

@@ -77,6 +77,8 @@
 		C8A7D2BF1329E16100FE3F08 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A7D2AC1329E16100FE3F08 /* SBJsonTokeniser.m */; };
 		C8A7D2C01329E16100FE3F08 /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = C8A7D2AD1329E16100FE3F08 /* SBJsonWriter.h */; };
 		C8A7D2C11329E16100FE3F08 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A7D2AE1329E16100FE3F08 /* SBJsonWriter.m */; };
+		C8B675BA133D15F000899B2A /* ENParamDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = C8B675B8133D15F000899B2A /* ENParamDictionary.h */; };
+		C8B675BB133D15F000899B2A /* ENParamDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B675B9133D15F000899B2A /* ENParamDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +154,8 @@
 		C8A7D2AC1329E16100FE3F08 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
 		C8A7D2AD1329E16100FE3F08 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		C8A7D2AE1329E16100FE3F08 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		C8B675B8133D15F000899B2A /* ENParamDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENParamDictionary.h; path = libechonest/src/ENParamDictionary.h; sourceTree = "<group>"; };
+		C8B675B9133D15F000899B2A /* ENParamDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENParamDictionary.m; path = libechonest/src/ENParamDictionary.m; sourceTree = "<group>"; };
 		C8E5C1AE1315C44A005CED21 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C8E5C1B21315C44A005CED21 /* libechonest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libechonest-Prefix.pch"; sourceTree = "<group>"; };
 		C8E5C1B91315C44B005CED21 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -312,6 +316,8 @@
 				C829AD7F13307F5900F195D3 /* NSData+MD5.m */,
 				C88B24471326F33E00FB51FF /* NSMutableDictionary+QueryString.h */,
 				C88B24481326F33E00FB51FF /* NSMutableDictionary+QueryString.m */,
+				C8B675B8133D15F000899B2A /* ENParamDictionary.h */,
+				C8B675B9133D15F000899B2A /* ENParamDictionary.m */,
 				C80FE0761326E57900A5D803 /* libs */,
 				C8E5C1B01315C44A005CED21 /* libechonest */,
 				C869523F1329D783005F6CF5 /* tests */,
@@ -396,6 +402,7 @@
 				C829AD78133066D600F195D3 /* ENAPI.h in Headers */,
 				C829AD8013307F5B00F195D3 /* NSData+MD5.h in Headers */,
 				C86320E21337D7FE00E13E37 /* ENArtistSearchRequest.h in Headers */,
+				C8B675BA133D15F000899B2A /* ENParamDictionary.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +525,7 @@
 				C829AD79133066D600F195D3 /* ENAPI.m in Sources */,
 				C829AD8113307F5B00F195D3 /* NSData+MD5.m in Sources */,
 				C86320E31337D7FE00E13E37 /* ENArtistSearchRequest.m in Sources */,
+				C8B675BB133D15F000899B2A /* ENParamDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
