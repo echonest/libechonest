@@ -26,7 +26,6 @@
     NSDictionary *response = [request JSONValue];
     int status_code = [[response valueForKeyPath:@"response.status.code"] intValue];
     STAssertEquals(0, status_code, @"non-zero status code: %d", status_code);
-    NSLog(@"response: %@", response);
 }
 
 @end

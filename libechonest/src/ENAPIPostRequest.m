@@ -68,6 +68,5 @@
 #pragma mark - ASIProgressDelegate
 
 - (void)request:(ASIHTTPRequest *)request didSendBytes:(long long)bytes {
-    NSLog(@"%llu", bytes);
 }
 @end

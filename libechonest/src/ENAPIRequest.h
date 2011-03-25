@@ -102,6 +102,14 @@
 + (ENAPIRequest *)artistReviewsWithID:(NSString *)enid count:(NSInteger)count start:(NSInteger)start;
 
 /**
+ * artist/songs
+ *
+ * http://developer.echonest.com/docs/v4/artist.html#songs
+ */
++ (ENAPIRequest *)artistSongsWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start;
++ (ENAPIRequest *)artistSongsWithID:(NSString *)enid count:(NSInteger)count start:(NSInteger)start;
+
+/**
  * artist/suggest (beta)
  *
  * http://developer.echonest.com/docs/v4/artist.html#suggest-beta

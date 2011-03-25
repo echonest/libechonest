@@ -194,7 +194,7 @@ NSMutableDictionary *ENBasicParamDictionary() {
 + (ENAPIRequest *)artistReviewsWithParams:(NSMutableDictionary *)params count:(NSInteger)count start:(NSInteger)start {
     [params setValue:[NSNumber numberWithInt:count] forKey:@"results"];
     [params setValue:[NSNumber numberWithInt:start] forKey:@"start"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/reviews" withParams:params];
+    return [ENAPIRequest apiGetMethodRequest:@"artist/reviews" withParams:params];    
 }
 
 + (ENAPIRequest *)artistReviewsWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start {
@@ -207,6 +207,24 @@ NSMutableDictionary *ENBasicParamDictionary() {
     NSMutableDictionary *params = ENBasicParamDictionary();
     [params setValue:enid forKey:@"id"];
     return [self artistReviewsWithParams: params count: count start: start];    
+}
+
++ (ENAPIRequest *)artistSongsWithParams:(NSMutableDictionary *)params count:(NSInteger)count start:(NSInteger)start {
+    [params setValue:[NSNumber numberWithInt:count] forKey:@"results"];
+    [params setValue:[NSNumber numberWithInt:start] forKey:@"start"];
+    return [ENAPIRequest apiGetMethodRequest:@"artist/songs" withParams:params];
+}
+
++ (ENAPIRequest *)artistSongsWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start {
+    NSMutableDictionary *params = ENBasicParamDictionary();
+    [params setValue:name forKey:@"name"];
+    return [ENAPIRequest artistSongsWithParams:params count:count start:start];
+}
+
++ (ENAPIRequest *)artistSongsWithID:(NSString *)enid count:(NSInteger)count start:(NSInteger)start {
+    NSMutableDictionary *params = ENBasicParamDictionary();
+    [params setValue:enid forKey:@"id"];
+    return [ENAPIRequest artistSongsWithParams:params count:count start:start];    
 }
 
 #pragma mark - artist/suggest

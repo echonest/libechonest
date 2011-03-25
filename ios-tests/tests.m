@@ -42,7 +42,7 @@
 
 - (void)testArtistAudioWithID {
     [ENAPI initWithApiKey:TEST_API_KEY];
-    ENAPIRequest *request = [ENAPIRequest artistAudioWithName:@"ARH6W4X1187B99274F" count:2 start:0];
+    ENAPIRequest *request = [ENAPIRequest artistAudioWithID:@"ARH6W4X1187B99274F" count:2 start:0];
     STAssertNotNil(request, @"artistAudioWithName returned nil");
     [request startSynchronous];
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
@@ -54,14 +54,14 @@
 - (void)testArtistBiographies {
     [ENAPI initWithApiKey:TEST_API_KEY];
     NSArray *licenses = [NSArray arrayWithObjects:ENLicenseEchoSource, ENLicenseCreativeCommonsBy_SA, nil];
-    ENAPIRequest *request = [ENAPIRequest artistBiographiesWithName:@"LCD Soundsystem" count:2 start:0 licenses:licenses];
+    ENAPIRequest *request = [ENAPIRequest artistBiographiesWithName:@"LCD Soundsystem" count:1 start:0 licenses:licenses];
     STAssertNotNil(request, @"artistBiographiesWithName returned nil");
     [request startSynchronous];
     STAssertNil(request.error, @"request.error should be nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSDictionary *response = [request JSONValue];
     NSArray *biographies = [response valueForKeyPath:@"response.biographies"];
-    STAssertEquals(biographies.count, (NSUInteger)2, @"expected 2 results");
+    STAssertEquals(biographies.count, (NSUInteger)1, @"expected 1 results");
 }
 
 - (void)testArtistBiographiesNilLicenses {
@@ -196,6 +196,32 @@
     NSDictionary *response = [request JSONValue];
     NSArray *reviews = [response valueForKeyPath:@"response.reviews"];
     STAssertEquals(reviews.count, (NSUInteger)15, @"expected 15 reviews");
+}
+
+- (void)testArtistSongsWithName {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    NSString *searchArtist = @"Blockhead";
+    ENAPIRequest *request = [ENAPIRequest artistSongsWithName:searchArtist count:15 start:0];
+    STAssertNotNil(request, @"artistSongsWithName returned nil");
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *response = [request JSONValue];
+    NSArray *reviews = [response valueForKeyPath:@"response.songs"];
+    STAssertEquals(reviews.count, (NSUInteger)15, @"expected 15 songs");
+}
+
+- (void)testArtistSongsWithID {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    NSString *searchArtist = @"ARF8HTQ1187B9AE693";
+    ENAPIRequest *request = [ENAPIRequest artistSongsWithID:searchArtist count:15 start:0];
+    STAssertNotNil(request, @"artistSongsWithName returned nil");
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *response = [request JSONValue];
+    NSArray *reviews = [response valueForKeyPath:@"response.songs"];
+    STAssertEquals(reviews.count, (NSUInteger)15, @"expected 15 songs");
 }
 
 - (void)testArtistSearch {
