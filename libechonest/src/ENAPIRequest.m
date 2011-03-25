@@ -37,16 +37,14 @@ NSMutableDictionary *ENBasicParamDictionary() {
     return [ENAPIRequest apiGetMethodRequest:@"artist/audio" withParams:params];    
 }
 
-+ (ENAPIRequest *)artistAudioWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start {
-    NSMutableDictionary *params = ENBasicParamDictionary();
-    [params setObject:name forKey:@"name"];
-    return [ENAPIRequest artistAudioWithParams:params count:count start:start];
++ (ENAPIRequest *)artistAudioWithName:(NSString *)name params:(ENParamDictionary *)params {
+    [params setValue:name forKey:@"name"];
+    return [ENAPIRequest apiGetMethodRequest:@"artist/audio" withParams:params.dict];    
 }
 
-+ (ENAPIRequest *)artistAudioWithID:(NSString *)enid count:(NSInteger)count start:(NSInteger)start {
-    NSMutableDictionary *params = ENBasicParamDictionary();
-    [params setObject:enid forKey:@"id"];
-    return [ENAPIRequest artistAudioWithParams:params count:count start:start];
++ (ENAPIRequest *)artistAudioWithID:(NSString *)enid params:(ENParamDictionary *)params {
+    [params setValue:enid forKey:@"id"];
+    return [ENAPIRequest apiGetMethodRequest:@"artist/audio" withParams:params.dict];    
 }
 
 #pragma mark - artist/biographies

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "asi-http-request/ASIHTTPRequest.h"
+#import "ENParamDictionary.h"
 
 @interface ENAPIRequest : ASIHTTPRequest {
 
@@ -25,8 +26,8 @@
  * http://developer.echonest.com/docs/v4/artist.html#audio
  *
  */
-+ (ENAPIRequest *)artistAudioWithName:(NSString *)name count:(NSInteger)count start:(NSInteger)start;
-+ (ENAPIRequest *)artistAudioWithID:(NSString *)enid count:(NSInteger)count start:(NSInteger)start;
++ (ENAPIRequest *)artistAudioWithName:(NSString *)name params:(ENParamDictionary *)params;
++ (ENAPIRequest *)artistAudioWithID:(NSString *)enid params:(ENParamDictionary *)params;
 
 /**
  * artist/biographies

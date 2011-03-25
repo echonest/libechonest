@@ -12,6 +12,7 @@
 #import "ENArtistSearchRequest.h"
 #import "NSData+MD5.h"
 #import "NSMutableDictionary+QueryString.h"
+#import "ENParamDictionary.h"
 
 extern NSString * const ENLicenseEchoSource;
 extern NSString * const ENLicenseAllRightsReserved;
