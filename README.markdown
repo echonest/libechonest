@@ -20,8 +20,13 @@ __NOTE__: You *must* specify `-Objc` in your project's "Additional Linker Flags"
     [request setValue:@"Radiohead" forParameter:@"name"]; // name=Radiohead
     [request setIntegerValue:15 forParameter:@"results"]; // results=15
     [request startAsynchronous];
-    NSAssert1(200 == request.responseStatusCode, @"Expected 200 OK, Got: %d", request.responseStatusCode);
-    NSArray *audio = [request.response valueForKeyPath:@"response.audio"];
+
+    ...
+
+    - (void)requestFinished:(ENAPIRequest *)request {
+        NSAssert1(200 == request.responseStatusCode, @"Expected 200 OK, Got: %d", request.responseStatusCode);
+        NSArray *audio = [request.response valueForKeyPath:@"response.audio"];
+    }
 
     ...
 
