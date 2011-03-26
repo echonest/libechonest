@@ -33,9 +33,16 @@
 - (void)setFloatValue:(float)value forParameter:(NSString *)param;
 - (void)setBoolValue:(BOOL)value forParameter:(NSString *)param;
 
+/**
+ * Call this after calling startSynchronous/startAsynchronous to cancel the
+ * request.
+ */
+- (void)cancel;
+
 @property (assign) id<ENAPIRequestDelegate> delegate;
 @property (readonly) NSDictionary *response;
 @property (readonly) NSInteger responseStatusCode;
 @property (readonly) NSError *error;
+@property (readonly) BOOL complete;
 
 @end

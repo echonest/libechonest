@@ -79,13 +79,22 @@
     [self.params setValue:[NSNumber numberWithBool:value] forKey:param];
 }
 
+- (void)cancel {
+    [self.request clearDelegatesAndCancel];
+}
+
+- (BOOL)complete {
+    return self.request.complete;
+}
+
 #pragma mark - Properties
 
 - (NSDictionary *)response {
-    if (nil == self._responseDict) {
-        self._responseDict = [self.request.responseString JSONValue];
+    if (nil == _responseDict) {
+        NSDictionary *dict = [self.request.responseString JSONValue];
+        _responseDict = [dict retain];
     }
-    return self._responseDict;
+    return _responseDict;
 }
 
 - (NSInteger) responseStatusCode {
