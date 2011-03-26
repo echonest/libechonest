@@ -306,4 +306,78 @@
     STAssertTrue(videos.count == 15, @"Expected 15 videos");
 }
 
+- (void)testSongSearch {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    ENAPIRequest *request = [ENAPIRequest requestWithEndpoint:@"song/search"];
+    [request setValue:@"Down with Hot Chip" forParameter:@"combined"];
+    [request setIntegerValue:8 forParameter:@"results"];
+    [request setFloatValue:0.9f forParameter:@"max_danceability"];
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSArray *songs = [request.response valueForKeyPath:@"response.songs"];
+    STAssertTrue(songs.count == 8, @"Expected 8 songs");
+}
+
+- (void)testSongSearchBPM {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    ENAPIRequest *request = [ENAPIRequest requestWithEndpoint:@"song/search"];
+    [request setIntegerValue:25 forParameter:@"results"];
+    [request setFloatValue:95.f forParameter:@"max_tempo"];
+    [request setFloatValue:95.f forParameter:@"min_tempo"];
+    [request setFloatValue:0.5f forParameter:@"artist_min_familiarity"];
+    [request setValue:[NSArray arrayWithObjects:@"style:hip-hop", @"mood:aggressive", nil] forParameter:@"description"];
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSArray *songs = [request.response valueForKeyPath:@"response.songs"];
+    STAssertTrue(songs.count == 25, @"Expected 50 songs");    
+}
+
+- (void)testSongProfile {
+    // first find 25 songs
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    ENAPIRequest *request = [ENAPIRequest requestWithEndpoint:@"song/search"];
+    [request setIntegerValue:25 forParameter:@"results"];
+    [request setFloatValue:95.f forParameter:@"max_tempo"];
+    [request setFloatValue:95.f forParameter:@"min_tempo"];
+    [request setFloatValue:0.5f forParameter:@"artist_min_familiarity"];
+    [request setValue:[NSArray arrayWithObjects:@"style:indie", @"mood:pensive", nil] forParameter:@"description"];
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSArray *songs = [request.response valueForKeyPath:@"response.songs"];
+    STAssertTrue(songs.count == 25, @"Expected 8 songs");
+    NSMutableArray *ids = [NSMutableArray arrayWithCapacity:25];
+    for (NSDictionary *song in songs) {
+        [ids addObject:[song valueForKey:@"id"]];
+    }
+    
+    request = [ENAPIRequest requestWithEndpoint:@"song/profile"];
+    [request setValue:ids forParameter:@"id"];
+    [request setValue:@"audio_summary" forParameter:@"bucket"];
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    songs = [request.response valueForKeyPath:@"response.songs"];
+    STAssertTrue(songs.count == 25, @"Expected 25 profile results");
+}
+
+- (void)testTrackProfile {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    
+    NSBundle *bundle = [NSBundle bundleWithIdentifier:@"com.echonest.libechonest.tests"];
+    NSString *testMp3Path = [[bundle URLForResource:@"test" withExtension:@"mp3"] path];
+    NSData *data = [NSData dataWithContentsOfFile:testMp3Path];
+    NSString *md5 = [data MD5];
+    ENAPIRequest *request = [ENAPIRequest requestWithEndpoint:@"track/profile"];
+    [request setValue:md5 forParameter:@"md5"];
+    [request setValue:@"audio_summary" forParameter:@"bucket"];
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSDictionary *track = [request.response valueForKeyPath:@"response.track"];
+    STAssertTrue([[track valueForKey:@"artist"] isEqualToString:@"Tycho"], @"Expected matching artist");
+    
+}
 @end
