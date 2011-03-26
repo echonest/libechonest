@@ -7,7 +7,6 @@
 
 #import "NSMutableDictionary+QueryString.h"
 #import "NSData+MD5.h"
-#import "NSObject+JSON.h"
 #import "ENAPI.h"
 
 #define CHECK_API_KEY if (nil == [ENAPI apiKey]) { @throw [NSException exceptionWithName:@"APIKeyNotSetException" reason:@"Set the API key before calling this method" userInfo:nil]; }

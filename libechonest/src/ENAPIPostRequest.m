@@ -8,6 +8,7 @@
 #import "ENAPIPostRequest.h"
 #import "ENAPI.h"
 #import "ENAPI_utils.h"
+#import "NSObject+JSON.h"
 
 @implementation ENAPIPostRequest
 

@@ -90,6 +90,38 @@
     return [self valueForKey:@"sort"];
 }
 
+- (void)setTitle:(NSString *)title {
+    [self setValue:title forKey:@"title"];
+}
+
+- (NSString *)title {
+    return [self valueForKey:@"title"];
+}
+
+- (void)setArtist:(NSString *)artist {
+    [self setValue:artist forKey:@"artist"];
+}
+
+- (NSString *)artist {
+    return [self valueForKey:@"artist"];
+}
+
+- (void)setCombined:(NSString *)combined {
+    [self setValue:combined forKey:@"combined"];
+}
+
+- (NSString *)combined {
+    return [self valueForKey:@"combined"];
+}
+
+- (void)setArtist_id:(NSString *)artist_id {
+    [self setValue:artist_id forKey:@"artist_id"];
+}
+
+- (NSString *)artist_id {
+    return [self valueForKey:@"artist_id"];
+}
+
 #pragma mark - Integer Parameter Properties
 
 - (void)setResults:(NSInteger)results {
@@ -148,6 +180,54 @@
 
 - (float)maxHotttnesss {
     return [self floatValueForKey:@"max_hotttnesss"];
+}
+
+- (void)setMinTempo:(float)minTempo {
+    [self setFloatValue:minTempo forKey:@"min_tempo"];
+}
+
+- (float)minTempo {
+    return [self floatValueForKey:@"min_tempo"];
+}
+
+- (void)setMaxTempo:(float)maxTempo {
+    [self setFloatValue:maxTempo forKey:@"max_tempo"];
+}
+
+- (float)maxTempo {
+    return [self floatValueForKey:@"max_tempo"];
+}
+
+- (void)setMinDuration:(float)minDuration {
+    [self setFloatValue:minDuration forKey:@"min_duration"];
+}
+
+- (float)minDuration {
+    return [self floatValueForKey:@"min_duration"];
+}
+
+- (void)setMaxDuration:(float)maxDuration {
+    [self setFloatValue:maxDuration forKey:@"max_duration"];
+}
+
+- (float)maxDuration {
+    return [self floatValueForKey:@"max_duration"];
+}
+
+- (void)setMinLoudness:(float)minLoudness {
+    [self setFloatValue:minLoudness forKey:@"min_loudness"];
+}
+
+- (float)minLoudness {
+    return [self floatValueForKey:@"min_loudness"];
+}
+
+- (void)setMaxLoudness:(float)maxLoudness {
+    [self setFloatValue:maxLoudness forKey:@"max_loudness"];
+}
+
+- (float)maxLoudness {
+    return [self floatValueForKey:@"max_loudness"];
 }
 
 #pragma mark - Multiple Parameter Properties

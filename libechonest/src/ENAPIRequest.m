@@ -9,14 +9,7 @@
 
 #import "ENAPI_utils.h"
 #import "ENAPI.h"
-
-NSMutableDictionary *ENBasicParamDictionary() {
-    CHECK_API_KEY
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:3];
-    [params setValue:[ENAPI apiKey] forKey:@"api_key"];
-    [params setValue:@"json" forKey:@"format"];
-    return params;
-}
+#import "NSObject+JSON.h"
 
 @implementation ENAPIRequest
 
