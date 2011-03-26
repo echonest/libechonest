@@ -10,219 +10,111 @@
 #import "ENAPI_utils.h"
 #import "ENAPI.h"
 #import "NSObject+JSON.h"
+#import "asi-http-request/ASIHTTPRequest.h"
+
+@interface ENAPIRequest()
+
+- (NSString *)_constructURL;
+
+@property (retain) ASIHTTPRequest *request;
+@property (retain) NSMutableDictionary *params;
+@property (retain) NSString *endpoint;
+@property (retain) NSDictionary *_responseDict;
+
+@end
 
 @implementation ENAPIRequest
+@synthesize delegate, response, _responseDict;
+@synthesize request, endpoint, params;
 
-+ (ENAPIRequest *)apiGetMethodRequest:(NSString *)method withParams:(NSMutableDictionary *)params {
-    NSString *urlString = [NSString stringWithFormat:@"%@%@?%@", 
-             ECHONEST_API_URL, 
-             method, 
-             [params queryString]];
-    NSURL *url = [NSURL URLWithString:urlString];
-    return [super requestWithURL:url];
++ (ENAPIRequest *)requestWithEndpoint:(NSString *)endpoint_ {
+    return [[[ENAPIRequest alloc] initWithEndpoint:endpoint_] autorelease];
 }
 
-#pragma mark - artist/audio
-
-+ (ENAPIRequest *)artistAudioWithParams:(NSMutableDictionary *)params count:(NSInteger)count start:(NSInteger)start {
-    [params setObject:[NSNumber numberWithInt:count] forKey:@"results"];
-    [params setObject:[NSNumber numberWithInt:start] forKey:@"start"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/audio" withParams:params];    
+- (ENAPIRequest *)initWithEndpoint:(NSString *)endpoint_ {
+    self = [super init];
+    if (self) {
+        CHECK_API_KEY
+        self.endpoint = endpoint_;
+        self.params = [NSMutableDictionary dictionaryWithCapacity:4];
+        [self.params setValue:[ENAPI apiKey] forKey:@"api_key"];
+        [self.params setValue:@"json" forKey:@"format"];
+    }
+    return self;
 }
 
-+ (ENAPIRequest *)artistAudioWithName:(NSString *)name params:(ENParamDictionary *)params {
-    [params setValue:name forKey:@"name"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/audio" withParams:params.dict];    
+- (void)dealloc {
+    [params release];
+    [request release];
+    [_responseDict release];
+    [endpoint release];
+    [super dealloc];
 }
 
-+ (ENAPIRequest *)artistAudioWithID:(NSString *)enid params:(ENParamDictionary *)params {
-    [params setValue:enid forKey:@"id"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/audio" withParams:params.dict];    
+- (void)startSynchronous {
+    self.request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[self _constructURL]]];
+    self.request.delegate = self;
+    [self.request startSynchronous];
 }
 
-#pragma mark - artist/biographies
-
-+ (ENAPIRequest *)artistBiographiesWithName:(NSString *)name params:(ENParamDictionary *)params {
-    [params setValue:name forKey:@"name"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/biographies" withParams:params.dict];
+- (void)startAsynchronous {
+    self.request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[self _constructURL]]];
+    self.request.delegate = self;
+    [self.request startAsynchronous];
 }
 
-+ (ENAPIRequest *)artistBiographiesWithID:(NSString *)enid params:(ENParamDictionary *)params {
-    [params setValue:enid forKey:@"id"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/biographies" withParams:params.dict];
+- (void)setValue:(id)value forParameter:(NSString *)param {
+    [self.params setValue:value forKey:param];
 }
 
-#pragma mark - artist/blogs
-
-+ (ENAPIRequest *)artistBlogsWithName:(NSString *)name params:(ENParamDictionary *)params {
-    [params setValue:name forKey:@"name"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/blogs" withParams:params.dict];    
+- (void)setIntegerValue:(NSInteger)value forParameter:(NSString *)param {
+    [self.params setValue:[NSNumber numberWithInteger:value] forKey:param];
 }
 
-+ (ENAPIRequest *)artistBlogsWithID:(NSString *)enid params:(ENParamDictionary *)params {
-    [params setValue:enid forKey:@"id"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/blogs" withParams:params.dict];
+- (void)setFloatValue:(float)value forParameter:(NSString *)param {
+    [self.params setValue:[NSNumber numberWithFloat:value] forKey:param];
 }
 
-#pragma mark - artist/familiarity
-
-+ (ENAPIRequest *)artistFamiliarityWithName:(NSString *)name {
-    ENParamDictionary *params = [ENParamDictionary paramDictionary];
-    [params setValue:name forKey:@"name"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/familiarity" withParams:params.dict];
+- (void)setBoolValue:(BOOL)value forParameter:(NSString *)param {
+    [self.params setValue:[NSNumber numberWithBool:value] forKey:param];
 }
 
-+ (ENAPIRequest *)artistFamiliarityWithID:(NSString *)enid {
-    ENParamDictionary *params = [ENParamDictionary paramDictionary];
-    [params setValue:enid forKey:@"id"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/familiarity" withParams:params.dict];
+#pragma mark - Properties
+
+- (NSDictionary *)response {
+    if (nil == self._responseDict) {
+        self._responseDict = [self.request.responseString JSONValue];
+    }
+    return self._responseDict;
 }
 
-#pragma mark - artist/hotttnesss
-
-+ (ENAPIRequest *)artistHotttnesssWithName:(NSString *)name {
-    ENParamDictionary *params = [ENParamDictionary paramDictionary];
-    [params setValue:name forKey:@"name"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/hotttnesss" withParams:params.dict];    
+- (NSInteger) responseStatusCode {
+    return self.request.responseStatusCode;
 }
 
-+ (ENAPIRequest *)artistHotttnesssWithID:(NSString *)enid {
-    ENParamDictionary *params = [ENParamDictionary paramDictionary];
-    [params setValue:enid forKey:@"id"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/hotttnesss" withParams:params.dict];
+- (NSError *)error {
+    return self.request.error;
 }
 
-#pragma mark - artist/images
+#pragma mark - ASIHTTPRequestDelegate Methods
 
-+ (ENAPIRequest *)artistImagesWithName:(NSString *)name params:(ENParamDictionary *)params {
-    [params setValue:name forKey:@"name"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/images" withParams:params.dict];
+- (void)requestFinished:(ASIHTTPRequest *)request {
+    if ([delegate respondsToSelector:@selector(requestFinished:)]) {
+        [delegate requestFinished:self];
+    }
 }
 
-+ (ENAPIRequest *)artistImagesWithID:(NSString *)enid params:(ENParamDictionary *)params {
-    [params setValue:enid forKey:@"id"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/images" withParams:params.dict];
+- (void)requestFailed:(ASIHTTPRequest *)request {
+    if([delegate respondsToSelector:@selector(requestFinished:)]) {
+        [delegate requestFailed:self];
+    }
 }
 
-#pragma  mark - artist/news
+#pragma mark - Private Methods
 
-+ (ENAPIRequest *)artistNewsWithName:(NSString *)name params:(ENParamDictionary *)params {
-    [params setValue:name forKey:@"name"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/news" withParams:params.dict];
+- (NSString *)_constructURL {
+    NSString *ret = [NSString stringWithFormat:@"%@%@?%@", ECHONEST_API_URL, self.endpoint, [self.params queryString]];
+    return ret;
 }
 
-+ (ENAPIRequest *)artistNewsWithID:(NSString *)enid params:(ENParamDictionary *)params {
-    [params setValue:enid forKey:@"id"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/news" withParams:params.dict];
-}
-
-#pragma mark - artist/profile
-
-+ (ENAPIRequest *)artistProfileWithName:(NSString *)name params:(ENParamDictionary *)params {
-    NSAssert(nil != name, @"name parameter cannot be nil");
-    [params setValue:name forKey:@"name"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/profile" withParams:params.dict];
-}
-
-+ (ENAPIRequest *)artistProfileWithID:(NSString *)enid params:(ENParamDictionary *)params; {
-    NSAssert(nil != enid, @"enid parameter cannot be nil");
-    [params setValue:enid forKey:@"id"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/profile" withParams:params.dict];
-}
-
-#pragma mark - artist/reviews
-
-+ (ENAPIRequest *)artistReviewsWithName:(NSString *)name params:(ENParamDictionary *)params {
-    [params setValue:name forKey:@"name"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/reviews" withParams:params.dict];
-}
-
-+ (ENAPIRequest *)artistReviewsWithID:(NSString *)enid params:(ENParamDictionary *)params {
-    [params setValue:enid forKey:@"id"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/reviews" withParams:params.dict];
-}
-
-#pragma - artist/search
-
-+ (ENAPIRequest *)artistSearchWithParams:(ENParamDictionary *)params {
-    return [ENAPIRequest apiGetMethodRequest:@"artist/search" withParams:params.dict];
-}
-
-#pragma - artist/similar
-
-+ (ENAPIRequest *)artistSimilarWithParams:(ENParamDictionary *)params {
-    NSAssert(params.IDs || params.names, @"You need at least IDs or names set for artist/similar");
-    return [ENAPIRequest apiGetMethodRequest:@"artist/similar" withParams:params.dict];
-}
-
-#pragma mark - artist/songs
-
-+ (ENAPIRequest *)artistSongsWithName:(NSString *)name params:(ENParamDictionary *)params {
-    [params setValue:name forKey:@"name"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/songs" withParams:params.dict];
-}
-
-+ (ENAPIRequest *)artistSongsWithID:(NSString *)enid params:(ENParamDictionary *)params {
-    [params setValue:enid forKey:@"id"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/songs" withParams:params.dict];
-}
-
-#pragma mark - artist/suggest
-
-+ (ENAPIRequest *)artistSuggestWithString:(NSString *)search params:(ENParamDictionary *)params {
-    [params setValue:search forKey:@"q"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/suggest" withParams:params.dict];
-}
-
-#pragma mark - artist/terms
-
-+ (ENAPIRequest *)artistTermsWithName:(NSString *)name params:(ENParamDictionary *)params {
-    [params setValue:name forKey:@"name"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/terms" withParams:params.dict];
-}
-
-+ (ENAPIRequest *)artistTermsWithID:(NSString *)enid params:(ENParamDictionary *)params {
-    [params setValue:enid forKey:@"id"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/terms" withParams:params.dict];    
-}
-
-#pragma mark - artist/top_hottt
-
-+ (ENAPIRequest *)artistTopHottWithParams:(ENParamDictionary *)params {
-    return [ENAPIRequest apiGetMethodRequest:@"artist/top_hottt" withParams:params.dict];
-}
-
-#pragma mark - artist/top_terms
-
-+ (ENAPIRequest *)artistTopTermsWithParams:(ENParamDictionary *)params {
-    return [ENAPIRequest apiGetMethodRequest:@"artist/top_terms" withParams:params.dict];
-}
-
-#pragma mark - artist/urls
-
-+ (ENAPIRequest *)artistURLsWithName:(NSString *)name params:(ENParamDictionary *)params {
-    [params setValue:name forKey:@"name"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/urls" withParams:params.dict];
-}
-
-+ (ENAPIRequest *)artistURLsWithID:(NSString *)enid params:(ENParamDictionary *)params {
-    [params setValue:enid forKey:@"id"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/urls" withParams:params.dict]; 
-}
-
-#pragma mark - artist/video
-
-+ (ENAPIRequest *)artistVideoWithName:(NSString *)name params:(ENParamDictionary *)params {
-    [params setValue:name forKey:@"name"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/video" withParams:params.dict];
-}
-
-+ (ENAPIRequest *)artistVideoWithID:(NSString *)enid params:(ENParamDictionary *)params {
-    [params setValue:enid forKey:@"id"];
-    return [ENAPIRequest apiGetMethodRequest:@"artist/video" withParams:params.dict];
-}
-
-- (id)JSONValue {
-    return [self.responseString JSONValue];
-}
 @end
