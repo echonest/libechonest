@@ -380,4 +380,29 @@
     STAssertTrue([[track valueForKey:@"artist"] isEqualToString:@"Tycho"], @"Expected matching artist");
     
 }
+
+- (void)testStaticPlaylist {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    ENAPIRequest *request = [ENAPIRequest requestWithEndpoint:@"playlist/static"];
+    [request setValue:@"artist-description" forParameter:@"type"];
+    [request setValue:@"mood:chill" forParameter:@"description"];
+    [request setFloatValue:95.f forParameter:@"max_tempo"];
+    [request setFloatValue:90.f forParameter:@"min_tempo"];
+    [request setFloatValue:0.7f forParameter:@"artist_min_hotttnesss"];
+    [request setIntegerValue:0 forParameter:@"key"];  // C
+    [request setIntegerValue:0 forParameter:@"mode"]; // minor
+    [request setValue:@"audio_summary" forParameter:@"bucket"];
+    [request startSynchronous];
+    STAssertNil(request.error, @"request.error != nil: %@", request.error);
+    STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSArray *songs = [request.response valueForKeyPath:@"response.songs"];
+    STAssertTrue(songs.count == 15, @"Expected 15 songs in playlist");
+}
+
+- (void)test404 {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    ENAPIRequest *request = [ENAPIRequest requestWithEndpoint:@"foo/bar"];
+    [request startSynchronous];
+    STAssertTrue(request.responseStatusCode == 404, @"Expected 404");
+}
 @end
