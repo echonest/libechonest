@@ -5,11 +5,24 @@
 //  Created by Art Gillespie on 3/15/11. art@tapsquare.com
 //
 
-#import "asi-http-request/ASIFormDataRequest.h"
-#import "asi-http-request/ASIProgressDelegate.h"
 
+#import <Foundation/Foundation.h>
 
-@interface ENAPIPostRequest : ASIFormDataRequest <ASIProgressDelegate> {
+@class ENAPIPostRequest;
+@protocol ENAPIPostRequestDelegate <NSObject>
+@optional
+
+- (void)requestFinished:(ENAPIPostRequest *)request;
+- (void)requestFailed:(ENAPIPostRequest *)request;
+- (void)request:(ENAPIPostRequest *)request progress:(long long)progress;
+
+@end
+
+/**
+ * Implements a multipart/form-data POST request
+ */
+
+@interface ENAPIPostRequest : NSObject  {
     
 }
 
@@ -21,6 +34,31 @@
 
 + (ENAPIPostRequest *)trackAnalyzeRequestWithMD5:(NSString *)md5;
 
-- (NSDictionary *)results;
+/**
+ * Catalog requests.
+ * http://developer.echonest.com/docs/v4/catalog.html#overview
+ */
+
+/**
+ * http://developer.echonest.com/docs/v4/catalog.html#create
+ */
++ (ENAPIPostRequest *)catalogCreateWithName:(NSString *)name type:(NSString *)type;
+
+/**
+ * http://developer.echonest.com/docs/v4/catalog.html#delete
+ */
++ (ENAPIPostRequest *)catalogDeleteWithID:(NSString *)ID;
+
+- (void)setPostValue:(NSObject *)value forKey:(NSString *)key;
+- (void)setFile:(NSString *)path forKey:(NSString *)key;
+- (void)startSynchronous;
+- (void)startAsynchronous;
+
+@property (assign) NSObject *delegate;
+@property (readonly) NSDictionary *response;
+@property (readonly) NSUInteger responseStatusCode;
+@property (readonly) NSUInteger echonestStatusCode;
+@property (readonly) NSString *echonestStatusMessage;
+@property (readonly) NSError *error;
 
 @end

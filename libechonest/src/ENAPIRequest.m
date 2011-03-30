@@ -105,6 +105,14 @@
     return self.request.error;
 }
 
+- (NSUInteger)echonestStatusCode {
+    return [[self.response valueForKeyPath:@"response.status.code"] intValue];
+}
+
+- (NSString *)echonestStatusMessage {
+    return [self.response valueForKeyPath:@"response.status.message"];
+}
+
 #pragma mark - ASIHTTPRequestDelegate Methods
 
 - (void)requestFinished:(ASIHTTPRequest *)request {

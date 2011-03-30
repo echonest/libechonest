@@ -7,14 +7,22 @@
 2. Compile it.
 3. Include the library's headers and link to `libechonest.a`
 
-__NOTE__: You *must* specify `-Objc` in your project's "Additional Linker Flags" settings.
+In addition to linking libechonest.a, your app will need to link to the following frameworks and libraries:
+
+* CFNetwork.framework
+* MediaPlayer.framework
+* MobileCoreServices.framework
+* SystemConfiguration.framework
+* libz.dylib
+
+__NOTE__: You *must* add `-Objc` and `-load_all` to your project's "Additional Linker Flags" settings. (See [Building Objective-C static libraries with categories](http://developer.apple.com/library/mac/#qa/qa1490/_index.html) for why.)
 
 ## Usage
 
     #import <ENAPI.h>
 
     ...
-
+    [ENAPI initWithApiKey:@"YOURAPIKEY"];
     ENAPIRequest *request = [ENAPIRequest requestForEndpoint:@"artist/audio"];
     request.delegate = self;                              // our class impelments ENAPIRequestDelegate
     [request setValue:@"Radiohead" forParameter:@"name"]; // name=Radiohead

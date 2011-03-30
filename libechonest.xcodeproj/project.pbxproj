@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C80D6B9413428B3000C869D5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D6B9313428B3000C869D5 /* MediaPlayer.framework */; };
 		C80FE07A1326E5C800A5D803 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = C80FE0781326E5C800A5D803 /* Reachability.h */; };
 		C80FE07B1326E5C800A5D803 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C80FE0791326E5C800A5D803 /* Reachability.m */; };
+		C815895A13425E5D00238700 /* NSArray+ENAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = C815895813425E5D00238700 /* NSArray+ENAPI.h */; };
+		C815895B13425E5D00238700 /* NSArray+ENAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C815895913425E5D00238700 /* NSArray+ENAPI.m */; };
 		C81C29551326DDBD0048DD51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E5C1AE1315C44A005CED21 /* Foundation.framework */; };
 		C829AD70133062BD00F195D3 /* ENAPIPostRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C829AD6E133062BD00F195D3 /* ENAPIPostRequest.h */; };
 		C829AD71133062BD00F195D3 /* ENAPIPostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C829AD6F133062BD00F195D3 /* ENAPIPostRequest.m */; };
@@ -79,8 +82,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C80D6B9313428B3000C869D5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C80FE0781326E5C800A5D803 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		C80FE0791326E5C800A5D803 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		C815895813425E5D00238700 /* NSArray+ENAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+ENAPI.h"; path = "libechonest/src/NSArray+ENAPI.h"; sourceTree = "<group>"; };
+		C815895913425E5D00238700 /* NSArray+ENAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+ENAPI.m"; path = "libechonest/src/NSArray+ENAPI.m"; sourceTree = "<group>"; };
 		C81C29541326DDBD0048DD51 /* libechonest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libechonest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C829AD6E133062BD00F195D3 /* ENAPIPostRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENAPIPostRequest.h; path = libechonest/src/ENAPIPostRequest.h; sourceTree = "<group>"; };
 		C829AD6F133062BD00F195D3 /* ENAPIPostRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENAPIPostRequest.m; path = libechonest/src/ENAPIPostRequest.m; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 				C869523C1329D783005F6CF5 /* UIKit.framework in Frameworks */,
 				C869523D1329D783005F6CF5 /* Foundation.framework in Frameworks */,
 				C869523E1329D783005F6CF5 /* CoreGraphics.framework in Frameworks */,
+				C80D6B9413428B3000C869D5 /* MediaPlayer.framework in Frameworks */,
 				C89EE1641329D7F4006F9296 /* MobileCoreServices.framework in Frameworks */,
 				C89EE1651329D7F4006F9296 /* CFNetwork.framework in Frameworks */,
 				C89EE1661329D7F4006F9296 /* SystemConfiguration.framework in Frameworks */,
@@ -301,6 +308,8 @@
 				C88C47471329B96900D1A8B9 /* ENAPIRequest.m */,
 				C829AD6E133062BD00F195D3 /* ENAPIPostRequest.h */,
 				C829AD6F133062BD00F195D3 /* ENAPIPostRequest.m */,
+				C815895813425E5D00238700 /* NSArray+ENAPI.h */,
+				C815895913425E5D00238700 /* NSArray+ENAPI.m */,
 				C829AD7E13307F5900F195D3 /* NSData+MD5.h */,
 				C829AD7F13307F5900F195D3 /* NSData+MD5.m */,
 				C88B24471326F33E00FB51FF /* NSMutableDictionary+QueryString.h */,
@@ -327,6 +336,7 @@
 		C8E5C1AD1315C44A005CED21 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C80D6B9313428B3000C869D5 /* MediaPlayer.framework */,
 				C8E5C1AE1315C44A005CED21 /* Foundation.framework */,
 				C8E5C1B91315C44B005CED21 /* UIKit.framework */,
 				C8E5C1BC1315C44B005CED21 /* CoreGraphics.framework */,
@@ -391,6 +401,7 @@
 				C829AD78133066D600F195D3 /* ENAPI.h in Headers */,
 				C829AD8013307F5B00F195D3 /* NSData+MD5.h in Headers */,
 				C8B675BA133D15F000899B2A /* ENParamDictionary.h in Headers */,
+				C815895A13425E5D00238700 /* NSArray+ENAPI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +524,7 @@
 				C829AD79133066D600F195D3 /* ENAPI.m in Sources */,
 				C829AD8113307F5B00F195D3 /* NSData+MD5.m in Sources */,
 				C8B675BB133D15F000899B2A /* ENParamDictionary.m in Sources */,
+				C815895B13425E5D00238700 /* NSArray+ENAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

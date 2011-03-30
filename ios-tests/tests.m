@@ -121,12 +121,16 @@
 
 - (void)testArtistHotttnesss {
     [ENAPI initWithApiKey:TEST_API_KEY];
-    NSString *searchArtist = @"Hot Chip";
+    NSString *searchArtist = @"Radiohead";
     ENAPIRequest *request = [ENAPIRequest requestWithEndpoint:@"artist/hotttnesss"];
     [request setValue:searchArtist forParameter:@"name"];
     [request startSynchronous];
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    STAssertTrue([[request.response valueForKeyPath:@"response.status.code"] intValue] == 0,
+                   @"Expected response.code == 0, got %d, %@", 
+                 [[request.response valueForKeyPath:@"response.status.code"] intValue],
+                 [request.response valueForKeyPath:@"response.status.message"]);
     NSDictionary *artist = [request.response valueForKeyPath:@"response.artist"];
     STAssertTrue([[artist valueForKey:@"name"] isEqualToString:searchArtist], @"%@ != %@", [artist valueForKey:@"name"], searchArtist);    
 }
@@ -405,4 +409,37 @@
     [request startSynchronous];
     STAssertTrue(request.responseStatusCode == 404, @"Expected 404");
 }
+
+- (void)testCatalogCreateDelete {
+    [ENAPI initWithApiKey:TEST_API_KEY];
+    
+    // first, lets catalog/list our existing catalogs and delete them (in case we have stragglers from earlier
+    // runs.
+    
+    ENAPIRequest *list_request = [ENAPIRequest requestWithEndpoint:@"catalog/list"];
+    [list_request startSynchronous];
+    NSArray *catalogs = [list_request.response valueForKeyPath:@"response.catalogs"];
+    for (NSDictionary *catalog in catalogs) {
+        NSString *catID = [catalog valueForKey:@"id"];
+        ENAPIPostRequest *request = [ENAPIPostRequest catalogDeleteWithID:catID];
+        [request startSynchronous];
+        STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);        
+    }
+    
+    // okay, we should have a clean slate now...
+    
+    ENAPIPostRequest *request = [ENAPIPostRequest catalogCreateWithName:@"TEST CATALOG" type:@"song"];
+    [request startSynchronous];
+    STAssertTrue(request.responseStatusCode == 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    NSString *newID = [request.response valueForKeyPath:@"response.id"];
+    int responseCode = [[request.response valueForKeyPath:@"response.code"] intValue];
+    STAssertTrue(0 == responseCode, @"Expected 0 responseCode, got: %d", responseCode);
+    
+    request = [ENAPIPostRequest catalogDeleteWithID:newID];
+    [request startSynchronous];
+    STAssertTrue(request.responseStatusCode == 200, @"Expected 200 response, got: %d", request.responseStatusCode);
+    responseCode = [[request.response valueForKeyPath:@"response.code"] intValue];
+    STAssertTrue(0 == responseCode, @"Expected 0 responseCode, got: %d", responseCode);
+}
+
 @end

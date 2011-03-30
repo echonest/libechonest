@@ -44,5 +44,7 @@
 @property (readonly) NSInteger responseStatusCode;
 @property (readonly) NSError *error;
 @property (readonly) BOOL complete;
+@property (readonly) NSUInteger echonestStatusCode;
+@property (readonly) NSString *echonestStatusMessage;
 
 @end
