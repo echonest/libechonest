@@ -423,7 +423,7 @@
         NSString *catID = [catalog valueForKey:@"id"];
         ENAPIPostRequest *request = [ENAPIPostRequest catalogDeleteWithID:catID];
         [request startSynchronous];
-        STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);        
+        STAssertTrue(request.responseStatusCode == 200, @"Expected 200 response, got: %d", request.responseStatusCode);        
     }
     
     // okay, we should have a clean slate now...

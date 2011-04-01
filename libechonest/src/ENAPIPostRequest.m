@@ -45,6 +45,7 @@
 }
 
 - (void)startSynchronous {
+    [self retain]; // let's make sure we're still around when the network call returns
     [self.request startSynchronous];
 }
 
@@ -113,6 +114,17 @@
     ENAPIPostRequest *postRequest = [ENAPIPostRequest requestWithURL:url];
     [postRequest setPostValue:ID forKey:@"id"];
     return postRequest;        
+}
+
++ (ENAPIPostRequest *)catalogUpdateWithID:(NSString *)ID data:(NSString *)json {
+    NSString *urlString = [NSString stringWithFormat:@"%@catalog/update", ECHONEST_API_URL];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    ENAPIPostRequest *postRequest = [ENAPIPostRequest requestWithURL:url];
+    [postRequest setPostValue:ID forKey:@"id"];
+    [postRequest setPostValue:json forKey:@"data"];
+    [postRequest setPostValue:@"json" forKey:@"json"];
+    return postRequest;            
 }
 
 #pragma mark - ASIProgressDelegate

@@ -18,14 +18,13 @@
 
 @property (retain) ASIHTTPRequest *request;
 @property (retain) NSMutableDictionary *params;
-@property (retain) NSString *endpoint;
 @property (retain) NSDictionary *_responseDict;
 
 @end
 
 @implementation ENAPIRequest
-@synthesize delegate, response, _responseDict;
-@synthesize request, endpoint, params;
+@synthesize delegate, response, _responseDict, endpoint;
+@synthesize request, params;
 
 + (ENAPIRequest *)requestWithEndpoint:(NSString *)endpoint_ {
     return [[[ENAPIRequest alloc] initWithEndpoint:endpoint_] autorelease];
@@ -35,7 +34,7 @@
     self = [super init];
     if (self) {
         CHECK_API_KEY
-        self.endpoint = endpoint_;
+        endpoint = [endpoint_ retain];
         self.params = [NSMutableDictionary dictionaryWithCapacity:4];
         [self.params setValue:[ENAPI apiKey] forKey:@"api_key"];
         [self.params setValue:@"json" forKey:@"format"];

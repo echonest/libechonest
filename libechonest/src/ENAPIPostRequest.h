@@ -49,6 +49,11 @@
  */
 + (ENAPIPostRequest *)catalogDeleteWithID:(NSString *)ID;
 
+/**
+ * http://developer.echonest.com/docs/v4/catalog.html#update
+ */
++ (ENAPIPostRequest *)catalogUpdateWithID:(NSString *)ID data:(NSString *)json;
+
 - (void)setPostValue:(NSObject *)value forKey:(NSString *)key;
 - (void)setFile:(NSString *)path forKey:(NSString *)key;
 - (void)startSynchronous;

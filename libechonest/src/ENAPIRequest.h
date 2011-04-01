@@ -11,6 +11,7 @@
 
 @class ENAPIRequest;
 @protocol ENAPIRequestDelegate <NSObject>
+@optional
 
 - (void)requestFinished:(ENAPIRequest *)request;
 - (void)requestFailed:(ENAPIRequest *)request;
@@ -39,12 +40,13 @@
  */
 - (void)cancel;
 
-@property (assign) id<ENAPIRequestDelegate> delegate;
+@property (assign) id delegate;
 @property (readonly) NSDictionary *response;
 @property (readonly) NSInteger responseStatusCode;
 @property (readonly) NSError *error;
 @property (readonly) BOOL complete;
 @property (readonly) NSUInteger echonestStatusCode;
 @property (readonly) NSString *echonestStatusMessage;
+@property (readonly) NSString *endpoint;
 
 @end

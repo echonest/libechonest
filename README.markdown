@@ -7,7 +7,7 @@
 2. Compile it.
 3. Include the library's headers and link to `libechonest.a`
 
-In addition to linking libechonest.a, your app will need to link to the following frameworks and libraries:
+In addition to linking to libechonest.a, your app will need to link to the following frameworks and libraries:
 
 * CFNetwork.framework
 * MediaPlayer.framework
