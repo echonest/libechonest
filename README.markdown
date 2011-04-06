@@ -50,7 +50,7 @@ Note there are typed `setValue:forParameter:` methods on `ENAPIRequest` for inte
     NSArray *descriptions = [NSArray arrayWithObjects:@"mood:chill", @"location:london", nil];
     [request setValue:descriptions forParameter:@"description"];
 
-Note that if a parameter supports multiple values, but you're only using one, you can set it normally, e.g.,
+Note that if a parameter supports multiple values, but if you're only using one, you can set it normally, e.g.,
 
     [request setValue:@"mood:chill" forParameter:@"description"];
 

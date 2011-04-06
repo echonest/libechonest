@@ -327,8 +327,8 @@
     [ENAPI initWithApiKey:TEST_API_KEY];
     ENAPIRequest *request = [ENAPIRequest requestWithEndpoint:@"song/search"];
     [request setIntegerValue:25 forParameter:@"results"];
-    [request setFloatValue:95.f forParameter:@"max_tempo"];
-    [request setFloatValue:95.f forParameter:@"min_tempo"];
+    [request setFloatValue:96.f forParameter:@"max_tempo"];
+    [request setFloatValue:94.f forParameter:@"min_tempo"];
     [request setFloatValue:0.5f forParameter:@"artist_min_familiarity"];
     [request setValue:[NSArray arrayWithObjects:@"style:hip-hop", @"mood:aggressive", nil] forParameter:@"description"];
     [request startSynchronous];
@@ -343,15 +343,15 @@
     [ENAPI initWithApiKey:TEST_API_KEY];
     ENAPIRequest *request = [ENAPIRequest requestWithEndpoint:@"song/search"];
     [request setIntegerValue:25 forParameter:@"results"];
-    [request setFloatValue:95.f forParameter:@"max_tempo"];
-    [request setFloatValue:95.f forParameter:@"min_tempo"];
-    [request setFloatValue:0.5f forParameter:@"artist_min_familiarity"];
+    [request setFloatValue:96.f forParameter:@"max_tempo"];
+    [request setFloatValue:94.f forParameter:@"min_tempo"];
+    //[request setFloatValue:0.5f forParameter:@"artist_min_familiarity"];
     [request setValue:[NSArray arrayWithObjects:@"style:indie", @"mood:pensive", nil] forParameter:@"description"];
     [request startSynchronous];
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSArray *songs = [request.response valueForKeyPath:@"response.songs"];
-    STAssertTrue(songs.count == 25, @"Expected 8 songs");
+    STAssertTrue(songs.count == 25, @"Expected 25 songs");
     NSMutableArray *ids = [NSMutableArray arrayWithCapacity:25];
     for (NSDictionary *song in songs) {
         [ids addObject:[song valueForKey:@"id"]];

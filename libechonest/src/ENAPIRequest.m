@@ -112,6 +112,10 @@
     return [self.response valueForKeyPath:@"response.status.message"];
 }
 
+- (NSURL *)requestURL {
+    return self.request.url;
+}
+
 #pragma mark - ASIHTTPRequestDelegate Methods
 
 - (void)requestFinished:(ASIHTTPRequest *)request {

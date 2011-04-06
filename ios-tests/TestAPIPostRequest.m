@@ -59,7 +59,7 @@
      * TODO: [alg] This test takes a long time so we comment it out. Be sure to run it
      * occasionally.
      */
-/*
+    /*
     ENAPIPostRequest *request = [ENAPIPostRequest trackAnalyzeRequestWithId:@"TRYRXSE12EBCE628F1"];
     STAssertNotNil(request, @"request shouldn't be nil");
     [request startSynchronous];
@@ -67,7 +67,7 @@
         STFail(@"Request error not nil: %@", request.error);
     NSDictionary *track = [request.response valueForKeyPath:@"response.track"];
     STAssertTrue([[track valueForKey:@"artist"] isEqualToString:@"Tycho"], @"Expected artist == tycho : %@", [track valueForKey:@"artist"]);
-*/
+    */
 }
 
 @end

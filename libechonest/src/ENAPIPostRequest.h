@@ -12,9 +12,9 @@
 @protocol ENAPIPostRequestDelegate <NSObject>
 @optional
 
-- (void)requestFinished:(ENAPIPostRequest *)request;
-- (void)requestFailed:(ENAPIPostRequest *)request;
-- (void)request:(ENAPIPostRequest *)request progress:(long long)progress;
+- (void)postRequestFinished:(ENAPIPostRequest *)request;
+- (void)postRequestFailed:(ENAPIPostRequest *)request;
+- (void)postRequest:(ENAPIPostRequest *)request uploadProgress:(long long)progress;
 
 @end
 

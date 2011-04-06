@@ -130,23 +130,23 @@
 #pragma mark - ASIProgressDelegate
 
 - (void)request:(ASIHTTPRequest *)request didSendBytes:(long long)bytes {
-    if ([self.delegate respondsToSelector:@selector(request:progress:)]) {
-        [(id<ENAPIPostRequestDelegate>)self.delegate request:self progress:bytes];
+    if ([self.delegate respondsToSelector:@selector(postRequest:uploadProgress:)]) {
+        [(id<ENAPIPostRequestDelegate>)self.delegate postRequest:self uploadProgress:bytes];
     }
 }
 
 #pragma mark - ASIRequestDelegate
 
 - (void)requestFinished:(ASIHTTPRequest *)request {
-    if ([self.delegate respondsToSelector:@selector(requestFinished:)]) {
-        [(id<ENAPIPostRequestDelegate>)self.delegate requestFinished:self];
+    if ([self.delegate respondsToSelector:@selector(postRequestFinished:)]) {
+        [(id<ENAPIPostRequestDelegate>)self.delegate postRequestFinished:self];
     }
     [self release];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request {
-    if ([self.delegate respondsToSelector:@selector(requestFailed:)]) {
-        [(id<ENAPIPostRequestDelegate>)self.delegate requestFailed:self];
+    if ([self.delegate respondsToSelector:@selector(postRequestFailed:)]) {
+        [(id<ENAPIPostRequestDelegate>)self.delegate postRequestFailed:self];
     }
     [self release];
 }

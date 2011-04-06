@@ -48,5 +48,6 @@
 @property (readonly) NSUInteger echonestStatusCode;
 @property (readonly) NSString *echonestStatusMessage;
 @property (readonly) NSString *endpoint;
+@property (readonly) NSURL *requestURL;
 
 @end
