@@ -26,7 +26,16 @@
  * Endpoint is an Echonest API endpoint, e.g., "artist/audio"
  */
 + (ENAPIRequest *)requestWithEndpoint:(NSString *)endpoint;
+/**
+ * This is a special request for full analysis data. Pass in the
+ * `analysis_url` from an audio summary.
+ */
++ (ENAPIRequest *)requestWithAnalysisURL:(NSString *)url;
+
+
 - (ENAPIRequest *)initWithEndpoint:(NSString *)endpoint;
+- (ENAPIRequest *)initWithAnalysisURL:(NSString *)url;
+
 - (void)startSynchronous;
 - (void)startAsynchronous;
 - (void)setValue:(id)value forParameter:(NSString *)param;
@@ -42,6 +51,7 @@
 
 @property (assign) id delegate;
 @property (readonly) NSDictionary *response;
+@property (readonly) NSString *responseString;
 @property (readonly) NSInteger responseStatusCode;
 @property (readonly) NSError *error;
 @property (readonly) BOOL complete;
@@ -49,5 +59,7 @@
 @property (readonly) NSString *echonestStatusMessage;
 @property (readonly) NSString *endpoint;
 @property (readonly) NSURL *requestURL;
+/* set this property to store app-specific information (request type, etc.) with the request */
+@property (retain) NSDictionary *userInfo;
 
 @end

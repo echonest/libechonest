@@ -152,13 +152,13 @@
     [ENAPI initWithApiKey:TEST_API_KEY];
     NSString *searchArtist = @"The New Pornographers";
     ENAPIRequest *request = [ENAPIRequest requestWithEndpoint:@"artist/news"];
-    [request setIntegerValue:30 forParameter:@"results"];
+    [request setIntegerValue:15 forParameter:@"results"];
     [request setValue:searchArtist forParameter:@"name"];
     [request startSynchronous];
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSArray *news = [request.response valueForKeyPath:@"response.news"];
-    STAssertEquals(news.count, (NSUInteger)30, @"%d != %d", news.count, 30);
+    STAssertEquals(news.count, (NSUInteger)15, @"%d != %d", news.count, 14);
 }
 
 - (void)testArtistProfile {
@@ -342,7 +342,7 @@
     // first find 25 songs
     [ENAPI initWithApiKey:TEST_API_KEY];
     ENAPIRequest *request = [ENAPIRequest requestWithEndpoint:@"song/search"];
-    [request setIntegerValue:25 forParameter:@"results"];
+    [request setIntegerValue:10 forParameter:@"results"];
     [request setFloatValue:96.f forParameter:@"max_tempo"];
     [request setFloatValue:94.f forParameter:@"min_tempo"];
     //[request setFloatValue:0.5f forParameter:@"artist_min_familiarity"];
@@ -351,7 +351,7 @@
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     NSArray *songs = [request.response valueForKeyPath:@"response.songs"];
-    STAssertTrue(songs.count == 25, @"Expected 25 songs");
+    STAssertTrue(songs.count == 10, @"Expected 25 songs");
     NSMutableArray *ids = [NSMutableArray arrayWithCapacity:25];
     for (NSDictionary *song in songs) {
         [ids addObject:[song valueForKey:@"id"]];
@@ -364,7 +364,7 @@
     STAssertNil(request.error, @"request.error != nil: %@", request.error);
     STAssertEquals(request.responseStatusCode, 200, @"Expected 200 response, got: %d", request.responseStatusCode);
     songs = [request.response valueForKeyPath:@"response.songs"];
-    STAssertTrue(songs.count == 25, @"Expected 25 profile results");
+    STAssertTrue(songs.count == 10, @"Expected 25 profile results");
 }
 
 - (void)testTrackProfile {

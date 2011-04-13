@@ -16,11 +16,12 @@
 @interface ENAPIPostRequest() 
 @property (retain) ASIFormDataRequest *request;
 @property (retain) NSDictionary *_responseDict;
+@property (nonatomic, assign) unsigned long long uploadFileSize;
+@property (nonatomic, assign) unsigned long long uploadBytesSent;
 @end
 
 @implementation ENAPIPostRequest
-@synthesize delegate, request, _responseDict;
-
+@synthesize delegate, request, _responseDict, userInfo, uploadFileSize, uploadBytesSent;
 
 - (id)initWithURL:(NSURL *)url {
     
@@ -65,7 +66,11 @@
     NSURL *url = [NSURL URLWithString:urlString];
     ENAPIPostRequest *postRequest = [ENAPIPostRequest requestWithURL:url];
     [postRequest setFile:filePath forKey:@"track"];
-    [postRequest setPostValue:@"mp3" forKey:@"filetype"];
+    // get the upload file's size so we can report progress somewhat accurately
+    NSDictionary *fileAtts = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
+    postRequest.uploadFileSize = [[fileAtts objectForKey:NSFileSize] unsignedLongLongValue];
+    NSString *ext = [[filePath pathExtension] lowercaseString];
+    [postRequest setPostValue:ext forKey:@"filetype"];
     return postRequest;
 }
 
@@ -130,8 +135,12 @@
 #pragma mark - ASIProgressDelegate
 
 - (void)request:(ASIHTTPRequest *)request didSendBytes:(long long)bytes {
+    self.uploadBytesSent += bytes;
+    if ([self.delegate respondsToSelector:@selector(postRequest:didSendBytes:)]) {
+        [(id<ENAPIPostRequestDelegate>)self.delegate postRequest:self didSendBytes:bytes];
+    }
     if ([self.delegate respondsToSelector:@selector(postRequest:uploadProgress:)]) {
-        [(id<ENAPIPostRequestDelegate>)self.delegate postRequest:self uploadProgress:bytes];
+        [(id<ENAPIPostRequestDelegate>)self.delegate postRequest:self uploadProgress:(float)self.uploadBytesSent/(float)self.uploadFileSize];
     }
 }
 
@@ -182,6 +191,7 @@
     delegate = nil;
     [request release];
     [_responseDict release];
+    [userInfo release];
     [super dealloc];
 }
 @end

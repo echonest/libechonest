@@ -19,21 +19,30 @@
 @property (retain) ASIHTTPRequest *request;
 @property (retain) NSMutableDictionary *params;
 @property (retain) NSDictionary *_responseDict;
-
+@property (assign) BOOL isAPIRequest;
+@property (retain) NSString *analysisURL;
 @end
 
 @implementation ENAPIRequest
 @synthesize delegate, response, _responseDict, endpoint;
 @synthesize request, params;
+@synthesize userInfo;
+@synthesize isAPIRequest;
+@synthesize analysisURL;
 
 + (ENAPIRequest *)requestWithEndpoint:(NSString *)endpoint_ {
     return [[[ENAPIRequest alloc] initWithEndpoint:endpoint_] autorelease];
+}
+
++ (ENAPIRequest *)requestWithAnalysisURL:(NSString *)url_ {
+    return [[[ENAPIRequest alloc] initWithAnalysisURL:url_] autorelease];
 }
 
 - (ENAPIRequest *)initWithEndpoint:(NSString *)endpoint_ {
     self = [super init];
     if (self) {
         CHECK_API_KEY
+        self.isAPIRequest = YES;
         endpoint = [endpoint_ retain];
         self.params = [NSMutableDictionary dictionaryWithCapacity:4];
         [self.params setValue:[ENAPI apiKey] forKey:@"api_key"];
@@ -42,22 +51,43 @@
     return self;
 }
 
+- (ENAPIRequest *)initWithAnalysisURL:(NSString *)url {
+    self = [super init];
+    if (self) {
+        CHECK_API_KEY
+        self.isAPIRequest = NO;
+        self.analysisURL = url;
+        self.params = [NSMutableDictionary dictionaryWithCapacity:4];
+    }
+    return self;    
+}
+
 - (void)dealloc {
     [params release];
     [request release];
     [_responseDict release];
     [endpoint release];
+    [userInfo release];
+    [analysisURL release];
     [super dealloc];
 }
 
 - (void)startSynchronous {
-    self.request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[self _constructURL]]];
+    if (nil != self.analysisURL) {
+        self.request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:self.analysisURL]];
+    } else {
+        self.request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[self _constructURL]]];
+    }
     self.request.delegate = self;
     [self.request startSynchronous];
 }
 
 - (void)startAsynchronous {
-    self.request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[self _constructURL]]];
+    if (nil != self.analysisURL) {
+        self.request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:self.analysisURL]];
+    } else {
+        self.request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[self _constructURL]]];
+    }
     self.request.delegate = self;
     [self.request startAsynchronous];
 }
@@ -94,6 +124,10 @@
         _responseDict = [dict retain];
     }
     return _responseDict;
+}
+
+- (NSString *)responseString {
+    return self.request.responseString;
 }
 
 - (NSInteger) responseStatusCode {

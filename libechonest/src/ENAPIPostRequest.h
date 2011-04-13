@@ -14,7 +14,8 @@
 
 - (void)postRequestFinished:(ENAPIPostRequest *)request;
 - (void)postRequestFailed:(ENAPIPostRequest *)request;
-- (void)postRequest:(ENAPIPostRequest *)request uploadProgress:(long long)progress;
+- (void)postRequest:(ENAPIPostRequest *)request didSendBytes:(long long)nBytes;
+- (void)postRequest:(ENAPIPostRequest *)request uploadProgress:(float)progress;
 
 @end
 
@@ -65,5 +66,7 @@
 @property (readonly) NSUInteger echonestStatusCode;
 @property (readonly) NSString *echonestStatusMessage;
 @property (readonly) NSError *error;
+/* set this property to store app-specific information (request type, etc.) with the request */
+@property (retain) NSDictionary *userInfo;
 
 @end
