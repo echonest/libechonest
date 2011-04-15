@@ -1,5 +1,5 @@
 # libechonest
-### An objective-c library for [The Echonest API](http://developer.echonest.com/docs/v4/)
+### An objective-c library for [The Echo Nest API](http://developer.echonest.com/docs/v4/)
 
 ## Installation
 
