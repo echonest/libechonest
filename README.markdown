@@ -9,6 +9,7 @@
 
 In addition to linking to libechonest.a, your app will need to link to the following frameworks and libraries:
 
+* AVFoundation.framework
 * CFNetwork.framework
 * MediaPlayer.framework
 * MobileCoreServices.framework

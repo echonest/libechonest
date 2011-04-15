@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C80B2CEB13563382009DD654 /* TSLibraryImport.h in Headers */ = {isa = PBXBuildFile; fileRef = C80B2CE913563382009DD654 /* TSLibraryImport.h */; };
+		C80B2CEC13563382009DD654 /* TSLibraryImport.m in Sources */ = {isa = PBXBuildFile; fileRef = C80B2CEA13563382009DD654 /* TSLibraryImport.m */; };
 		C80D6B9413428B3000C869D5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D6B9313428B3000C869D5 /* MediaPlayer.framework */; };
 		C80FE07A1326E5C800A5D803 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = C80FE0781326E5C800A5D803 /* Reachability.h */; };
 		C80FE07B1326E5C800A5D803 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C80FE0791326E5C800A5D803 /* Reachability.m */; };
@@ -53,6 +55,7 @@
 		C88C47721329C3F600D1A8B9 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C88C475E1329C3F600D1A8B9 /* ASINetworkQueue.m */; };
 		C88C47731329C3F600D1A8B9 /* ASIProgressDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C88C475F1329C3F600D1A8B9 /* ASIProgressDelegate.h */; };
 		C88F4693132A937100247E6F /* TestNSMutableDictionary+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = C88F4692132A937100247E6F /* TestNSMutableDictionary+QueryString.m */; };
+		C89CD4651358BAB60079925B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89CD4641358BAB60079925B /* AVFoundation.framework */; };
 		C89EE1641329D7F4006F9296 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C86952301329D69E005F6CF5 /* MobileCoreServices.framework */; };
 		C89EE1651329D7F4006F9296 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C869522E1329D68F005F6CF5 /* CFNetwork.framework */; };
 		C89EE1661329D7F4006F9296 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C86952321329D6AD005F6CF5 /* SystemConfiguration.framework */; };
@@ -82,6 +85,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C80B2CE913563382009DD654 /* TSLibraryImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSLibraryImport.h; sourceTree = "<group>"; };
+		C80B2CEA13563382009DD654 /* TSLibraryImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSLibraryImport.m; sourceTree = "<group>"; };
 		C80D6B9313428B3000C869D5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C80FE0781326E5C800A5D803 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		C80FE0791326E5C800A5D803 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -134,6 +139,7 @@
 		C88C475F1329C3F600D1A8B9 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
 		C88F4691132A937100247E6F /* TestNSMutableDictionary+QueryString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestNSMutableDictionary+QueryString.h"; sourceTree = "<group>"; };
 		C88F4692132A937100247E6F /* TestNSMutableDictionary+QueryString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TestNSMutableDictionary+QueryString.m"; sourceTree = "<group>"; };
+		C89CD4641358BAB60079925B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C8A7D29C1329E16100FE3F08 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		C8A7D29D1329E16100FE3F08 /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSON.h"; sourceTree = "<group>"; };
 		C8A7D29E1329E16100FE3F08 /* NSObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSON.m"; sourceTree = "<group>"; };
@@ -174,13 +180,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C869523C1329D783005F6CF5 /* UIKit.framework in Frameworks */,
+				C89CD4651358BAB60079925B /* AVFoundation.framework in Frameworks */,
 				C869523D1329D783005F6CF5 /* Foundation.framework in Frameworks */,
 				C869523E1329D783005F6CF5 /* CoreGraphics.framework in Frameworks */,
 				C80D6B9413428B3000C869D5 /* MediaPlayer.framework in Frameworks */,
 				C89EE1641329D7F4006F9296 /* MobileCoreServices.framework in Frameworks */,
 				C89EE1651329D7F4006F9296 /* CFNetwork.framework in Frameworks */,
 				C89EE1661329D7F4006F9296 /* SystemConfiguration.framework in Frameworks */,
+				C869523C1329D783005F6CF5 /* UIKit.framework in Frameworks */,
 				C89EE1671329D7F4006F9296 /* libz.dylib in Frameworks */,
 				C8A7D2991329D94B00FE3F08 /* libechonest.a in Frameworks */,
 			);
@@ -189,12 +196,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C80B2CE813563382009DD654 /* TSLibraryImport */ = {
+			isa = PBXGroup;
+			children = (
+				C80B2CE913563382009DD654 /* TSLibraryImport.h */,
+				C80B2CEA13563382009DD654 /* TSLibraryImport.m */,
+			);
+			name = TSLibraryImport;
+			path = libechonest/src/TSLibraryImport;
+			sourceTree = "<group>";
+		};
 		C80FE0761326E57900A5D803 /* libs */ = {
 			isa = PBXGroup;
 			children = (
 				C88C474B1329C3F600D1A8B9 /* asi-http-request */,
 				C8A7D29B1329E16100FE3F08 /* JSON */,
 				C80FE0771326E5C800A5D803 /* Reachability */,
+				C80B2CE813563382009DD654 /* TSLibraryImport */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -301,6 +319,7 @@
 		C8E5C1A01315C44A005CED21 = {
 			isa = PBXGroup;
 			children = (
+				C89CD4641358BAB60079925B /* AVFoundation.framework */,
 				C829AD76133066D600F195D3 /* ENAPI.h */,
 				C829AD77133066D600F195D3 /* ENAPI.m */,
 				C829AD74133065F300F195D3 /* ENAPI_utils.h */,
@@ -402,6 +421,7 @@
 				C829AD8013307F5B00F195D3 /* NSData+MD5.h in Headers */,
 				C8B675BA133D15F000899B2A /* ENParamDictionary.h in Headers */,
 				C815895A13425E5D00238700 /* NSArray+ENAPI.h in Headers */,
+				C80B2CEB13563382009DD654 /* TSLibraryImport.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +545,7 @@
 				C829AD8113307F5B00F195D3 /* NSData+MD5.m in Sources */,
 				C8B675BB133D15F000899B2A /* ENParamDictionary.m in Sources */,
 				C815895B13425E5D00238700 /* NSArray+ENAPI.m in Sources */,
+				C80B2CEC13563382009DD654 /* TSLibraryImport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +641,54 @@
 			};
 			name = Release;
 		};
+		C8A1D7D91356AAF10079B873 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = "Ad Hoc";
+		};
+		C8A1D7DA1356AAF10079B873 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/libechonest.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libechonest/libechonest-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = "Ad Hoc";
+		};
+		C8A1D7DB1356AAF10079B873 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ios-tests/ios_tests-Prefix.pch";
+				INFOPLIST_FILE = "ios-tests/ios_tests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = "Ad Hoc";
+		};
 		C8E5C1CC1315C44B005CED21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -632,6 +701,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -645,6 +715,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -656,6 +727,7 @@
 			buildConfigurations = (
 				C81C295A1326DDBD0048DD51 /* Debug */,
 				C81C295B1326DDBD0048DD51 /* Release */,
+				C8A1D7DA1356AAF10079B873 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -665,6 +737,7 @@
 			buildConfigurations = (
 				C869524B1329D783005F6CF5 /* Debug */,
 				C869524C1329D783005F6CF5 /* Release */,
+				C8A1D7DB1356AAF10079B873 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -674,6 +747,7 @@
 			buildConfigurations = (
 				C8E5C1CC1315C44B005CED21 /* Debug */,
 				C8E5C1CD1315C44B005CED21 /* Release */,
+				C8A1D7D91356AAF10079B873 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
