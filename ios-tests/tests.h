@@ -7,7 +7,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-static NSString *TEST_API_KEY = @"2J12S2GOSDBV2KC6V";
+static NSString *TEST_API_KEY = @"<YOUR_ECHO_NEST_API_KEY>";
 
 @interface ios_tests : SenTestCase {
 @private
