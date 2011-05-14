@@ -34,7 +34,7 @@ static NSString *ENEscapeStringForURL (NSString *str) {
 
 @implementation NSMutableDictionary (QueryString)
 
-- (NSString *)queryString {
+- (NSString *)enapi_queryString {
     NSMutableArray *params = [NSMutableArray arrayWithCapacity:[self count]];
     for (NSString *key in [self allKeys]) {
         NSObject *value = [self objectForKey:key];

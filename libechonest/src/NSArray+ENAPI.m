@@ -11,7 +11,7 @@
 
 @implementation NSArray (NSArray_ENAPI)
 
-- (NSString *)catalogUpdateBlockWithAction:(NSString *)action {
+- (NSString *)enapi_catalogUpdateBlockWithAction:(NSString *)action {
     // first create the array of "item" dictionaries
     NSMutableArray *f_items = [NSMutableArray arrayWithCapacity:self.count];
     for (MPMediaItem *item in (NSArray *)self) {

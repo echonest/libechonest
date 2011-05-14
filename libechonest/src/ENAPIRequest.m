@@ -167,7 +167,7 @@
 #pragma mark - Private Methods
 
 - (NSString *)_constructURL {
-    NSString *ret = [NSString stringWithFormat:@"%@%@?%@", ECHONEST_API_URL, self.endpoint, [self.params queryString]];
+    NSString *ret = [NSString stringWithFormat:@"%@%@?%@", ECHONEST_API_URL, self.endpoint, [self.params enapi_queryString]];
     return ret;
 }
 

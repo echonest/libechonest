@@ -10,6 +10,6 @@
 
 @interface NSData (NSData_MD5)
 
-- (NSString *)MD5;
+- (NSString *)enapi_MD5;
 
 @end

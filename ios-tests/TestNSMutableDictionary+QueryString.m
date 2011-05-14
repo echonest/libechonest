@@ -13,7 +13,7 @@
 - (void)testSlashEncoding {
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:3];
     [params setValue:@"Cut/Copy/Paste" forKey:@"slashdata"];
-    NSString *encoded = [params queryString];
+    NSString *encoded = [params enapi_queryString];
     NSString *escapeString = @"slashdata=Cut%2FCopy%2FPaste";
     STAssertTrue([encoded isEqualToString:escapeString], @"Escape failure: %@ != %@", encoded, escapeString);
 }
@@ -21,7 +21,7 @@
 - (void)testEqualsEscape {
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:3];
     [params setValue:@"this==that" forKey:@"eqdata"];
-    NSString *encoded = [params queryString];
+    NSString *encoded = [params enapi_queryString];
     NSString *escapeString = @"eqdata=this%3D%3Dthat";
     STAssertTrue([encoded isEqualToString:escapeString], @"Escape failure: %@ != %@", encoded, escapeString);
 }
@@ -29,7 +29,7 @@
 - (void)testSpaceEscape {
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:3];
     [params setValue:@"Hey Jude, Take A Sad Song..." forKey:@"spacedata"];
-    NSString *encoded = [params queryString];
+    NSString *encoded = [params enapi_queryString];
     NSString *escapeString = @"spacedata=Hey%20Jude%2C%20Take%20A%20Sad%20Song...";
     STAssertTrue([encoded isEqualToString:escapeString], @"Escape failure: %@ != %@", encoded, escapeString);    
 }
@@ -57,7 +57,7 @@
     [params setValue:@";" forKey:@"semic"];
     [params setValue:@"=" forKey:@"equals"];
     
-    NSString *encoded = [params queryString];
+    NSString *encoded = [params enapi_queryString];
     NSString *escapeString = @"amp=%26&aster=%2A&atmark=%40&comma=%2C&dolla=%24&equals=%3D&excmark=%21&hash=%23&lbrack=%5B&lparen=%28&plus=%2B&qmark=%3F&rbrack=%5D&rparen=%29&semic=%3B&slash=%2F&space=%20&squote=%27";
     STAssertTrue([encoded isEqualToString:escapeString], @"Escape failure: %@ != %@", encoded, escapeString);
 }
@@ -68,7 +68,7 @@
                            ENLicenseCreativeCommonsBy, ENLicenseEchoSource, nil];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:2];
     [params setValue:multValues forKey:@"licenses"];
-    NSString *encoded = [params queryString];
+    NSString *encoded = [params enapi_queryString];
     NSString *testString = @"licenses=all-rights-reserved&licenses=cc-by&licenses=echo-source";
     STAssertTrue([encoded isEqualToString:testString], @"%@ != %@", encoded, testString);
 }
@@ -78,7 +78,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
     [params setValue:[NSNumber numberWithBool:YES] forKey:@"high_relevance"];
     [params setValue:[NSNumber numberWithBool:NO] forKey:@"go_deep"];
-    NSString *encoded = [params queryString];
+    NSString *encoded = [params enapi_queryString];
     STAssertTrue([encoded isEqualToString:@"go_deep=false&high_relevance=true"], @"YES != 'true'");
 }
 @end

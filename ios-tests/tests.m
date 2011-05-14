@@ -373,7 +373,7 @@
     NSBundle *bundle = [NSBundle bundleWithIdentifier:@"com.echonest.libechonest.tests"];
     NSString *testMp3Path = [[bundle URLForResource:@"test" withExtension:@"mp3"] path];
     NSData *data = [NSData dataWithContentsOfFile:testMp3Path];
-    NSString *md5 = [data MD5];
+    NSString *md5 = [data enapi_MD5];
     ENAPIRequest *request = [ENAPIRequest requestWithEndpoint:@"track/profile"];
     [request setValue:md5 forParameter:@"md5"];
     [request setValue:@"audio_summary" forParameter:@"bucket"];

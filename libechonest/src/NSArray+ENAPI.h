@@ -16,6 +16,6 @@
  * @param action - Action code, one of "delete," "update," "play," or "skip."
  * if this parameter is nil, no action key is added to each item's dictionary.
  */
-- (NSString *)catalogUpdateBlockWithAction:(NSString *)action;
+- (NSString *)enapi_catalogUpdateBlockWithAction:(NSString *)action;
 
 @end

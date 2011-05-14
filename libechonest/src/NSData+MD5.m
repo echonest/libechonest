@@ -10,7 +10,7 @@
 
 @implementation NSData (NSData_MD5)
 
-- (NSString *)MD5 {
+- (NSString *)enapi_MD5 {
     // Create byte array of unsigned chars
     unsigned char md5Buffer[CC_MD5_DIGEST_LENGTH];
     
