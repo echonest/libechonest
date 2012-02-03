@@ -159,7 +159,7 @@
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request {
-    if([delegate respondsToSelector:@selector(requestFinished:)]) {
+    if([delegate respondsToSelector:@selector(requestFailed:)]) {
         [delegate requestFailed:self];
     }
 }
