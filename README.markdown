@@ -25,7 +25,7 @@ __NOTE__: You *must* add `-Objc` and `-all_load` to your project's "Additional L
     ...
     [ENAPI initWithApiKey:@"YOURAPIKEY"];
     ENAPIRequest *request = [ENAPIRequest requestForEndpoint:@"artist/audio"];
-    request.delegate = self;                              // our class impelments ENAPIRequestDelegate
+    request.delegate = self;                              // our class implements ENAPIRequestDelegate
     [request setValue:@"Radiohead" forParameter:@"name"]; // name=Radiohead
     [request setIntegerValue:15 forParameter:@"results"]; // results=15
     [request startAsynchronous];
