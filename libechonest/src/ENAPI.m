@@ -26,6 +26,8 @@ NSString * const ENSortWeight = @"weight";
 NSString * const ENSortFrequency = @"frequency";
 
 static NSString *EN_API_KEY = nil;
+static NSString *EN_CONSUMER_KEY = nil;
+static NSString *EN_SHARED_SECRET = nil;
 
 @implementation ENAPI
 
@@ -33,8 +35,31 @@ static NSString *EN_API_KEY = nil;
     EN_API_KEY = [apiKey retain];
 }
 
++ (void)initWithApiKey:(NSString *)apiKey ConsumerKey:(NSString *)consumerKey
+       AndSharedSecret:(NSString *)secret {
+    [ENAPI initWithApiKey:apiKey];
+    [ENAPI setConsumerKey:consumerKey];
+    [ENAPI setSharedSecret:secret];
+}
+
 + (NSString *)apiKey {
     return EN_API_KEY;
+}
+
++ (NSString *)consumerKey {
+    return EN_CONSUMER_KEY;
+}
+
++ (void)setConsumerKey:(NSString *)key {
+    EN_CONSUMER_KEY = [key retain];
+}
+
++ (NSString *)sharedSecret {
+    return EN_SHARED_SECRET;
+}
+
++ (void)setSharedSecret:(NSString *)secret {
+    EN_SHARED_SECRET = [secret retain];
 }
 
 @end
