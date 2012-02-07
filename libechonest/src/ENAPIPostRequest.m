@@ -78,7 +78,7 @@
     CHECK_API_KEY
     // we need the md5 of the file
     NSData *fileData = [NSData dataWithContentsOfFile:filePath];
-    NSString *md5 = [fileData MD5];
+    NSString *md5 = [fileData enapi_MD5];
     return [ENAPIPostRequest trackAnalyzeRequestWithMD5:md5];
 }
 
