@@ -17,7 +17,7 @@
 - (NSString *)_constructURL;
 
 @property (retain) ASIHTTPRequest *request;
-@property (retain) NSMutableDictionary *params;
+@property (retain,readwrite) NSMutableDictionary *params;
 @property (retain) NSDictionary *_responseDict;
 @property (assign) BOOL isAPIRequest;
 @property (retain) NSString *analysisURL;
