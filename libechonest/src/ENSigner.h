@@ -1,5 +1,5 @@
 //
-//  NSMutableDictionary+QueryString.h
+//  ENSigner.h
 //  libechonest
 //
 //  Copyright (c) 2011, tapsquare, llc. (http://www.tapsquare.com, art@tapsquare.com)
@@ -30,13 +30,11 @@
 
 #import <Foundation/Foundation.h>
 
-NSString *ENEscapeStringForURL (NSString *str);
-
-@interface NSMutableDictionary (QueryString)
+@interface ENSigner : NSObject
 
 /**
- * Returns the dictionary's key/value pairs as an escaped query string
+ * Signs the text with HMAC-SHA1 algorithm and base64 encodes resulting string. 
  */
-- (NSString *)enapi_queryString;
++ (NSString *)signText:(NSString *)text WithKeyAndEncode:(NSString *)secret;
 
 @end

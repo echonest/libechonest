@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0ED9E014E2EADB00A3945A /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C0ED9DE14E2EADB00A3945A /* Base64Transcoder.c */; };
+		2C0ED9E114E2EADB00A3945A /* Base64Transcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0ED9DF14E2EADB00A3945A /* Base64Transcoder.h */; };
+		2CC249C814E2EE1300871AA4 /* ENSigner.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CC249C614E2EE1300871AA4 /* ENSigner.h */; };
+		2CC249C914E2EE1300871AA4 /* ENSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC249C714E2EE1300871AA4 /* ENSigner.m */; };
 		C80B2CEB13563382009DD654 /* TSLibraryImport.h in Headers */ = {isa = PBXBuildFile; fileRef = C80B2CE913563382009DD654 /* TSLibraryImport.h */; };
 		C80B2CEC13563382009DD654 /* TSLibraryImport.m in Sources */ = {isa = PBXBuildFile; fileRef = C80B2CEA13563382009DD654 /* TSLibraryImport.m */; };
 		C80D6B9413428B3000C869D5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D6B9313428B3000C869D5 /* MediaPlayer.framework */; };
@@ -85,6 +89,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C0ED9DE14E2EADB00A3945A /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
+		2C0ED9DF14E2EADB00A3945A /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		2CC249C614E2EE1300871AA4 /* ENSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENSigner.h; path = libechonest/src/ENSigner.h; sourceTree = "<group>"; };
+		2CC249C714E2EE1300871AA4 /* ENSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ENSigner.m; path = libechonest/src/ENSigner.m; sourceTree = "<group>"; };
 		C80B2CE913563382009DD654 /* TSLibraryImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSLibraryImport.h; sourceTree = "<group>"; };
 		C80B2CEA13563382009DD654 /* TSLibraryImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSLibraryImport.m; sourceTree = "<group>"; };
 		C80D6B9313428B3000C869D5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -196,6 +204,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C0ED9DD14E2EADB00A3945A /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				2C0ED9DE14E2EADB00A3945A /* Base64Transcoder.c */,
+				2C0ED9DF14E2EADB00A3945A /* Base64Transcoder.h */,
+			);
+			name = Base64;
+			path = libechonest/src/Base64;
+			sourceTree = "<group>";
+		};
 		C80B2CE813563382009DD654 /* TSLibraryImport */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +227,7 @@
 		C80FE0761326E57900A5D803 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				2C0ED9DD14E2EADB00A3945A /* Base64 */,
 				C88C474B1329C3F600D1A8B9 /* asi-http-request */,
 				C8A7D29B1329E16100FE3F08 /* JSON */,
 				C80FE0771326E5C800A5D803 /* Reachability */,
@@ -323,6 +342,8 @@
 				C829AD76133066D600F195D3 /* ENAPI.h */,
 				C829AD77133066D600F195D3 /* ENAPI.m */,
 				C829AD74133065F300F195D3 /* ENAPI_utils.h */,
+				2CC249C614E2EE1300871AA4 /* ENSigner.h */,
+				2CC249C714E2EE1300871AA4 /* ENSigner.m */,
 				C88C47461329B96900D1A8B9 /* ENAPIRequest.h */,
 				C88C47471329B96900D1A8B9 /* ENAPIRequest.m */,
 				C829AD6E133062BD00F195D3 /* ENAPIPostRequest.h */,
@@ -422,6 +443,8 @@
 				C8B675BA133D15F000899B2A /* ENParamDictionary.h in Headers */,
 				C815895A13425E5D00238700 /* NSArray+ENAPI.h in Headers */,
 				C80B2CEB13563382009DD654 /* TSLibraryImport.h in Headers */,
+				2C0ED9E114E2EADB00A3945A /* Base64Transcoder.h in Headers */,
+				2CC249C814E2EE1300871AA4 /* ENSigner.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +569,8 @@
 				C8B675BB133D15F000899B2A /* ENParamDictionary.m in Sources */,
 				C815895B13425E5D00238700 /* NSArray+ENAPI.m in Sources */,
 				C80B2CEC13563382009DD654 /* TSLibraryImport.m in Sources */,
+				2C0ED9E014E2EADB00A3945A /* Base64Transcoder.c in Sources */,
+				2CC249C914E2EE1300871AA4 /* ENSigner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
