@@ -49,5 +49,7 @@ extern NSString * const ENSortFrequency;
 + (void)setConsumerKey:(NSString *)key;
 + (NSString *)sharedSecret;
 + (void)setSharedSecret:(NSString *)secret;
-
++ (NSArray *)securedEndpoints;
++ (void)addSecuredEndpoint:(NSString *)endpoint;
++ (BOOL)isSecuredEndpoint:(NSString *)endpoint;
 @end

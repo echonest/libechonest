@@ -28,6 +28,7 @@ NSString * const ENSortFrequency = @"frequency";
 static NSString *EN_API_KEY = nil;
 static NSString *EN_CONSUMER_KEY = nil;
 static NSString *EN_SHARED_SECRET = nil;
+static NSMutableArray *EN_SECURED_ENDPOINTS = nil;
 
 @implementation ENAPI
 
@@ -38,6 +39,7 @@ static NSString *EN_SHARED_SECRET = nil;
 + (void)initWithApiKey:(NSString *)apiKey ConsumerKey:(NSString *)consumerKey
        AndSharedSecret:(NSString *)secret {
     [ENAPI initWithApiKey:apiKey];
+    [ENAPI addSecuredEndpoint:@"sandbox/access"];
     [ENAPI setConsumerKey:consumerKey];
     [ENAPI setSharedSecret:secret];
 }
@@ -59,7 +61,28 @@ static NSString *EN_SHARED_SECRET = nil;
 }
 
 + (void)setSharedSecret:(NSString *)secret {
-    EN_SHARED_SECRET = [secret retain];
+    // API is not using OAuth tokens in the signing process,
+    // but the & suffix is still required for the secret.
+    if ([secret hasSuffix:@"&"]) {
+        EN_SHARED_SECRET = [secret retain];
+    } else {
+        EN_SHARED_SECRET = [[[NSString alloc] initWithFormat:@"%@&", secret] retain];
+    }
+}
+
++ (BOOL)isSecuredEndpoint:(NSString *)endpoint {
+    return [EN_SECURED_ENDPOINTS containsObject:endpoint];
+}
+
++ (void)addSecuredEndpoint:(NSString *)endpoint {
+    if (nil == EN_SECURED_ENDPOINTS) {
+        EN_SECURED_ENDPOINTS = [[NSMutableArray alloc] init];
+    }
+    [EN_SECURED_ENDPOINTS addObject:endpoint];
+}
+
++ (NSArray *)securedEndpoints {
+    return [[EN_SECURED_ENDPOINTS copy] autorelease];
 }
 
 @end
