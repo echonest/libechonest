@@ -19,7 +19,7 @@ static NSString *ENGetStringRepresentationForObject(NSObject *obj) {
     return [NSString stringWithFormat:@"%@", obj];
 }
 
-static NSString *ENEscapeStringForURL (NSString *str) {
+NSString *ENEscapeStringForURL (NSString *str) {
     //
     // rfc 3986
     // @see http://code.google.com/p/google-toolbox-for-mac/source/browse/trunk/Foundation/GTMNSString%2BURLArguments.m

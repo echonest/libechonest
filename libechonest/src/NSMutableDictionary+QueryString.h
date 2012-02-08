@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
+NSString *ENEscapeStringForURL (NSString *str);
 
 @interface NSMutableDictionary (QueryString)
 
