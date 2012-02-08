@@ -86,9 +86,10 @@ Usage:
 
     // Note - you must agree to the sandbox terms of service to gain 
     //        access to the individual artist sandboxes 
-    [req setValue:assetId text forParameter:@"id"];
-    [req setValue:@"emi_evanescence" forParameter:@"sandbox"];
 
-    req.delegate = self;	     // our class implements ENAPIRequestDelegate
+    [req setValue:assetId text forParameter:@"id"];	    // id={desired-asset}
+    [req setValue:@"emi_gorillaz" forParameter:@"sandbox"]; // sandbox=emi_gorillaz
+
+    req.delegate = self;	     			    // our class implements ENAPIRequestDelegate
     
     [req startAsynchronous];
