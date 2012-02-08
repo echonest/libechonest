@@ -81,6 +81,7 @@
 @property (readonly) NSString *echonestStatusMessage;
 @property (readonly) NSString *endpoint;
 @property (readonly) NSURL *requestURL;
+@property (retain,readonly) NSMutableDictionary *params;
 /* set this property to store app-specific information (request type, etc.) with the request */
 @property (retain) NSDictionary *userInfo;
 

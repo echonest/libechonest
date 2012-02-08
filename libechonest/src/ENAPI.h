@@ -59,11 +59,20 @@ extern NSString * const ENSortWeight;
 extern NSString * const ENSortFrequency;
 
 @interface ENAPI : NSObject {
-    
+
 }
 
 + (void)initWithApiKey:(NSString *)apiKey;
+/**
+ * Consumer key and shared secret are required if calling OAuth secured endpoints.  Example: "sandbox/access"
+ */
++ (void)initWithApiKey:(NSString *)apiKey ConsumerKey:(NSString *)consumerKey AndSharedSecret:(NSString *)secret;
 + (NSString *)apiKey;
-
-
++ (NSString *)consumerKey;
++ (void)setConsumerKey:(NSString *)key;
++ (NSString *)sharedSecret;
++ (void)setSharedSecret:(NSString *)secret;
++ (NSArray *)securedEndpoints;
++ (void)addSecuredEndpoint:(NSString *)endpoint;
++ (BOOL)isSecuredEndpoint:(NSString *)endpoint;
 @end

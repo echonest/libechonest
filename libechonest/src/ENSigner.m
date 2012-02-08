@@ -1,5 +1,5 @@
 //
-//  NSMutableDictionary+QueryString.h
+//  ENSigner.m
 //  libechonest
 //
 //  Copyright (c) 2011, tapsquare, llc. (http://www.tapsquare.com, art@tapsquare.com)
@@ -28,15 +28,29 @@
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Foundation/Foundation.h>
+#import "ENSigner.h"
+#import "Base64Transcoder.h"
+#import <CommonCrypto/CommonHMAC.h>
+#import <CommonCrypto/CommonDigest.h>
 
-NSString *ENEscapeStringForURL (NSString *str);
+@implementation ENSigner
 
-@interface NSMutableDictionary (QueryString)
-
-/**
- * Returns the dictionary's key/value pairs as an escaped query string
- */
-- (NSString *)enapi_queryString;
++ (NSString *)signText:(NSString *)text WithKeyAndEncode:(NSString *)secret {
+    
+    const char *cKey  = [secret cStringUsingEncoding:NSUTF8StringEncoding];
+    const char *cText = [text cStringUsingEncoding:NSUTF8StringEncoding];
+    unsigned char cHmacResult[CC_SHA1_DIGEST_LENGTH];
+    
+    CCHmac(kCCHmacAlgSHA1, cKey, strlen(cKey), cText, strlen(cText), cHmacResult);
+    
+    char base64Result[32];
+    size_t base64ResultLen = 32;
+    Base64EncodeData(cHmacResult, CC_SHA1_DIGEST_LENGTH, base64Result, &base64ResultLen);
+    
+    NSData *encodedData = [NSData dataWithBytes:base64Result length:base64ResultLen];
+    
+    return [[[NSString alloc] initWithData:encodedData 
+                                  encoding:NSASCIIStringEncoding] autorelease];
+}
 
 @end
