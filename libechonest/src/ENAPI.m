@@ -53,7 +53,10 @@ static NSMutableArray *EN_SECURED_ENDPOINTS = nil;
 }
 
 + (void)setConsumerKey:(NSString *)key {
-    EN_CONSUMER_KEY = [key retain];
+    if (EN_CONSUMER_KEY != key) {
+        [EN_CONSUMER_KEY release];
+        EN_CONSUMER_KEY = [key retain];
+    }
 }
 
 + (NSString *)sharedSecret {
@@ -61,12 +64,15 @@ static NSMutableArray *EN_SECURED_ENDPOINTS = nil;
 }
 
 + (void)setSharedSecret:(NSString *)secret {
-    // API is not using OAuth tokens in the signing process,
-    // but the & suffix is still required for the secret.
-    if ([secret hasSuffix:@"&"]) {
-        EN_SHARED_SECRET = [secret retain];
-    } else {
-        EN_SHARED_SECRET = [[[NSString alloc] initWithFormat:@"%@&", secret] retain];
+    if (EN_SHARED_SECRET != secret) {
+        [EN_SHARED_SECRET release];
+        // API is not using OAuth tokens in the signing process,
+        // but the & suffix is still required for the secret.
+        if ([secret hasSuffix:@"&"]) {
+            EN_SHARED_SECRET = [secret retain];
+        } else {
+            EN_SHARED_SECRET = [[[NSString alloc] initWithFormat:@"%@&", secret] retain];
+        }
     }
 }
 
