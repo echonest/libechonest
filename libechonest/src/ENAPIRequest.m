@@ -15,6 +15,7 @@
 @interface ENAPIRequest()
 
 - (NSString *)_constructURL;
+- (NSInteger)_generateTimestamp;
 
 @property (retain) ASIHTTPRequest *request;
 @property (retain,readwrite) NSMutableDictionary *params;
@@ -169,6 +170,13 @@
 - (NSString *)_constructURL {
     NSString *ret = [NSString stringWithFormat:@"%@%@?%@", ECHONEST_API_URL, self.endpoint, [self.params enapi_queryString]];
     return ret;
+}
+
+- (NSInteger)_generateTimestamp {
+    NSDate *now = [[NSDate alloc] init];
+    NSTimeInterval timestamp = [now timeIntervalSince1970];
+    [now release];
+    return (NSInteger)timestamp;
 }
 
 @end
