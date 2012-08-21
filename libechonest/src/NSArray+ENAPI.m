@@ -29,7 +29,7 @@
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "NSArray+ENAPI.h"
-#import "NSObject+JSON.h"
+#import "NSObject+SBJSON.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 @implementation NSArray (NSArray_ENAPI)

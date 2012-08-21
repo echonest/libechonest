@@ -34,7 +34,7 @@
 #import "ENAPI.h"
 #import "ENAPI_utils.h"
 #import "ENAPIPostRequest.h"
-#import "NSObject+JSON.h"
+#import "NSObject+SBJSON.h"
 
 @interface ENAPIPostRequest() 
 @property (retain) ASIFormDataRequest *request;
