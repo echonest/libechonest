@@ -45,11 +45,11 @@
 - (NSString *)_constructBaseSignatureForOAuth;
 - (void)_includeOAuthParams;
 
-@property (retain) ASIHTTPRequest *request;
-@property (retain,readwrite) NSMutableDictionary *params;
-@property (retain) NSDictionary *_responseDict;
+@property (strong) ASIHTTPRequest *request;
+@property (strong,readwrite) NSMutableDictionary *params;
+@property (strong) NSDictionary *_responseDict;
 @property (assign) BOOL isAPIRequest;
-@property (retain) NSString *analysisURL;
+@property (strong) NSString *analysisURL;
 @end
 
 @implementation ENAPIRequest
@@ -60,11 +60,11 @@
 @synthesize analysisURL;
 
 + (ENAPIRequest *)requestWithEndpoint:(NSString *)endpoint_ {
-    return [[[ENAPIRequest alloc] initWithEndpoint:endpoint_] autorelease];
+    return [[ENAPIRequest alloc] initWithEndpoint:endpoint_];
 }
 
 + (ENAPIRequest *)requestWithAnalysisURL:(NSString *)url_ {
-    return [[[ENAPIRequest alloc] initWithAnalysisURL:url_] autorelease];
+    return [[ENAPIRequest alloc] initWithAnalysisURL:url_];
 }
 
 - (ENAPIRequest *)initWithEndpoint:(NSString *)endpoint_ {
@@ -72,7 +72,7 @@
     if (self) {
         CHECK_API_KEY
         self.isAPIRequest = YES;
-        endpoint = [endpoint_ retain];
+        endpoint = endpoint_;
         self.params = [NSMutableDictionary dictionaryWithCapacity:4];
         [self.params setValue:[ENAPI apiKey] forKey:@"api_key"];
         [self.params setValue:@"json" forKey:@"format"];
@@ -95,15 +95,6 @@
     return self;    
 }
 
-- (void)dealloc {
-    [params release];
-    [request release];
-    [_responseDict release];
-    [endpoint release];
-    [userInfo release];
-    [analysisURL release];
-    [super dealloc];
-}
 
 - (void)startSynchronous {
     [self _prepareToStart];
@@ -146,7 +137,7 @@
 - (NSDictionary *)response {
     if (nil == _responseDict) {
         NSDictionary *dict = [self.request.responseString JSONValue];
-        _responseDict = [dict retain];
+        _responseDict = dict;
     }
     return _responseDict;
 }
@@ -212,7 +203,6 @@
 - (NSInteger)_generateTimestamp {
     NSDate *now = [[NSDate alloc] init];
     NSTimeInterval timestamp = [now timeIntervalSince1970];
-    [now release];
     return (NSInteger)timestamp;
 }
 
@@ -220,7 +210,6 @@
     NSString *tmp = [[NSString alloc] initWithFormat:@"%d", timestamp];
     NSData *nonceData = [tmp dataUsingEncoding:NSUTF8StringEncoding];
     NSString *nonce = [nonceData enapi_MD5];
-    [tmp release];
     return nonce;
 }
 

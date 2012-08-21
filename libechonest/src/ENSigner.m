@@ -49,8 +49,8 @@
     
     NSData *encodedData = [NSData dataWithBytes:base64Result length:base64ResultLen];
     
-    return [[[NSString alloc] initWithData:encodedData 
-                                  encoding:NSASCIIStringEncoding] autorelease];
+    return [[NSString alloc] initWithData:encodedData 
+                                  encoding:NSASCIIStringEncoding];
 }
 
 @end

@@ -37,8 +37,8 @@
 #import "NSObject+SBJSON.h"
 
 @interface ENAPIPostRequest() 
-@property (retain) ASIFormDataRequest *request;
-@property (retain) NSDictionary *_responseDict;
+@property (strong) ASIFormDataRequest *request;
+@property (strong) NSDictionary *_responseDict;
 @property (nonatomic, assign) unsigned long long uploadFileSize;
 @property (nonatomic, assign) unsigned long long uploadBytesSent;
 @end
@@ -69,17 +69,17 @@
 }
 
 - (void)startSynchronous {
-    [self retain]; // let's make sure we're still around when the network call returns
+     // let's make sure we're still around when the network call returns
     [self.request startSynchronous];
 }
 
 - (void)startAsynchronous {
-    [self retain]; // let's make sure we're still around when the network call returns
+     // let's make sure we're still around when the network call returns
     [self.request startAsynchronous];
 }
 
 + (ENAPIPostRequest *)requestWithURL:(NSURL *)url {
-    return [[[ENAPIPostRequest alloc] initWithURL:url] autorelease];
+    return [[ENAPIPostRequest alloc] initWithURL:url];
     
 }
 
@@ -173,14 +173,12 @@
     if ([self.delegate respondsToSelector:@selector(postRequestFinished:)]) {
         [(id<ENAPIPostRequestDelegate>)self.delegate postRequestFinished:self];
     }
-    [self release];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request {
     if ([self.delegate respondsToSelector:@selector(postRequestFailed:)]) {
         [(id<ENAPIPostRequestDelegate>)self.delegate postRequestFailed:self];
     }
-    [self release];
 }
 
 
@@ -189,7 +187,7 @@
 - (NSDictionary *)response {
     if (nil == _responseDict) {
         NSDictionary *dict = [self.request.responseString JSONValue];
-        _responseDict = [dict retain];
+        _responseDict = dict;
     }
     return _responseDict;
 }
@@ -212,9 +210,5 @@
 
 - (void) dealloc {
     delegate = nil;
-    [request release];
-    [_responseDict release];
-    [userInfo release];
-    [super dealloc];
 }
 @end

@@ -33,31 +33,31 @@
 		27A0096F15E43C5D002F0586 /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 27A0095615E43C5D002F0586 /* SBJsonWriter.h */; };
 		27A0097015E43C5D002F0586 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0095715E43C5D002F0586 /* SBJsonWriter.m */; };
 		27A0099715E44224002F0586 /* ASIAuthenticationDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 27A0098315E44224002F0586 /* ASIAuthenticationDialog.h */; };
-		27A0099815E44224002F0586 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0098415E44224002F0586 /* ASIAuthenticationDialog.m */; };
+		27A0099815E44224002F0586 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0098415E44224002F0586 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		27A0099915E44224002F0586 /* ASICacheDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 27A0098515E44224002F0586 /* ASICacheDelegate.h */; };
 		27A0099A15E44224002F0586 /* ASIDataCompressor.h in Headers */ = {isa = PBXBuildFile; fileRef = 27A0098615E44224002F0586 /* ASIDataCompressor.h */; };
-		27A0099B15E44224002F0586 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0098715E44224002F0586 /* ASIDataCompressor.m */; };
+		27A0099B15E44224002F0586 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0098715E44224002F0586 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		27A0099C15E44224002F0586 /* ASIDataDecompressor.h in Headers */ = {isa = PBXBuildFile; fileRef = 27A0098815E44224002F0586 /* ASIDataDecompressor.h */; };
-		27A0099D15E44224002F0586 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0098915E44224002F0586 /* ASIDataDecompressor.m */; };
+		27A0099D15E44224002F0586 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0098915E44224002F0586 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		27A0099E15E44224002F0586 /* ASIDownloadCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 27A0098A15E44224002F0586 /* ASIDownloadCache.h */; };
-		27A0099F15E44224002F0586 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0098B15E44224002F0586 /* ASIDownloadCache.m */; };
+		27A0099F15E44224002F0586 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0098B15E44224002F0586 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		27A009A015E44224002F0586 /* ASIFormDataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 27A0098C15E44224002F0586 /* ASIFormDataRequest.h */; };
-		27A009A115E44224002F0586 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0098D15E44224002F0586 /* ASIFormDataRequest.m */; };
+		27A009A115E44224002F0586 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0098D15E44224002F0586 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		27A009A215E44224002F0586 /* ASIHTTPRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 27A0098E15E44224002F0586 /* ASIHTTPRequest.h */; };
-		27A009A315E44224002F0586 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0098F15E44224002F0586 /* ASIHTTPRequest.m */; };
+		27A009A315E44224002F0586 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0098F15E44224002F0586 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		27A009A415E44224002F0586 /* ASIHTTPRequestConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 27A0099015E44224002F0586 /* ASIHTTPRequestConfig.h */; };
 		27A009A515E44224002F0586 /* ASIHTTPRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 27A0099115E44224002F0586 /* ASIHTTPRequestDelegate.h */; };
 		27A009A615E44224002F0586 /* ASIInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 27A0099215E44224002F0586 /* ASIInputStream.h */; };
-		27A009A715E44224002F0586 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0099315E44224002F0586 /* ASIInputStream.m */; };
+		27A009A715E44224002F0586 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0099315E44224002F0586 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		27A009A815E44224002F0586 /* ASINetworkQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 27A0099415E44224002F0586 /* ASINetworkQueue.h */; };
-		27A009A915E44224002F0586 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0099515E44224002F0586 /* ASINetworkQueue.m */; };
+		27A009A915E44224002F0586 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A0099515E44224002F0586 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		27A009AA15E44224002F0586 /* ASIProgressDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 27A0099615E44224002F0586 /* ASIProgressDelegate.h */; };
 		2C0ED9E014E2EADB00A3945A /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C0ED9DE14E2EADB00A3945A /* Base64Transcoder.c */; };
 		2C0ED9E114E2EADB00A3945A /* Base64Transcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0ED9DF14E2EADB00A3945A /* Base64Transcoder.h */; };
 		2CC249C814E2EE1300871AA4 /* ENSigner.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CC249C614E2EE1300871AA4 /* ENSigner.h */; };
 		2CC249C914E2EE1300871AA4 /* ENSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC249C714E2EE1300871AA4 /* ENSigner.m */; };
 		C80B2CEB13563382009DD654 /* TSLibraryImport.h in Headers */ = {isa = PBXBuildFile; fileRef = C80B2CE913563382009DD654 /* TSLibraryImport.h */; };
-		C80B2CEC13563382009DD654 /* TSLibraryImport.m in Sources */ = {isa = PBXBuildFile; fileRef = C80B2CEA13563382009DD654 /* TSLibraryImport.m */; };
+		C80B2CEC13563382009DD654 /* TSLibraryImport.m in Sources */ = {isa = PBXBuildFile; fileRef = C80B2CEA13563382009DD654 /* TSLibraryImport.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C80D6B9413428B3000C869D5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D6B9313428B3000C869D5 /* MediaPlayer.framework */; };
 		C80FE07A1326E5C800A5D803 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = C80FE0781326E5C800A5D803 /* Reachability.h */; };
 		C80FE07B1326E5C800A5D803 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C80FE0791326E5C800A5D803 /* Reachability.m */; };
@@ -629,6 +629,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/libechonest.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libechonest/libechonest-Prefix.pch";
@@ -642,6 +643,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/libechonest.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libechonest/libechonest-Prefix.pch";
@@ -715,6 +717,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/libechonest.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libechonest/libechonest-Prefix.pch";

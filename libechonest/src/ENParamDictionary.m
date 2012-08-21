@@ -47,14 +47,13 @@
 @synthesize dict;
 
 + (ENParamDictionary *)paramDictionary {
-    return [[[ENParamDictionary alloc] init] autorelease];
+    return [[ENParamDictionary alloc] init];
 }
 
 - (id)init {
     self = [super init];
     if (self) {
         dict = [NSMutableDictionary dictionaryWithCapacity:5];
-        [dict retain];
         CHECK_API_KEY
         [self.dict setValue:[ENAPI apiKey] forKey:@"api_key"];
         [self.dict setValue:@"json" forKey:@"format"];
@@ -62,10 +61,6 @@
     return self;
 }
 
-- (void)dealloc {
-    [dict release];
-    [super dealloc];
-}
 
 - (void)setValue:(id)value forKey:(NSString *)key {
     [self.dict setValue:value forKey:key];
