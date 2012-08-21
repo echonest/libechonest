@@ -491,6 +491,9 @@
 /* Begin PBXProject section */
 		C8E5C1A21315C44A005CED21 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+			};
 			buildConfigurationList = C8E5C1A51315C44A005CED21 /* Build configuration list for PBXProject "libechonest" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -605,6 +608,7 @@
 				DSTROOT = /tmp/libechonest.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libechonest/libechonest-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -617,6 +621,7 @@
 				DSTROOT = /tmp/libechonest.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libechonest/libechonest-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -632,6 +637,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios-tests/ios_tests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "ios-tests/ios_tests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -654,6 +660,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios-tests/ios_tests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "ios-tests/ios_tests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -687,6 +694,7 @@
 				DSTROOT = /tmp/libechonest.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libechonest/libechonest-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -702,6 +710,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios-tests/ios_tests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "ios-tests/ios_tests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
