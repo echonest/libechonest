@@ -34,7 +34,7 @@
 #import "ENAPI.h"
 #import "ENSigner.h"
 #import "NSObject+SBJSON.h"
-#import "asi-http-request/ASIHTTPRequest.h"
+#import "ASIHTTPRequest.h"
 
 @interface ENAPIRequest()
 

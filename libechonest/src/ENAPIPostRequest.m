@@ -29,8 +29,8 @@
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "ENAPIPostRequest.h"
-#import "asi-http-request/ASIFormDataRequest.h"
-#import "asi-http-request/ASIProgressDelegate.h"
+#import "ASIFormDataRequest.h"
+#import "ASIProgressDelegate.h"
 #import "ENAPI.h"
 #import "ENAPI_utils.h"
 #import "ENAPIPostRequest.h"
