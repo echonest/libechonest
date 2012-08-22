@@ -82,13 +82,13 @@
 - (void)startSynchronous;
 - (void)startAsynchronous;
 
-@property (assign) NSObject *delegate;
-@property (readonly) NSDictionary *response;
+@property (unsafe_unretained) NSObject *delegate;
+@property (unsafe_unretained, readonly) NSDictionary *response;
 @property (readonly) NSUInteger responseStatusCode;
 @property (readonly) NSUInteger echonestStatusCode;
-@property (readonly) NSString *echonestStatusMessage;
-@property (readonly) NSError *error;
+@property (unsafe_unretained, readonly) NSString *echonestStatusMessage;
+@property (unsafe_unretained, readonly) NSError *error;
 /* set this property to store app-specific information (request type, etc.) with the request */
-@property (retain) NSDictionary *userInfo;
+@property (strong) NSDictionary *userInfo;
 
 @end

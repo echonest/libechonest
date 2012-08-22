@@ -40,19 +40,19 @@
 - (void)setValue:(id)value forKey:(NSString *)key;
 - (id)valueForKey:(NSString *)key;
 
-@property (readonly) NSMutableDictionary *dict;
+@property (unsafe_unretained, readonly) NSMutableDictionary *dict;
 @property (readonly) NSInteger count;
 
 /* parameter properties */
 
 
 // string parameters
-@property (retain) NSString *name;
-@property (retain) NSString *sort;
-@property (retain) NSString *title;
-@property (retain) NSString *artist;
-@property (retain) NSString *combined;
-@property (retain) NSString *artist_id;
+@property (strong) NSString *name;
+@property (strong) NSString *sort;
+@property (strong) NSString *title;
+@property (strong) NSString *artist;
+@property (strong) NSString *combined;
+@property (strong) NSString *artist_id;
 
 // int parameters
 @property (assign) NSInteger results;
@@ -72,12 +72,12 @@
 @property (assign) float maxLoudness;
 
 // multiple parameters
-@property (retain) NSArray *licenses;
-@property (retain) NSArray *buckets;
-@property (retain) NSArray *descriptions;
-@property (retain) NSArray *seedCatalogs;
-@property (retain) NSArray *names; // for some requests (e.g. artist/similar) we support multiple names
-@property (retain) NSArray *IDs;   // for same requests (e.g. artist/similar) we support multiple ids
+@property (strong) NSArray *licenses;
+@property (strong) NSArray *buckets;
+@property (strong) NSArray *descriptions;
+@property (strong) NSArray *seedCatalogs;
+@property (strong) NSArray *names; // for some requests (e.g. artist/similar) we support multiple names
+@property (strong) NSArray *IDs;   // for same requests (e.g. artist/similar) we support multiple ids
 
 // BOOL parameters
 @property (assign) BOOL highRelevance;
