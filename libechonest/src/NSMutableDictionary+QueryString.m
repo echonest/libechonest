@@ -47,12 +47,12 @@ NSString *ENEscapeStringForURL (NSString *str) {
     // rfc 3986
     // @see http://code.google.com/p/google-toolbox-for-mac/source/browse/trunk/Foundation/GTMNSString%2BURLArguments.m
     //
-    NSString *returnString = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, 
-                                                                                 (CFStringRef)str, 
+    NSString *returnString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, 
+                                                                                 (__bridge CFStringRef)str, 
                                                                                  NULL, 
                                                                                  (CFStringRef)@"!*'();:@&=+$,/?%#[]", 
-                                                                                 kCFStringEncodingUTF8);
-    return [returnString autorelease];
+                                                                                 kCFStringEncodingUTF8));
+    return returnString;
 }
 
 @implementation NSMutableDictionary (QueryString)

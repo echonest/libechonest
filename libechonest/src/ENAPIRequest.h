@@ -71,18 +71,18 @@
  */
 - (void)cancel;
 
-@property (assign) id delegate;
-@property (readonly) NSDictionary *response;
-@property (readonly) NSString *responseString;
+@property (unsafe_unretained) id delegate;
+@property (unsafe_unretained, readonly) NSDictionary *response;
+@property (unsafe_unretained, readonly) NSString *responseString;
 @property (readonly) NSInteger responseStatusCode;
-@property (readonly) NSError *error;
+@property (unsafe_unretained, readonly) NSError *error;
 @property (readonly) BOOL complete;
 @property (readonly) NSUInteger echonestStatusCode;
-@property (readonly) NSString *echonestStatusMessage;
+@property (unsafe_unretained, readonly) NSString *echonestStatusMessage;
 @property (readonly) NSString *endpoint;
-@property (readonly) NSURL *requestURL;
-@property (retain,readonly) NSMutableDictionary *params;
+@property (unsafe_unretained, readonly) NSURL *requestURL;
+@property (strong,readonly) NSMutableDictionary *params;
 /* set this property to store app-specific information (request type, etc.) with the request */
-@property (retain) NSDictionary *userInfo;
+@property (strong) NSDictionary *userInfo;
 
 @end

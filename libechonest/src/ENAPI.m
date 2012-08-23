@@ -56,7 +56,7 @@ static NSMutableArray *EN_SECURED_ENDPOINTS = nil;
 @implementation ENAPI
 
 + (void)initWithApiKey:(NSString *)apiKey {
-    EN_API_KEY = [apiKey retain];
+    EN_API_KEY = apiKey;
 }
 
 + (void)initWithApiKey:(NSString *)apiKey ConsumerKey:(NSString *)consumerKey
@@ -77,8 +77,7 @@ static NSMutableArray *EN_SECURED_ENDPOINTS = nil;
 
 + (void)setConsumerKey:(NSString *)key {
     if (EN_CONSUMER_KEY != key) {
-        [EN_CONSUMER_KEY release];
-        EN_CONSUMER_KEY = [key retain];
+        EN_CONSUMER_KEY = key;
     }
 }
 
@@ -88,13 +87,12 @@ static NSMutableArray *EN_SECURED_ENDPOINTS = nil;
 
 + (void)setSharedSecret:(NSString *)secret {
     if (EN_SHARED_SECRET != secret) {
-        [EN_SHARED_SECRET release];
         // API is not using OAuth tokens in the signing process,
         // but the & suffix is still required for the secret.
         if ([secret hasSuffix:@"&"]) {
-            EN_SHARED_SECRET = [secret retain];
+            EN_SHARED_SECRET = secret;
         } else {
-            EN_SHARED_SECRET = [[[NSString alloc] initWithFormat:@"%@&", secret] retain];
+            EN_SHARED_SECRET = [[NSString alloc] initWithFormat:@"%@&", secret];
         }
     }
 }
@@ -111,7 +109,7 @@ static NSMutableArray *EN_SECURED_ENDPOINTS = nil;
 }
 
 + (NSArray *)securedEndpoints {
-    return [[EN_SECURED_ENDPOINTS copy] autorelease];
+    return [EN_SECURED_ENDPOINTS copy];
 }
 
 @end
