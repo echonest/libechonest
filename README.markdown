@@ -24,7 +24,7 @@ __NOTE__: You *must* add `-Objc` and `-all_load` to your project's "Additional L
 
     ...
     [ENAPI initWithApiKey:@"YOUR_API_KEY"];
-    ENAPIRequest *request = [ENAPIRequest requestForEndpoint:@"artist/audio"];
+    ENAPIRequest *request = [ENAPIRequest requestForEndpoint:@"artist/blogs"];
     request.delegate = self;                              // our class implements ENAPIRequestDelegate
     [request setValue:@"Radiohead" forParameter:@"name"]; // name=Radiohead
     [request setIntegerValue:15 forParameter:@"results"]; // results=15
@@ -34,7 +34,7 @@ __NOTE__: You *must* add `-Objc` and `-all_load` to your project's "Additional L
 
     - (void)requestFinished:(ENAPIRequest *)request {
         NSAssert1(200 == request.responseStatusCode, @"Expected 200 OK, Got: %d", request.responseStatusCode);
-        NSArray *audio = [request.response valueForKeyPath:@"response.audio"];
+        NSArray *blogs = [request.response valueForKeyPath:@"response.blogs"];
     }
 
     ...
