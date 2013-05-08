@@ -43,7 +43,7 @@ __NOTE__: You *must* add `-Objc` and `-all_load` to your project's "Additional L
 
 Note there are typed `setValue:forParameter:` methods on `ENAPIRequest` for integers, floats, and `BOOL`s. Parameters that support multiple values are set using an `NSArray` of the values.
 
-    ENAPIRequest *request = [ENAPIRequest requestForEndpoint:@"artist/search"];
+    ENAPIRequest *request = [ENAPIRequest requestWithEndpoint:@"artist/search"];
     [request setBoolValue:YES forParameter:@"fuzzy_match"];
     [request setFloatValue:0.5f forParameter:@"min_hotttnesss"];
     [request setValue:@"radiohead" forParameter:@"name"];
