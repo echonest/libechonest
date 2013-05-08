@@ -16,7 +16,7 @@ In addition to linking to libechonest.a, your app will need to link to the follo
 * SystemConfiguration.framework
 * libz.dylib
 
-__NOTE__: You *must* add `-Objc` and `-all_load` to your project's "Additional Linker Flags" settings. (See [Building Objective-C static libraries with categories](http://developer.apple.com/library/mac/#qa/qa1490/_index.html) for why.)
+__NOTE__: You *must* add `-Objc` and `-all_load` to your project's "Other Linker Flags" settings. (See [Building Objective-C static libraries with categories](http://developer.apple.com/library/mac/#qa/qa1490/_index.html) for why.)
 
 ## Usage
 
